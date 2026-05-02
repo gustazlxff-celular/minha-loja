@@ -3,343 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gust4 Cheats | Premium Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Gust4 Cheats | Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-pure: #000000;
-            --bg-surface: #0a0a0a;
+            --bg-deep: #050505;
+            --bg-card: #0c0d11;
             --accent-green: #00ff73;
-            --accent-glow: rgba(0, 255, 115, 0.25);
             --text-main: #ffffff;
-            --text-dim: #888888;
-            --border-glass: rgba(255, 255, 255, 0.05);
+            --text-dim: #92929b;
+            --border: #1d1d25;
         }
 
         body {
-            background-color: var(--bg-pure);
+            background-color: var(--bg-deep);
             color: var(--text-main);
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
-            overflow-x: hidden;
-            -webkit-tap-highlight-color: transparent;
+            padding: 15px;
+            display: flex;
+            justify-content: center;
         }
 
         .container {
-            max-width: 430px;
-            margin: 0 auto;
-            min-height: 100vh;
-            padding-bottom: 120px;
+            max-width: 400px;
+            width: 100%;
         }
 
-        /* --- HEADER ATUALIZADO --- */
+        /* HEADER */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 20px;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(15px);
-            position: sticky;
-            top: 0;
-            z-index: 100;
+            padding: 10px 5px 25px 5px;
         }
 
-        .logo-box {
+        .logo-area {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
         .logo-img {
-            width: 42px;
-            height: 42px;
+            width: 35px;
+            height: 35px;
             object-fit: contain;
-            border-radius: 10px;
         }
 
         .brand-name {
             font-weight: 800;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             letter-spacing: -0.5px;
         }
 
-        /* --- PRODUTO & DEMONSTRAÇÃO --- */
-        .product-hero {
-            padding: 20px;
+        /* GRID ESTILO LUX CHEATS */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
         }
 
-        .demo-box {
-            width: 100%;
-            aspect-ratio: 16/11;
-            background: linear-gradient(180deg, #0f0f0f 0%, #050505 100%);
-            border: 1px solid var(--border-glass);
-            border-radius: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            cursor: pointer;
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            overflow: hidden;
-        }
-
-        .demo-box:active {
-            transform: scale(0.96);
-        }
-
-        .demo-box::before {
-            content: '';
-            position: absolute;
-            width: 140px;
-            height: 140px;
-            background: var(--accent-green);
-            filter: blur(80px);
-            opacity: 0.2;
-        }
-
-        .hologram-main {
-            max-width: 85%;
-            z-index: 2;
-            filter: drop-shadow(0 0 20px rgba(0, 255, 115, 0.3));
-        }
-
-        .click-hint {
-            position: absolute;
-            bottom: 15px;
-            font-size: 10px;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 800;
-            animation: pulse 2s infinite;
-        }
-
-        /* --- PLANOS (ESCONDIDOS INICIALMENTE) --- */
-        #plans-container {
-            display: none; /* Escondido */
-            padding: 0 20px;
-            animation: slideUp 0.5s ease forwards;
-        }
-
-        .product-info {
-            margin-bottom: 25px;
-        }
-
-        .product-title {
-            font-size: 1.8rem;
-            font-weight: 800;
-            margin: 15px 0 10px 0;
-            letter-spacing: -1px;
-        }
-
-        .tag-row {
-            display: flex;
-            gap: 8px;
-        }
-
-        .tag {
-            background: rgba(0, 255, 115, 0.1);
-            color: var(--accent-green);
-            padding: 6px 12px;
-            border-radius: 8px;
-            font-size: 11px;
-            font-weight: 700;
-            text-transform: uppercase;
-        }
-
-        /* --- CARDS DE PLANO --- */
-        .plan-card {
-            background: var(--bg-surface);
-            border: 1px solid var(--border-glass);
-            border-radius: 18px;
-            padding: 20px;
-            margin-bottom: 12px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .plan-card.active {
-            border-color: var(--accent-green);
-            background: rgba(0, 255, 115, 0.03);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .plan-main {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .check-circle {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #333;
-            border-radius: 50%;
-            position: relative;
-        }
-
-        .plan-card.active .check-circle {
-            border-color: var(--accent-green);
-        }
-
-        .plan-card.active .check-circle::after {
-            content: '';
-            position: absolute;
-            width: 12px;
-            height: 12px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-
-        .plan-name { font-weight: 600; font-size: 1rem; display: block; }
-        .plan-delivery { font-size: 11px; color: var(--accent-green); }
-
-        .plan-price { text-align: right; }
-        .old-p { text-decoration: line-through; color: #555; font-size: 11px; display: block; }
-        .new-p { color: var(--accent-green); font-weight: 800; font-size: 1.3rem; }
-
-        /* --- FOOTER ACTIONS --- */
-        .actions-fixed {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(20px);
-            padding: 20px;
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 10px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
-            border-top: 1px solid var(--border-glass);
-            z-index: 200;
+            transition: transform 0.2s;
         }
 
-        .btn {
+        .product-card:active {
+            transform: scale(0.98);
+        }
+
+        /* IMAGEM COM EXTENSÃO .PNG CORRIGIDA */
+        .product-image {
             width: 100%;
-            padding: 18px;
-            border-radius: 16px;
-            border: none;
-            font-family: inherit;
-            font-weight: 800;
-            font-size: 0.9rem;
-            cursor: pointer;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            aspect-ratio: 1/1;
+            object-fit: cover;
+            background: #14151a;
+        }
+
+        .product-name {
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            height: 34px;
+            overflow: hidden;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: 0.2s;
         }
 
-        .btn-main { background: #fff; color: #000; }
-        .btn-side { background: #1a1a1a; color: #fff; border: 1px solid var(--border-glass); }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+        /* SELEÇÃO DE PREÇOS */
+        .plan-select {
+            background: #16171d;
+            border: 1px solid var(--border);
+            color: #fff;
+            font-size: 0.7rem;
+            padding: 6px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            cursor: pointer;
         }
 
-        @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
+        .price-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 4px;
+        }
+
+        .price-val {
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text-main);
+        }
+
+        .pix-badge {
+            width: 18px;
+            height: 18px;
+            background-color: var(--accent-green);
+            /* Ícone do Pix */
+            mask: url('https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.svg') no-repeat center;
+            -webkit-mask: url('https://upload.wikimedia.org/wikipedia/commons/a/a2/Logo_Pix.svg') no-repeat center;
+            mask-size: contain;
+        }
+
+        .pix-label {
+            font-size: 0.65rem;
+            color: var(--text-dim);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        /* BOTÃO BRANCO IGUAL AO PRINT */
+        .btn-buy {
+            background: #ffffff;
+            color: #000000;
+            border: none;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: 800;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            margin-top: auto;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: var(--accent-green);
+            color: #000;
+            font-size: 10px;
+            font-weight: 900;
+            padding: 2px 6px;
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <!-- HEADER -->
         <header class="header">
-            <div class="logo-box">
-                <img src="logo_gust4_cheats.png" alt="Logo" class="logo-img">
+            <div class="logo-area">
+                <img src="logo_gust4_cheats.png" class="logo-img" alt="Logo">
                 <span class="brand-name">Gust4 Cheats</span>
             </div>
-            <div style="font-size: 20px;">🛒</div>
+            <div class="cart-icon">
+                🛒 <span id="cart-count">0</span>
+            </div>
         </header>
 
-        <!-- AREA DE PRODUTO -->
-        <section class="product-hero">
-            <div class="demo-box" id="product-demo">
-                <img src="holograma_ios.png" alt="Produto" class="hologram-main">
-                <div class="click-hint" id="hint-text">Toque para ver planos</div>
-            </div>
-        </section>
+        <div class="products-grid">
+            <!-- CARD HOLOGRAMA IOS -->
+            <div class="product-card">
+                <img src="holograma_ios.PNG" class="product-image" alt="Holograma iOS">
+                <div class="product-name">Holograma iOS</div>
+                
+                <select class="plan-select" id="plan-selector" onchange="changePrice()">
+                    <option value="15">1 Dia - R$ 15</option>
+                    <option value="25">7 Dias - R$ 25</option>
+                    <option value="50">30 Dias - R$ 50</option>
+                </select>
 
-        <!-- CONTAINER DE PLANOS (HIDDEN) -->
-        <section id="plans-container">
-            <div class="product-info">
-                <div class="tag-row">
-                    <span class="tag">Ativo</span>
-                    <span class="tag">iOS 17.5+</span>
+                <div class="price-container">
+                    <span class="price-val" id="price-display">R$ 15,00+</span>
+                    <div class="pix-badge"></div>
                 </div>
-                <h1 class="product-title">HS PARA IOS VIA WIFI</h1>
-                <p style="color: var(--text-dim); font-size: 13px; margin-top: -5px;">Selecione uma das opções abaixo para continuar.</p>
-            </div>
+                <span class="pix-label">À vista no Pix</span>
 
-            <div class="plan-card active" onclick="select(this, '1 Dia', 19.90)">
-                <div class="plan-main">
-                    <div class="check-circle"></div>
-                    <div>
-                        <span class="plan-name">Acesso por 1 Dia</span>
-                        <span class="plan-delivery">✓ Entrega Automática</span>
-                    </div>
-                </div>
-                <div class="plan-price">
-                    <span class="old-p">R$ 25,00</span>
-                    <span class="new-p">R$ 19,90</span>
-                </div>
+                <button class="btn-buy" onclick="addToCart()">Comprar agora</button>
             </div>
-
-            <div class="plan-card" onclick="select(this, '7 Dias', 49.90)">
-                <div class="plan-main">
-                    <div class="check-circle"></div>
-                    <div>
-                        <span class="plan-name">Acesso por 7 Dias</span>
-                        <span class="plan-delivery">✓ Entrega Automática</span>
-                    </div>
-                </div>
-                <div class="plan-price">
-                    <span class="old-p">R$ 60,00</span>
-                    <span class="new-p">R$ 49,90</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- AÇÕES FIXAS -->
-        <div class="actions-fixed">
-            <button class="btn btn-main" onclick="checkout()">Comprar Agora</button>
-            <button class="btn btn-side" onclick="addCart()">+ Adicionar ao Carrinho</button>
+            
+            <!-- Espaço para futuros produtos -->
         </div>
     </div>
 
     <script>
-        const demoBox = document.getElementById('product-demo');
-        const plansContainer = document.getElementById('plans-container');
-        const hintText = document.getElementById('hint-text');
-
-        // Revelar planos ao clicar na demonstração
-        demoBox.addEventListener('click', () => {
-            plansContainer.style.display = 'block';
-            hintText.style.display = 'none';
-            // Scroll suave para os planos
-            plansContainer.scrollIntoView({ behavior: 'smooth' });
-        });
-
-        function select(el, name, price) {
-            document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
+        function changePrice() {
+            const val = document.getElementById('plan-selector').value;
+            document.getElementById('price-display').innerText = `R$ ${val},00+`;
         }
 
-        function checkout() {
-            alert("Redirecionando para o pagamento seguro...");
-        }
-
-        function addCart() {
-            alert("Produto adicionado ao seu carrinho!");
+        let items = 0;
+        function addToCart() {
+            items++;
+            document.getElementById('cart-count').innerText = items;
+            const selectedPlan = document.getElementById('plan-selector').options[document.getElementById('plan-selector').selectedIndex].text;
+            console.log("Adicionado: " + selectedPlan);
         }
     </script>
 </body>
