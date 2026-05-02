@@ -3,479 +3,344 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gust4 Cheats | Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <title>Gust4 Cheats | Premium Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            /* Nova Paleta Verde Premium */
-            --bg-deep: #050505; /* Fundo mais escuro */
-            --bg-card: #0c0d11; /* Cor de card do print */
-            --accent-green: #00ff73; /* Verde vibrante mas controlado */
-            --accent-glow: rgba(0, 255, 115, 0.4); /* Brilho verde */
-            --text-main: #f5f5f7;
-            --text-dim: #92929b;
-            --border-dim: #1d1d25;
-            --verified-blue: #2d60ff; /* Cor do verificado */
+            --bg-pure: #000000;
+            --bg-surface: #0a0a0a;
+            --accent-green: #00ff73;
+            --accent-glow: rgba(0, 255, 115, 0.25);
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --border-glass: rgba(255, 255, 255, 0.05);
         }
 
         body {
-            background-color: var(--bg-deep);
+            background-color: var(--bg-pure);
             color: var(--text-main);
-            font-family: 'Inter', sans-serif;
+            font-family: 'Plus Jakarta Sans', sans-serif;
             margin: 0;
-            padding: 0;
-            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* Container Principal */
-        .page-wrapper {
-            max-width: 480px; /* Largura mobile-first */
+        .container {
+            max-width: 430px;
             margin: 0 auto;
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            padding-bottom: 120px;
         }
 
-        /* --- Header Premium --- */
+        /* --- HEADER ATUALIZADO --- */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 24px;
-            background: rgba(5, 5, 5, 0.95);
-            backdrop-filter: blur(10px);
+            padding: 25px 20px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(15px);
             position: sticky;
             top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid var(--border-dim);
+            z-index: 100;
         }
 
-        .logo-area {
+        .logo-box {
             display: flex;
             align-items: center;
             gap: 12px;
         }
 
-        /* Adicionando a sua Logo real */
         .logo-img {
-            width: 38px;
-            height: 38px;
-            border-radius: 8px;
-            background: #1e1e1e; /* Placeholder, adicione sua logo real aqui */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-green);
-            font-weight: bold;
-            font-size: 18px;
-            border: 1px solid var(--border-dim);
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            border-radius: 10px;
         }
 
-        .store-name {
-            font-weight: 700;
-            font-size: 1.15rem;
+        .brand-name {
+            font-weight: 800;
+            font-size: 1.2rem;
             letter-spacing: -0.5px;
         }
 
-        .verified-badge {
-            color: var(--verified-blue);
-            font-size: 14px;
-            margin-left: -6px;
+        /* --- PRODUTO & DEMONSTRAÇÃO --- */
+        .product-hero {
+            padding: 20px;
         }
 
-        .header-actions {
-            display: flex;
-            gap: 14px;
-            align-items: center;
-        }
-
-        .icon-btn {
-            background: none;
-            border: none;
-            color: var(--text-dim);
-            font-size: 20px;
-            cursor: pointer;
-            padding: 0;
-        }
-
-        .cart-wrapper {
-            position: relative;
-        }
-
-        #cart-count {
-            position: absolute;
-            top: -6px;
-            right: -8px;
-            background: var(--accent-green);
-            color: #000;
-            font-weight: 800;
-            font-size: 10px;
-            width: 16px;
-            height: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-        }
-
-        /* --- Showcase Area (Destaque do Produto) --- */
-        .showcase-area {
-            padding: 30px 24px 20px 24px;
-        }
-
-        .product-display {
+        .demo-box {
             width: 100%;
-            height: 280px; /* Maior e mais imponente */
-            border-radius: 20px;
-            background: linear-gradient(135deg, #0c0d11 0%, #16181f 100%);
-            border: 1px solid var(--border-dim);
-            overflow: hidden;
+            aspect-ratio: 16/11;
+            background: linear-gradient(180deg, #0f0f0f 0%, #050505 100%);
+            border: 1px solid var(--border-glass);
+            border-radius: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            cursor: pointer;
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
         }
 
-        /* Efeito de Destaque */
-        .product-display::after {
+        .demo-box:active {
+            transform: scale(0.96);
+        }
+
+        .demo-box::before {
             content: '';
             position: absolute;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, var(--accent-glow) 0%, rgba(5,5,5,0) 70%);
-            opacity: 0.8;
-            pointer-events: none;
+            width: 140px;
+            height: 140px;
+            background: var(--accent-green);
+            filter: blur(80px);
+            opacity: 0.2;
         }
 
-        /* A Imagem "Holograma.PNG" - Maiúscula */
-        .hologram-img {
-            max-width: 90%;
-            max-height: 90%;
-            object-fit: contain;
-            filter: drop-shadow(0 0 15px var(--accent-green)); /* Efeito holográfico */
-            z-index: 10;
+        .hologram-main {
+            max-width: 85%;
+            z-index: 2;
+            filter: drop-shadow(0 0 20px rgba(0, 255, 115, 0.3));
         }
 
-        /* --- Título e Informações Detalhadas --- */
-        .product-details {
-            padding: 0 24px;
+        .click-hint {
+            position: absolute;
+            bottom: 15px;
+            font-size: 10px;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 800;
+            animation: pulse 2s infinite;
+        }
+
+        /* --- PLANOS (ESCONDIDOS INICIALMENTE) --- */
+        #plans-container {
+            display: none; /* Escondido */
+            padding: 0 20px;
+            animation: slideUp 0.5s ease forwards;
+        }
+
+        .product-info {
             margin-bottom: 25px;
         }
 
-        .product-main-title {
-            font-size: 1.6rem;
+        .product-title {
+            font-size: 1.8rem;
             font-weight: 800;
+            margin: 15px 0 10px 0;
             letter-spacing: -1px;
-            margin: 10px 0 15px 0;
-            line-height: 1.2;
         }
 
-        .badges-area {
+        .tag-row {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
+            gap: 8px;
         }
 
-        .badge {
-            background: #14161a;
+        .tag {
+            background: rgba(0, 255, 115, 0.1);
             color: var(--accent-green);
+            padding: 6px 12px;
+            border-radius: 8px;
             font-size: 11px;
             font-weight: 700;
-            padding: 6px 12px;
-            border-radius: 20px;
-            border: 1px solid var(--accent-dim);
             text-transform: uppercase;
         }
 
-        /* --- Seleção de Variantes (Inspirado no image_2.png) --- */
-        .variations-section {
-            padding: 0 24px;
-            margin-bottom: 30px;
-        }
-
-        .section-title {
-            font-size: 12px;
-            color: var(--text-dim);
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-            margin-bottom: 12px;
-        }
-
-        .variation-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-dim);
-            border-radius: 12px;
-            padding: 16px 20px;
+        /* --- CARDS DE PLANO --- */
+        .plan-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glass);
+            border-radius: 18px;
+            padding: 20px;
             margin-bottom: 12px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
         }
 
-        .variation-card:hover, .variation-card.selected {
+        .plan-card.active {
             border-color: var(--accent-green);
-            background: #0f1016;
+            background: rgba(0, 255, 115, 0.03);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
         }
 
-        .variation-card.selected {
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        .var-info-left {
+        .plan-main {
             display: flex;
             align-items: center;
             gap: 15px;
         }
 
-        /* Rádio Button Personalizado */
-        .radio-circle {
-            width: 20px;
-            height: 20px;
-            border: 2px solid var(--border-dim);
+        .check-circle {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #333;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            position: relative;
         }
 
-        .variation-card.selected .radio-circle {
+        .plan-card.active .check-circle {
             border-color: var(--accent-green);
         }
 
-        .variation-card.selected .radio-circle::after {
+        .plan-card.active .check-circle::after {
             content: '';
-            width: 10px;
-            height: 10px;
+            position: absolute;
+            width: 12px;
+            height: 12px;
             background: var(--accent-green);
             border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
         }
 
-        .var-details {
-            display: flex;
-            flex-direction: column;
-        }
+        .plan-name { font-weight: 600; font-size: 1rem; display: block; }
+        .plan-delivery { font-size: 11px; color: var(--accent-green); }
 
-        .var-title {
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 2px;
-        }
+        .plan-price { text-align: right; }
+        .old-p { text-decoration: line-through; color: #555; font-size: 11px; display: block; }
+        .new-p { color: var(--accent-green); font-weight: 800; font-size: 1.3rem; }
 
-        .var-stock {
-            font-size: 11px;
-            color: #00cc52; /* Verde suave para estoque */
-            font-weight: 500;
-        }
-
-        .var-price-right {
-            text-align: right;
-        }
-
-        .old-price {
-            text-decoration: line-through;
-            color: var(--text-dim);
-            font-size: 11px;
-            margin-bottom: 2px;
-            display: block;
-        }
-
-        .new-price {
-            font-weight: 800;
-            color: var(--accent-green);
-            font-size: 1.2rem;
-        }
-
-        /* --- Botões de Ação Fixos --- */
-        .footer-actions {
-            background: #080808;
-            padding: 15px 24px;
-            border-top: 1px solid var(--border-dim);
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            position: sticky;
+        /* --- FOOTER ACTIONS --- */
+        .actions-fixed {
+            position: fixed;
             bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            border-top: 1px solid var(--border-glass);
+            z-index: 200;
         }
 
-        .btn-premium {
+        .btn {
             width: 100%;
+            padding: 18px;
+            border-radius: 16px;
             border: none;
-            border-radius: 12px;
-            font-family: 'Inter', sans-serif;
+            font-family: inherit;
             font-weight: 800;
             font-size: 0.9rem;
             cursor: pointer;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: all 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
+            letter-spacing: 1px;
+            transition: 0.2s;
         }
 
-        /* Botão "Comprar Agora" (Inspirado no image_3.png) */
-        .btn-buy-now {
-            background: var(--text-main);
-            color: #000;
-            padding: 18px;
+        .btn-main { background: #fff; color: #000; }
+        .btn-side { background: #1a1a1a; color: #fff; border: 1px solid var(--border-glass); }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .btn-buy-now:hover {
-            background: #e1e1e6;
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
         }
-
-        /* Botão "Adicionar ao Carrinho" (Inspirado no image_2.png) */
-        .btn-add-cart {
-            background: #14161a;
-            color: var(--text-main);
-            padding: 14px;
-            border: 1px solid var(--border-dim);
-            font-size: 0.8rem;
-        }
-
-        .btn-add-cart:hover {
-            border-color: var(--accent-green);
-            color: var(--accent-green);
-        }
-
     </style>
 </head>
 <body>
 
-    <div class="page-wrapper">
-        
-        <div class="header">
-            <div class="logo-area">
-                <div class="logo-img">G</div> <div class="store-name">Gust4 Cheats</div>
-                <div class="verified-badge">✔</div>
+    <div class="container">
+        <!-- HEADER -->
+        <header class="header">
+            <div class="logo-box">
+                <img src="logo_gust4_cheats.png" alt="Logo" class="logo-img">
+                <span class="brand-name">Gust4 Cheats</span>
             </div>
-            <div class="header-actions">
-                <button class="icon-btn">🔍</button>
-                <div class="cart-wrapper">
-                    <button class="icon-btn">🛒</button>
-                    <span id="cart-count">0</span>
+            <div style="font-size: 20px;">🛒</div>
+        </header>
+
+        <!-- AREA DE PRODUTO -->
+        <section class="product-hero">
+            <div class="demo-box" id="product-demo">
+                <img src="holograma_ios.png" alt="Produto" class="hologram-main">
+                <div class="click-hint" id="hint-text">Toque para ver planos</div>
+            </div>
+        </section>
+
+        <!-- CONTAINER DE PLANOS (HIDDEN) -->
+        <section id="plans-container">
+            <div class="product-info">
+                <div class="tag-row">
+                    <span class="tag">Ativo</span>
+                    <span class="tag">iOS 17.5+</span>
                 </div>
+                <h1 class="product-title">HS PARA IOS VIA WIFI</h1>
+                <p style="color: var(--text-dim); font-size: 13px; margin-top: -5px;">Selecione uma das opções abaixo para continuar.</p>
             </div>
-        </div>
 
-        <div class="showcase-area">
-            <div class="product-display">
-                <img src="Holograma.PNG" alt="Holograma do Produto" class="hologram-img">
-            </div>
-        </div>
-
-        <div class="product-details">
-            <div class="badges-area">
-                <span class="badge">Ativo</span>
-                <span class="badge">iOS 17.5+</span>
-            </div>
-            <h1 class="product-main-title">HS PARA IOS VIA WIFI</h1>
-        </div>
-
-        <div class="variations-section">
-            <div class="section-title">SELECIONE O PLANO</div>
-            
-            <div class="variation-card selected" onclick="selectVariant(this, 'HS WIFI 1D', 19.90)">
-                <div class="var-info-left">
-                    <div class="radio-circle"></div>
-                    <div class="var-details">
-                        <span class="var-title">Acesso por 1 Dia</span>
-                        <span class="var-stock">✓ Entrega Automática</span>
+            <div class="plan-card active" onclick="select(this, '1 Dia', 19.90)">
+                <div class="plan-main">
+                    <div class="check-circle"></div>
+                    <div>
+                        <span class="plan-name">Acesso por 1 Dia</span>
+                        <span class="plan-delivery">✓ Entrega Automática</span>
                     </div>
                 </div>
-                <div class="var-price-right">
-                    <span class="old-price">R$ 25,00</span>
-                    <span class="new-price">R$ 19,90</span>
+                <div class="plan-price">
+                    <span class="old-p">R$ 25,00</span>
+                    <span class="new-p">R$ 19,90</span>
                 </div>
             </div>
 
-            <div class="variation-card" onclick="selectVariant(this, 'HS WIFI 7D', 49.90)">
-                <div class="var-info-left">
-                    <div class="radio-circle"></div>
-                    <div class="var-details">
-                        <span class="var-title">Acesso por 7 Dias</span>
-                        <span class="var-stock">✓ Entrega Automática</span>
+            <div class="plan-card" onclick="select(this, '7 Dias', 49.90)">
+                <div class="plan-main">
+                    <div class="check-circle"></div>
+                    <div>
+                        <span class="plan-name">Acesso por 7 Dias</span>
+                        <span class="plan-delivery">✓ Entrega Automática</span>
                     </div>
                 </div>
-                <div class="var-price-right">
-                    <span class="old-price">R$ 60,00</span>
-                    <span class="new-price">R$ 49,90</span>
+                <div class="plan-price">
+                    <span class="old-p">R$ 60,00</span>
+                    <span class="new-p">R$ 49,90</span>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <div class="footer-actions">
-            <button class="btn-premium btn-buy-now" id="buy-now-btn">
-                🛒 Comprar agora
-            </button>
-            <button class="btn-premium btn-add-cart" id="add-to-cart-btn">
-                + Adicionar ao carrinho
-            </button>
+        <!-- AÇÕES FIXAS -->
+        <div class="actions-fixed">
+            <button class="btn btn-main" onclick="checkout()">Comprar Agora</button>
+            <button class="btn btn-side" onclick="addCart()">+ Adicionar ao Carrinho</button>
         </div>
-
     </div>
 
     <script>
-        // Sistema de Carrinho e Variantes
-        let currentSelected = { name: 'HS WIFI 1D', price: 19.90 };
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const demoBox = document.getElementById('product-demo');
+        const plansContainer = document.getElementById('plans-container');
+        const hintText = document.getElementById('hint-text');
 
-        function updateCartCount() {
-            const count = cart.reduce((acc, item) => acc + item.quantity, 0);
-            document.getElementById('cart-count').innerText = count;
-            localStorage.setItem('cart', JSON.stringify(cart));
+        // Revelar planos ao clicar na demonstração
+        demoBox.addEventListener('click', () => {
+            plansContainer.style.display = 'block';
+            hintText.style.display = 'none';
+            // Scroll suave para os planos
+            plansContainer.scrollIntoView({ behavior: 'smooth' });
+        });
+
+        function select(el, name, price) {
+            document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('active'));
+            el.classList.add('active');
         }
 
-        // Função para selecionar variante (clicando no card)
-        function selectVariant(element, name, price) {
-            // Remove seleção anterior
-            document.querySelectorAll('.variation-card').forEach(card => card.classList.remove('selected'));
-            // Adiciona seleção atual
-            element.classList.add('selected');
-            currentSelected = { name, price };
+        function checkout() {
+            alert("Redirecionando para o pagamento seguro...");
         }
 
-        // Adicionar ao Carrinho
-        function addToCart() {
-            const name = currentSelected.name;
-            const price = currentSelected.price;
-            
-            const itemIndex = cart.findIndex(item => item.name === name);
-            if (itemIndex > -1) {
-                cart[itemIndex].quantity += 1;
-            } else {
-                cart.push({ name, price, quantity: 1 });
-            }
-            updateCartCount();
-            
-            // Feedback Visual no botão de adicionar
-            const btn = document.getElementById('add-to-cart-btn');
-            btn.innerText = "Adicionado!";
-            btn.style.borderColor = "#00ff73";
-            btn.style.color = "#00ff73";
-            setTimeout(() => {
-                btn.innerText = "+ Adicionar ao carrinho";
-                btn.style.borderColor = "";
-                btn.style.color = "";
-            }, 1000);
+        function addCart() {
+            alert("Produto adicionado ao seu carrinho!");
         }
-
-        // Comprar Agora (Pode mandar para o checkout ou checkout externo)
-        function buyNow() {
-            addToCart(); // Adiciona e já abre o carrinho (simulação)
-            alert(`Indo para o Checkout com: ${currentSelected.name} por R$ ${currentSelected.price.toFixed(2)}`);
-            // Exemplo: window.location.href = "checkout.html";
-        }
-
-        // Event Listeners
-        document.getElementById('add-to-cart-btn').addEventListener('click', addToCart);
-        document.getElementById('buy-now-btn').addEventListener('click', buyNow);
-
-        updateCartCount();
     </script>
 </body>
 </html>
