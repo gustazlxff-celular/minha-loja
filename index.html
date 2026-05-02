@@ -17,387 +17,155 @@
         }
 
         * { 
-            margin: 0; 
-            padding: 0; 
-            box-sizing: border-box; 
-            font-family: 'Inter', sans-serif; 
-            -webkit-tap-highlight-color: transparent; 
+            margin: 0; padding: 0; box-sizing: border-box; 
+            font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; 
         }
 
-        body { 
-            background-color: var(--bg-body); 
-            color: var(--white); 
-            padding: 15px;
-            line-height: 1.5;
-        }
+        body { background-color: var(--bg-body); color: var(--white); padding: 15px; }
 
-        /* --- HEADER (Lux Cheats Style) --- */
+        /* HEADER CORRIGIDO */
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto 25px;
-            padding: 10px 5px;
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 500px; margin: 10px auto 30px;
         }
 
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-weight: 700;
-            font-size: 1.2rem;
+        .brand { display: flex; align-items: center; gap: 10px; }
+        .brand-logo {
+            width: 45px; height: 45px; border-radius: 12px;
+            object-fit: cover; border: 1px solid var(--border);
         }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-name { font-weight: 800; font-size: 1.1rem; line-height: 1.1; }
+        .verified-badge { color: #3b82f6; font-size: 0.8rem; margin-left: 4px; }
 
-        .brand img {
-            width: 35px;
-            height: 35px;
-            border-radius: 8px;
-            background: #fff; /* Simulando o logo branco da imagem */
-        }
-
-        .verified-icon {
-            color: #3b82f6;
-            font-size: 0.9rem;
-            margin-left: 5px;
-        }
-
-        .nav-icons {
-            display: flex;
-            gap: 15px;
-            align-items: center;
-        }
-
+        .nav-icons { display: flex; gap: 10px; }
         .icon-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
+            background: var(--bg-card); border: 1px solid var(--border);
+            width: 42px; height: 42px; border-radius: 12px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
         }
 
-        /* --- ABA PRINCIPAL (GRID DE PRODUTOS) --- */
-        #main-store {
-            max-width: 600px;
-            margin: 0 auto;
-            animation: fadeIn 0.5s ease forwards;
-        }
-
+        /* GRID DE PRODUTOS PEQUENOS */
+        #main-store { max-width: 500px; margin: 0 auto; animation: fadeIn 0.4s ease; }
+        
         .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
         }
 
         .product-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 12px;
-            cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 18px; padding: 8px; cursor: pointer;
+            transition: 0.3s; transform-style: preserve-3d;
         }
 
-        .product-card:hover {
-            border-color: var(--accent);
-            transform: translateY(-5px);
+        .product-card:hover { border-color: var(--accent); transform: translateY(-3px); }
+
+        .card-img {
+            width: 100%; aspect-ratio: 1/1; border-radius: 14px;
+            object-fit: cover; margin-bottom: 10px;
         }
 
-        .card-banner {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: var(--bg-item);
-            border-radius: 12px;
-            margin-bottom: 12px;
-            object-fit: cover;
-        }
+        .card-info { padding: 0 4px 8px; }
+        .card-title { font-size: 0.7rem; font-weight: 700; color: #ddd; margin-bottom: 4px; height: 2.2em; overflow: hidden; }
+        .card-price { font-size: 1rem; font-weight: 800; display: block; }
+        .card-pix { font-size: 0.6rem; color: var(--text-gray); }
 
-        .card-info h3 {
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            color: #efeff1;
-        }
+        /* ABA DE PLANOS */
+        #details-page { display: none; max-width: 500px; margin: 0 auto; animation: slideUp 0.4s ease; }
+        .back-nav { color: var(--text-gray); font-size: 0.8rem; margin-bottom: 20px; cursor: pointer; font-weight: 600; }
+        .detail-hero { width: 100%; border-radius: 20px; border: 1px solid var(--border); margin-bottom: 15px; }
 
-        .card-price-tag {
-            font-size: 1.2rem;
-            font-weight: 800;
-            display: block;
+        .plans-list { display: flex; flex-direction: column; gap: 10px; margin: 20px 0; }
+        .plan-item {
+            background: var(--bg-card); border: 1.5px solid var(--border);
+            border-radius: 16px; padding: 15px; display: flex;
+            justify-content: space-between; align-items: center; cursor: pointer;
         }
+        .plan-item.active { border-color: var(--accent); background: #131b16; }
+        .plan-radio { width: 18px; height: 18px; border: 2px solid #3e404d; border-radius: 50%; margin-right: 12px; display: flex; align-items: center; justify-content: center; }
+        .active .plan-radio { border-color: var(--accent); }
+        .active .plan-radio::after { content: ''; width: 8px; height: 8px; background: var(--accent); border-radius: 50%; }
 
-        /* --- ABA DE PLANOS (DETALHES) --- */
-        #details-page {
-            display: none;
-            max-width: 500px;
-            margin: 0 auto;
-            animation: slideUp 0.5s ease-out;
-        }
+        .btn-buy { width: 100%; background: #fff; color: #000; border: none; padding: 16px; border-radius: 14px; font-weight: 800; cursor: pointer; margin-bottom: 10px; }
 
-        .back-nav {
-            margin-bottom: 20px;
-            cursor: pointer;
-            color: var(--text-gray);
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
+        .info-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 20px; text-align: center; margin-top: 15px; }
 
-        .product-title-detail {
-            font-size: 1.6rem;
-            font-weight: 800;
-            margin-bottom: 5px;
-            letter-spacing: -0.5px;
-        }
-
-        .discount-badge {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: var(--text-gray);
-            margin-left: 10px;
-        }
-
-        .main-price-highlight {
-            font-size: 2.2rem;
-            font-weight: 800;
-            margin: 15px 0 5px;
-        }
-
-        .plans-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 25px 0;
-        }
-
-        .plan-option {
-            background: var(--bg-card);
-            border: 1.5px solid var(--border);
-            border-radius: 18px;
-            padding: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .plan-option.active {
-            border-color: var(--accent);
-            background: linear-gradient(145deg, #111217 0%, #131b16 100%);
-        }
-
-        .plan-radio {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #3e404d;
-            border-radius: 50%;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .active .plan-radio {
-            border-color: var(--accent);
-        }
-
-        .active .plan-radio::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 12px var(--accent);
-        }
-
-        .buy-now-btn {
-            width: 100%;
-            background: var(--white);
-            color: #000;
-            border: none;
-            padding: 18px;
-            border-radius: 15px;
-            font-weight: 800;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.2s;
-            margin-bottom: 12px;
-        }
-
-        .add-cart-btn {
-            width: 100%;
-            background: transparent;
-            color: var(--white);
-            border: 1px solid var(--border);
-            padding: 18px;
-            border-radius: 15px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        /* --- SEÇÃO DE BENEFÍCIOS (IMAGE_12) --- */
-        .features-grid {
-            margin-top: 40px;
-            display: grid;
-            gap: 15px;
-        }
-
-        .feature-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .feature-icon {
-            width: 45px;
-            height: 45px;
-            background: var(--bg-item);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 15px;
-            font-size: 1.2rem;
-        }
-
-        /* --- ANIMAÇÕES --- */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* --- RESPONSIVIDADE --- */
-        @media (max-width: 400px) {
-            .product-grid { grid-template-columns: 1fr; }
-        }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
     <nav class="navbar">
         <div class="brand">
-            <img src="https://via.placeholder.com/35" alt="Logo"> <!-- Substituir por sua logo -->
-            <span>Gust4 Cheats</span>
-            <span class="verified-icon">✔</span>
+            <!-- Coloque sua logo aqui -->
+            <img src="https://i.imgur.com/your_logo.png" class="brand-logo" onerror="this.src='https://via.placeholder.com/45/FFFFFF/000000?text=G'">
+            <div class="brand-text">
+                <span class="brand-name">Gust4<span class="verified-badge">✔</span></span>
+                <span class="brand-name">Cheats</span>
+            </div>
         </div>
         <div class="nav-icons">
             <div class="icon-btn">🔍</div>
-            <div class="icon-btn">👤</div>
             <div class="icon-btn">🛒</div>
         </div>
     </nav>
 
-    <!-- PÁGINA PRINCIPAL -->
     <main id="main-store">
         <div class="product-grid">
-            <!-- Produto 1 -->
-            <div class="product-card tilt-js" onclick="openDetails('HS PARA IOS', '19,90')">
-                <img src="holograma_ios.PNG" class="card-banner" alt="Produto">
+            <!-- PRODUTO 1 -->
+            <div class="product-card tilt-js" onclick="openDetails('HS PARA IOS VIA WIFI', '19,90')">
+                <img src="holograma_ios.PNG" class="card-img" alt="HS iOS">
                 <div class="card-info">
-                    <h3>HS PARA IOS VIA WIFI</h3>
-                    <span class="card-price-tag">R$ 19,90</span>
-                    <small class="pix-tag" style="color: var(--text-gray); font-size: 0.7rem;">À vista no Pix</small>
+                    <h3 class="card-title">HS PARA IOS VIA WIFI</h3>
+                    <span class="card-price">R$ 19,90</span>
+                    <span class="card-pix">À vista no Pix</span>
                 </div>
             </div>
-            <!-- Produto 2 -->
-            <div class="product-card tilt-js" onclick="openDetails('REGEDIT MOBILE', '29,90')">
-                <img src="https://via.placeholder.com/200" class="card-banner" alt="Produto">
+
+            <!-- PRODUTO 2 (Exemplo de organização) -->
+            <div class="product-card tilt-js" onclick="openDetails('REGEDIT VIP', '25,00')">
+                <img src="https://via.placeholder.com/200/191a21/00ff73?text=REGEDIT" class="card-img">
                 <div class="card-info">
-                    <h3>REGEDIT VIP MOBILE</h3>
-                    <span class="card-price-tag">R$ 29,90</span>
-                    <small class="pix-tag" style="color: var(--text-gray); font-size: 0.7rem;">À vista no Pix</small>
+                    <h3 class="card-title">REGEDIT VIP MOBILE</h3>
+                    <span class="card-price">R$ 25,00</span>
+                    <span class="card-pix">À vista no Pix</span>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- PÁGINA DE DETALHES -->
     <section id="details-page">
-        <div class="back-nav" onclick="closeDetails()">← VOLTAR</div>
-        
-        <h1 id="det-name" class="product-title-detail">HS PARA IOS</h1>
-        <div style="display: flex; align-items: center;">
-            <span style="text-decoration: line-through; color: var(--text-gray); font-size: 1rem;">R$ 25,00</span>
-            <span class="discount-badge">- 20% OFF</span>
-        </div>
-        
-        <div class="main-price-highlight" id="det-price">R$ 19,90</div>
-        <p style="color: var(--text-gray); font-size: 0.85rem; margin-bottom: 20px;">À vista no Pix</p>
+        <div class="back-nav" onclick="closeDetails()">← VOLTAR PARA A LOJA</div>
+        <img id="det-img" src="holograma_ios.PNG" class="detail-hero">
+        <h1 id="det-name" style="font-size: 1.4rem; font-weight: 800;">HS PARA IOS</h1>
+        <div id="det-price" style="font-size: 2rem; font-weight: 800; color: var(--accent); margin: 10px 0;">R$ 19,90</div>
 
-        <div class="plans-container">
-            <div class="plan-option active" onclick="updatePrice(this, '19,90', '17 vendas')">
-                <div style="display: flex; align-items: center;">
-                    <div class="plan-radio"></div>
-                    <div>
-                        <div class="plan-name">PLANO DIÁRIO</div>
-                        <small style="color: var(--accent); font-size: 0.7rem;">Em estoque</small>
-                    </div>
-                </div>
-                <div style="text-align: right;">
-                    <small style="text-decoration: line-through; color: var(--text-gray); font-size: 0.7rem;">R$ 25,00</small>
-                    <div style="font-weight: 700;">R$ 19,90</div>
-                </div>
+        <div class="plans-list">
+            <div class="plan-item active" onclick="select(this, '19,90')">
+                <div style="display:flex; align-items:center;"><div class="plan-radio"></div><span>DIÁRIO</span></div>
+                <div style="font-weight:700;">R$ 19,90</div>
             </div>
-
-            <div class="plan-option" onclick="updatePrice(this, '49,90', '5 vendas')">
-                <div style="display: flex; align-items: center;">
-                    <div class="plan-radio"></div>
-                    <div>
-                        <div class="plan-name">PLANO SEMANAL</div>
-                        <small style="color: var(--accent); font-size: 0.7rem;">3 em estoque</small>
-                    </div>
-                </div>
-                <div style="text-align: right;">
-                    <small style="text-decoration: line-through; color: var(--text-gray); font-size: 0.7rem;">R$ 60,00</small>
-                    <div style="font-weight: 700;">R$ 49,90</div>
-                </div>
+            <div class="plan-item" onclick="select(this, '49,90')">
+                <div style="display:flex; align-items:center;"><div class="plan-radio"></div><span>SEMANAL</span></div>
+                <div style="font-weight:700;">R$ 49,90</div>
             </div>
         </div>
 
-        <button class="buy-now-btn">🛒 COMPRAR AGORA</button>
-        <button class="add-cart-btn">+ ADICIONAR AO CARRINHO</button>
-
-        <div class="features-grid">
-            <div class="feature-box tilt-js">
-                <div class="feature-icon">📦</div>
-                <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Entrega imediata</h4>
-                <p style="color: var(--text-gray); font-size: 0.8rem;">Receba o seu pacote imediatamente após o pagamento.</p>
-            </div>
-            <div class="feature-box tilt-js">
-                <div class="feature-icon">🛡️</div>
-                <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Segurança total</h4>
-                <p style="color: var(--text-gray); font-size: 0.8rem;">Seus dados são criptografados de ponta-à-ponta.</p>
-            </div>
+        <button class="btn-buy">COMPRAR AGORA</button>
+        <div class="info-card tilt-js">
+            <h4 style="margin-bottom:5px;">Entrega Automática 📦</h4>
+            <p style="font-size:0.75rem; color:var(--text-gray);">O produto é enviado para seu e-mail após a confirmação.</p>
         </div>
     </section>
 
     <script>
-        // Transições entre abas
         function openDetails(name, price) {
             document.getElementById('main-store').style.display = 'none';
             document.getElementById('details-page').style.display = 'block';
             document.getElementById('det-name').innerText = name;
             document.getElementById('det-price').innerText = `R$ ${price}`;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            window.scrollTo(0,0);
         }
 
         function closeDetails() {
@@ -405,32 +173,19 @@
             document.getElementById('main-store').style.display = 'block';
         }
 
-        function updatePrice(element, price) {
-            document.querySelectorAll('.plan-option').forEach(opt => opt.classList.remove('active'));
-            element.classList.add('active');
+        function select(el, price) {
+            document.querySelectorAll('.plan-item').forEach(i => i.classList.remove('active'));
+            el.classList.add('active');
             document.getElementById('det-price').innerText = `R$ ${price}`;
         }
 
-        // --- EFEITO AO MEXER NA TELA (TILT EFECT) ---
-        const cards = document.querySelectorAll('.tilt-js');
-
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 10;
-                const rotateY = (centerX - x) / 10;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+        // EFEITO DE MOVIMENTO
+        document.addEventListener('mousemove', (e) => {
+            document.querySelectorAll('.tilt-js').forEach(card => {
+                let rect = card.getBoundingClientRect();
+                let x = (e.clientX - rect.left) / rect.width - 0.5;
+                let y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `perspective(1000px) rotateY(${x * 15}deg) rotateX(${-y * 15}deg) translateY(-3px)`;
             });
         });
     </script>
