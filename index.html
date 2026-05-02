@@ -3,316 +3,312 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gust4 Cheats | Premium Store</title>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>Gust4 Cheats | Planos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-body: #020203;
-            --bg-card: #0a0b10;
-            --bg-overlay: rgba(10, 11, 16, 0.95);
+            --bg-principal: #0d0e12;
+            --bg-card: #15161c;
+            --bg-item: #1c1d25;
             --accent: #00ff73;
-            --accent-glow: rgba(0, 255, 115, 0.2);
-            --text-primary: #ffffff;
-            --text-secondary: #94a3b8;
-            --border: rgba(255, 255, 255, 0.08);
-            --glass: rgba(255, 255, 255, 0.03);
+            --text-gray: #8b8e99;
+            --border: #26272f;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
 
         body {
-            background-color: var(--bg-body);
-            color: var(--text-primary);
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            line-height: 1.5;
-        }
-
-        /* HEADER PREMIUM */
-        .header {
-            padding: 25px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand img {
-            width: 38px;
-            height: 38px;
-            filter: drop-shadow(0 0 8px var(--accent-glow));
-        }
-
-        .brand span {
-            font-size: 1.2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            background: linear-gradient(to right, #fff, #888);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .cart-btn {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 10px;
-            border-radius: 12px;
-            position: relative;
-        }
-
-        /* GRID E CARDS */
-        .main-container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 10px 20px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-        }
-
-        .card {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 12px;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:active { transform: scale(0.96); border-color: var(--accent); }
-
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
-            opacity: 0.5;
-        }
-
-        .card-img {
-            width: 100%;
-            border-radius: 14px;
-            margin-bottom: 12px;
-            display: block;
-            object-fit: contain;
-            background: #000;
-        }
-
-        .card-info h3 {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-secondary);
-            margin-bottom: 8px;
-        }
-
-        .card-price {
-            font-size: 1.2rem;
-            font-weight: 800;
+            background-color: var(--bg-principal);
             color: #fff;
-        }
-
-        .pix-row {
+            padding: 20px;
             display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 4px;
-            font-size: 0.65rem;
-            color: var(--accent);
-            font-weight: 600;
+            justify-content: center;
         }
 
-        /* OVERLAY DE DETALHES (ANIMAÇÃO SLIDE UP) */
-        #details-overlay {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: var(--bg-overlay);
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            padding: 25px;
-            overflow-y: auto;
-        }
-
-        .nav-back {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 30px;
-            font-weight: 700;
-            cursor: pointer;
-        }
-
-        .detail-hero-img {
+        .container {
             width: 100%;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            margin-bottom: 25px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            max-width: 450px;
+            animation: fadeIn 0.8s ease-out;
         }
 
-        .detail-title { font-size: 1.6rem; font-weight: 800; margin-bottom: 5px; }
-        .detail-desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 25px; }
-
-        /* SELEÇÃO DE PLANOS PREMIUM */
-        .plans-list { display: flex; flex-direction: column; gap: 12px; }
-
-        .plan-item {
-            background: var(--glass);
-            border: 1px solid var(--border);
-            padding: 18px;
-            border-radius: 18px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.2s;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .plan-item.selected {
-            border-color: var(--accent);
-            background: rgba(0, 255, 115, 0.05);
-            box-shadow: 0 0 20px rgba(0, 255, 115, 0.1);
+        /* HEADER DO PRODUTO */
+        .product-header { margin-bottom: 25px; }
+
+        .product-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
-        .plan-name { display: flex; align-items: center; gap: 12px; font-weight: 700; }
-        
-        .check-circle {
-            width: 22px; height: 22px;
-            border: 2px solid var(--border);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
+        .price-main {
+            font-size: 1.8rem;
+            font-weight: 700;
+            display: block;
         }
 
-        .selected .check-circle { border-color: var(--accent); }
-        .selected .check-circle::after {
-            content: ''; width: 10px; height: 10px;
-            background: var(--accent); border-radius: 50%;
+        .pix-detail {
+            color: var(--text-gray);
+            font-size: 0.85rem;
+            margin-top: 4px;
+            display: block;
         }
 
-        .plan-cost { font-weight: 800; font-size: 1.1rem; }
-
-        /* BOTÕES */
-        .footer-actions {
-            margin-top: 40px;
+        /* LISTA DE OPÇÕES (ESTILO CENTRALCART) */
+        .plans-list {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            padding-bottom: 40px;
+            margin-bottom: 30px;
         }
 
-        .btn-primary {
-            background: var(--accent);
-            color: #000;
-            border: none;
-            padding: 18px;
+        .plan-item {
+            background: var(--bg-card);
+            border: 1.5px solid var(--border);
             border-radius: 16px;
-            font-weight: 800;
-            font-size: 1rem;
-            box-shadow: 0 10px 20px rgba(0, 255, 115, 0.2);
+            padding: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
         }
 
-        .btn-secondary {
-            background: transparent;
+        /* Efeito ao mexer/hover */
+        .plan-item:hover {
+            transform: translateY(-2px);
+            border-color: #3e404d;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        .plan-item.active {
+            border-color: var(--accent);
+            background: #15161c;
+        }
+
+        .left-side {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .radio-box {
+            width: 22px;
+            height: 22px;
+            border: 2px solid #3e404d;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.2s;
+        }
+
+        .active .radio-box {
+            border-color: var(--accent);
+        }
+
+        .active .radio-box::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .plan-info-text { display: flex; flex-direction: column; }
+        .plan-name { font-weight: 600; font-size: 0.95rem; }
+        .stock { font-size: 0.75rem; color: var(--accent); margin-top: 2px; }
+
+        .price-side { text-align: right; }
+        .old-price { 
+            font-size: 0.75rem; 
+            color: var(--text-gray); 
+            text-decoration: line-through; 
+            display: block;
+        }
+        .current-price { font-weight: 700; font-size: 1.1rem; }
+
+        /* BOTÕES DE AÇÃO */
+        .actions { display: flex; flex-direction: column; gap: 12px; }
+
+        .btn {
+            padding: 16px;
+            border-radius: 14px;
+            font-weight: 700;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+            border: none;
+        }
+
+        .btn-buy {
+            background: #e2e2e2;
+            color: #000;
+        }
+
+        .btn-buy:hover { background: #fff; transform: scale(1.02); }
+
+        .btn-cart {
+            background: var(--bg-card);
             color: #fff;
             border: 1px solid var(--border);
-            padding: 18px;
-            border-radius: 16px;
-            font-weight: 700;
         }
 
+        .btn-cart:hover { border-color: #fff; }
+
+        /* RODAPÉ DE INFOS */
+        .info-footer {
+            margin-top: 40px;
+            display: grid;
+            gap: 15px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--bg-item);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            color: var(--text-gray);
+        }
+
+        .info-card h4 { font-size: 1rem; margin-bottom: 8px; }
+        .info-card p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.4; }
     </style>
 </head>
 <body>
 
-    <header class="header">
-        <div class="brand">
-            <img src="logo_gust4_cheats.png" alt="Gust4 logo">
-            <span>Gust4 Cheats</span>
+    <div class="container">
+        <!-- HEADER -->
+        <div class="product-header">
+            <h1 class="product-title">Holograma iOS</h1>
+            <span class="price-main" id="total-price">R$ 15,00</span>
+            <span class="pix-detail">À vista no Pix</span>
         </div>
-        <div class="cart-btn">🛒</div>
-    </header>
 
-    <main class="main-container" id="view-home">
-        <div class="grid">
-            <!-- Card Individual -->
-            <div class="card" onclick="toggleDetails(true)">
-                <img src="holograma_ios.PNG" class="card-img" alt="Holograma iOS">
-                <div class="card-info">
-                    <h3>Holograma iOS</h3>
-                    <div class="card-price">R$ 15,00</div>
-                    <div class="pix-row">
-                        <svg width="12" height="12" viewBox="0 0 512 512" fill="currentColor"><path d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256 256-114.6 256-256S397.4 0 256 0zM382.4 322.5l-33.1 33.1c-3.1 3.1-8.2 3.1-11.3 0L256 273.6l-82 82c-3.1 3.1-8.2 3.1-11.3 0l-33.1-33.1c-3.1-3.1-3.1-8.2 0-11.3l82-82-82-82c-3.1-3.1-3.1-8.2 0-11.3l33.1-33.1c3.1-3.1 8.2-3.1 11.3 0l82 82 82-82c3.1-3.1 8.2-3.1 11.3 0l33.1 33.1c3.1 3.1 3.1 8.2 0 11.3l-82 82 82 82c3.1 3.1 3.1 8.2 0 11.3z"/></svg>
-                        <span>Pagamento via Pix</span>
+        <!-- LISTA DE PLANOS -->
+        <div class="plans-list">
+            <div class="plan-item active" onclick="select(this, '15,00')">
+                <div class="left-side">
+                    <div class="radio-box"></div>
+                    <div class="plan-info-text">
+                        <span class="plan-name">HOLOGRAMA - 1 DIA</span>
+                        <span class="stock">Acesso Imediato</span>
                     </div>
                 </div>
-            </div>
-        </div>
-    </main>
-
-    <!-- Overlay de Planos -->
-    <div id="details-overlay">
-        <div class="nav-back" onclick="toggleDetails(false)">
-            <span>✕</span> Fechar
-        </div>
-
-        <img src="holograma_ios.PNG" class="detail-hero-img" alt="Holograma iOS">
-        
-        <h1 class="detail-title">Holograma iOS</h1>
-        <p class="detail-desc">Otimização visual avançada e performance extrema.</p>
-
-        <div class="plans-list">
-            <div class="plan-item selected" onclick="selectPlan(this, '15,00')">
-                <div class="plan-name">
-                    <div class="check-circle"></div>
-                    <span>Acesso 1 Dia</span>
+                <div class="price-side">
+                    <span class="old-price">R$ 20,00</span>
+                    <span class="current-price">R$ 15,00</span>
                 </div>
-                <span class="plan-cost">R$ 15,00</span>
             </div>
 
-            <div class="plan-item" onclick="selectPlan(this, '25,00')">
-                <div class="plan-name">
-                    <div class="check-circle"></div>
-                    <span>Acesso 7 Dias</span>
+            <div class="plan-item" onclick="select(this, '25,00')">
+                <div class="left-side">
+                    <div class="radio-box"></div>
+                    <div class="plan-info-text">
+                        <span class="plan-name">HOLOGRAMA - 7 DIAS</span>
+                        <span class="stock">3 em estoque</span>
+                    </div>
                 </div>
-                <span class="plan-cost">R$ 25,00</span>
+                <div class="price-side">
+                    <span class="old-price">R$ 40,00</span>
+                    <span class="current-price">R$ 25,00</span>
+                </div>
             </div>
 
-            <div class="plan-item" onclick="selectPlan(this, '50,00')">
-                <div class="plan-name">
-                    <div class="check-circle"></div>
-                    <span>Acesso 30 Dias</span>
+            <div class="plan-item" onclick="select(this, '50,00')">
+                <div class="left-side">
+                    <div class="radio-box"></div>
+                    <div class="plan-info-text">
+                        <span class="plan-name">HOLOGRAMA - 30 DIAS</span>
+                        <span class="stock">10 em estoque</span>
+                    </div>
                 </div>
-                <span class="plan-cost">R$ 50,00</span>
+                <div class="price-side">
+                    <span class="old-price">R$ 90,00</span>
+                    <span class="current-price">R$ 50,00</span>
+                </div>
             </div>
         </div>
 
-        <div class="footer-actions">
-            <button class="btn-primary">Finalizar Compra</button>
-            <button class="btn-secondary" onclick="toggleDetails(false)">Continuar Comprando</button>
+        <!-- BOTÕES -->
+        <div class="actions">
+            <button class="btn btn-buy">🛒 Comprar agora</button>
+            <button class="btn btn-cart">＋ Adicionar ao carrinho</button>
+        </div>
+
+        <!-- INFOS EXTRAS (ESTILO IMAGE_3) -->
+        <div class="info-footer">
+            <div class="info-card">
+                <div class="info-icon">📦</div>
+                <h4>Entrega imediata</h4>
+                <p>Receba o seu pacote imediatamente após o pagamento.</p>
+            </div>
+            <div class="info-card">
+                <div class="info-icon">🛡️</div>
+                <h4>Segurança total</h4>
+                <p>Seus dados são criptografados durante todo o processo.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        function toggleDetails(show) {
-            const overlay = document.getElementById('details-overlay');
-            overlay.style.display = show ? 'block' : 'none';
-            if(show) window.scrollTo(0,0);
+        function select(element, price) {
+            // Remove a classe active de todos
+            document.querySelectorAll('.plan-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            // Adiciona no clicado
+            element.classList.add('active');
+            // Atualiza o preço principal com animação
+            const priceDisplay = document.getElementById('total-price');
+            priceDisplay.style.opacity = '0';
+            setTimeout(() => {
+                priceDisplay.innerText = `R$ ${price}`;
+                priceDisplay.style.opacity = '1';
+            }, 100);
         }
 
-        function selectPlan(el, price) {
-            document.querySelectorAll('.plan-item').forEach(item => item.classList.remove('selected'));
-            el.classList.add('selected');
-        }
+        // Efeito de movimento nos cards (Tilt básico)
+        document.querySelectorAll('.plan-item, .info-card').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                let rect = card.getBoundingClientRect();
+                let x = e.clientX - rect.left;
+                let y = e.clientY - rect.top;
+                let centerX = rect.width / 2;
+                let centerY = rect.height / 2;
+                let rotateX = (y - centerY) / 10;
+                let rotateY = (centerX - x) / 10;
+                
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+            });
+        });
     </script>
 </body>
 </html>
