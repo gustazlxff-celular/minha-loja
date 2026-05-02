@@ -1,0 +1,85 @@
+<style>
+    :root {
+        --primary: #00ff41; 
+        --bg-dark: #020202;
+        --glass: rgba(0, 255, 65, 0.03);
+        --neon-shadow: 0 0 20px rgba(0, 255, 65, 0.5);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+        background-color: var(--bg-dark);
+        color: #fff;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+        min-height: 100vh;
+        /* Fundo com Grid Cibernética e Gradiente Animado */
+        background-image: 
+            linear-gradient(rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 255, 65, 0.05) 1px, transparent 1px),
+            radial-gradient(circle at 50% 50%, #0a1f0a 0%, #020202 100%);
+        background-size: 40px 40px, 40px 40px, 100% 100%;
+        animation: backgroundMove 20s linear infinite;
+    }
+
+    /* Animação para o fundo não ficar estático */
+    @keyframes backgroundMove {
+        0% { background-position: 0 0, 0 0, center; }
+        100% { background-position: 40px 40px, 40px 40px, center; }
+    }
+
+    /* Overlay para dar profundidade */
+    body::after {
+        content: "";
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: radial-gradient(circle at center, transparent 0%, rgba(0,0,0,0.8) 100%);
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    header, .container {
+        position: relative;
+        z-index: 2; /* Garante que o conteúdo fique acima do fundo animado */
+    }
+
+    header {
+        padding: 30px;
+        text-align: center;
+        backdrop-filter: blur(5px);
+        background: rgba(0,0,0,0.3);
+    }
+
+    .logo-box img {
+        height: 110px;
+        filter: drop-shadow(0 0 15px var(--primary));
+    }
+
+    .hero-title {
+        font-family: 'Syncopate', sans-serif;
+        font-size: 1.2rem;
+        text-align: center;
+        margin: 40px 0;
+        color: var(--primary);
+        text-transform: uppercase;
+        letter-spacing: 5px;
+    }
+
+    .product-card {
+        background: rgba(10, 10, 10, 0.8);
+        border: 1px solid var(--primary);
+        border-radius: 30px;
+        padding: 25px;
+        backdrop-filter: blur(15px);
+        box-shadow: var(--neon-shadow);
+        transition: 0.4s;
+    }
+
+    .product-card:hover {
+        box-shadow: 0 0 40px rgba(0, 255, 65, 0.7);
+        transform: translateY(-5px);
+    }
+
+    /* ... mantenha o restante das classes de imagem e botão igual ao anterior ... */
+</style>
