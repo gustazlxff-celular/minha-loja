@@ -2,532 +2,275 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gust4 Cheats | Store Oficial</title>
-    <!-- Fontes e Ícones -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gust4 Cheats | Premium Store</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        /* 
-           CSS DE ALTO NÍVEL - ESTILO CENTRALCART / LUX CHEATS
-        */
         :root {
-            --bg-body: #08090b;
-            --bg-card: #111217;
-            --bg-item: #191a21;
+            --bg-body: #050505;
+            --bg-card: #0d0e12;
+            --bg-glass: rgba(17, 18, 23, 0.8);
             --accent: #00ff73;
-            --accent-glow: rgba(0, 255, 115, 0.3);
-            --border: #23242b;
-            --border-hover: #3e404d;
+            --accent-glow: rgba(0, 255, 115, 0.4);
+            --border: rgba(255, 255, 255, 0.08);
             --text-main: #ffffff;
-            --text-gray: #8b8e99;
-            --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --text-gray: #a1a1aa;
+            --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-            -webkit-tap-highlight-color: transparent;
-            outline: none;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
 
         body {
             background-color: var(--bg-body);
             color: var(--text-main);
+            padding: 20px 15px;
             overflow-x: hidden;
-            padding: env(safe-area-inset-top) 15px env(safe-area-inset-bottom);
+            background-image: radial-gradient(circle at top right, rgba(0, 255, 115, 0.05), transparent 400px);
         }
 
         /* --- HEADER --- */
         .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 550px;
-            margin: 15px auto 35px;
-            padding: 5px;
+            display: flex; justify-content: space-between; align-items: center;
+            max-width: 500px; margin: 0 auto 30px;
         }
 
-        .brand-container {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            color: inherit;
+        .brand { display: flex; align-items: center; gap: 12px; }
+        .logo-box { width: 48px; height: 48px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+        .brand-text { display: flex; flex-direction: column; }
+        .brand-name { font-weight: 900; font-size: 1.2rem; line-height: 1; letter-spacing: -0.5px; }
+        .verified { color: #3b82f6; font-size: 0.9rem; margin-left: 4px; }
+
+        .nav-actions { display: flex; gap: 10px; }
+        .icon-btn {
+            background: var(--bg-card); border: 1px solid var(--border);
+            width: 44px; height: 44px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; position: relative; transition: var(--transition);
+        }
+        .icon-btn:active { transform: scale(0.9); }
+        .cart-count {
+            position: absolute; top: -5px; right: -5px; background: var(--accent);
+            color: #000; font-size: 0.7rem; font-weight: 800;
+            width: 18px; height: 18px; border-radius: 50%;
+            display: none; align-items: center; justify-content: center;
         }
 
-        .logo-wrapper {
-            width: 48px;
-            height: 48px;
-            position: relative;
+        /* --- GRID DE PRODUTOS --- */
+        #store-home { max-width: 500px; margin: 0 auto; animation: fadeInUp 0.8s ease; }
+        .section-title { font-size: 0.85rem; font-weight: 700; color: var(--text-gray); text-transform: uppercase; margin-bottom: 20px; letter-spacing: 1px; }
+
+        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+
+        .product-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: 24px; padding: 10px; cursor: pointer;
+            transition: var(--transition); position: relative;
         }
+        .product-card:hover { border-color: var(--accent); transform: translateY(-5px); }
 
-        .logo-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            object-fit: cover;
-            border: 1px solid var(--border);
+        .card-img-wrap { width: 100%; aspect-ratio: 1/1; border-radius: 18px; overflow: hidden; margin-bottom: 12px; }
+        .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+
+        .card-info h3 { font-size: 0.75rem; font-weight: 700; color: #f4f4f5; margin-bottom: 6px; height: 2.4em; overflow: hidden; }
+        .card-price { font-size: 1.15rem; font-weight: 900; color: var(--text-main); display: block; }
+        .card-subtext { font-size: 0.65rem; color: var(--text-gray); font-weight: 500; }
+
+        /* --- MODAL DO CARRINHO --- */
+        .cart-modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8); backdrop-filter: blur(8px);
+            z-index: 1000; display: none; justify-content: center; align-items: flex-end;
         }
-
-        .brand-info {
-            display: flex;
-            flex-direction: column;
+        .cart-content {
+            background: var(--bg-card); width: 100%; max-width: 500px;
+            border-radius: 30px 30px 0 0; padding: 30px 20px;
+            animation: slideUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .brand-name {
-            font-weight: 900;
-            font-size: 1.15rem;
-            line-height: 1;
-            display: flex;
-            align-items: center;
-            gap: 5px;
+        .cart-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; }
+        .cart-items-list { max-height: 300px; overflow-y: auto; margin-bottom: 20px; }
+        .cart-item {
+            display: flex; align-items: center; gap: 15px; padding: 15px 0;
+            border-bottom: 1px solid var(--border);
         }
+        .cart-item img { width: 50px; height: 50px; border-radius: 10px; object-fit: cover; }
+        .cart-item-info { flex: 1; }
+        .remove-btn { color: #ff4d4d; font-size: 0.75rem; font-weight: 700; cursor: pointer; }
 
-        .brand-name span { color: var(--text-main); }
+        .cart-footer { border-top: 1px solid var(--border); padding-top: 20px; }
+        .total-row { display: flex; justify-content: space-between; margin-bottom: 20px; font-weight: 800; font-size: 1.2rem; }
+        .btn-checkout { width: 100%; background: var(--accent); color: #000; border: none; padding: 18px; border-radius: 16px; font-weight: 900; font-size: 1rem; cursor: pointer; }
 
-        .verified-badge {
-            color: #3b82f6;
-            font-size: 0.85rem;
-        }
-
-        .nav-actions {
-            display: flex;
-            gap: 12px;
-        }
-
-        .nav-btn {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            width: 44px;
-            height: 44px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .nav-btn:hover {
-            border-color: var(--border-hover);
-            transform: translateY(-2px);
-        }
-
-        /* --- ABA PRINCIPAL (GRID) --- */
-        #store-home {
-            max-width: 550px;
-            margin: 0 auto;
-            animation: fadeIn 0.6s ease;
-        }
-
-        .section-header {
-            margin-bottom: 20px;
-            padding: 0 5px;
-        }
-
-        .section-header h2 {
-            font-size: 0.9rem;
-            font-weight: 700;
-            color: var(--text-gray);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .product-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-        }
-
-        .card-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 22px;
-            padding: 10px;
-            cursor: pointer;
-            position: relative;
-            transition: var(--transition);
-            transform-style: preserve-3d;
-            perspective: 1000px;
-        }
-
-        .card-item:hover {
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .card-banner {
-            width: 100%;
-            aspect-ratio: 1/1;
-            background: var(--bg-item);
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 12px;
-        }
-
-        .card-banner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card-item:hover .card-banner img {
-            transform: scale(1.1);
-        }
-
-        .card-details {
-            padding: 0 5px 8px;
-        }
-
-        .card-details h3 {
-            font-size: 0.75rem;
-            font-weight: 700;
-            color: #efeff1;
-            margin-bottom: 5px;
-            height: 2.4em;
-            overflow: hidden;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-        }
-
-        .card-price-row {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-val {
-            font-size: 1.1rem;
-            font-weight: 900;
-            color: var(--text-main);
-        }
-
-        .pix-label {
-            font-size: 0.65rem;
-            color: var(--text-gray);
-            font-weight: 500;
-        }
-
-        /* --- ABA DE DETALHES (PLANOS) --- */
-        #details-view {
-            display: none;
-            max-width: 500px;
-            margin: 0 auto;
-            animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        .btn-return {
-            background: none;
-            border: none;
-            color: var(--text-gray);
-            font-weight: 700;
-            font-size: 0.8rem;
-            cursor: pointer;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: 0.2s;
-        }
-
-        .btn-return:hover { color: var(--text-main); }
-
-        .hero-image-container {
-            width: 100%;
-            border-radius: 24px;
-            overflow: hidden;
-            border: 1px solid var(--border);
-            margin-bottom: 20px;
-            transform-style: preserve-3d;
-        }
-
-        .hero-image-container img {
-            width: 100%;
-            display: block;
-        }
-
-        .prod-info-header h1 {
-            font-size: 1.6rem;
-            font-weight: 900;
-            margin-bottom: 8px;
-            letter-spacing: -0.5px;
-        }
-
-        .price-display-large {
-            font-size: 2.4rem;
-            font-weight: 900;
-            color: var(--accent);
-            text-shadow: 0 0 20px var(--accent-glow);
-            margin-bottom: 5px;
-        }
-
-        .planos-selector {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin: 30px 0;
-        }
-
-        .plan-box {
-            background: var(--bg-card);
-            border: 1.5px solid var(--border);
-            border-radius: 18px;
-            padding: 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .plan-box:hover { border-color: var(--border-hover); }
-
-        .plan-box.selected {
-            border-color: var(--accent);
-            background: linear-gradient(145deg, #111217 0%, #131b16 100%);
-        }
-
-        .radio-indicator {
-            width: 22px;
-            height: 22px;
-            border: 2px solid #3e404d;
-            border-radius: 50%;
-            margin-right: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.2s;
-        }
-
-        .selected .radio-indicator { border-color: var(--accent); }
-        .selected .radio-indicator::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-            box-shadow: 0 0 15px var(--accent);
-        }
-
-        .plan-meta .name { font-weight: 700; font-size: 0.95rem; }
-        .plan-meta .stock { font-size: 0.75rem; color: var(--accent); font-weight: 600; display: block; }
-
-        .plan-pricing { text-align: right; }
-        .plan-pricing .old { font-size: 0.75rem; color: var(--text-gray); text-decoration: line-through; display: block; }
-        .plan-pricing .current { font-size: 1.1rem; font-weight: 800; }
-
-        .purchase-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
-
-        .btn-primary {
-            background: var(--white);
-            background-color: #ffffff;
-            color: #000;
-            border: none;
-            padding: 20px;
-            border-radius: 16px;
-            font-weight: 800;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .btn-primary:hover { transform: scale(1.02); background-color: #f0f0f0; }
-
-        .info-card-box {
-            background: var(--bg-card);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            padding: 25px;
-            text-align: center;
-            margin-top: 20px;
-        }
+        /* --- DETALHES --- */
+        #details-view { display: none; max-width: 500px; margin: 0 auto; animation: fadeInUp 0.5s ease; }
+        .btn-back { color: var(--text-gray); font-size: 0.8rem; font-weight: 700; border: none; background: none; margin-bottom: 20px; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+        .hero-img { width: 100%; border-radius: 24px; border: 1px solid var(--border); margin-bottom: 20px; }
+        .detail-title { font-size: 1.6rem; font-weight: 900; margin-bottom: 5px; }
+        .detail-price { font-size: 2.2rem; font-weight: 900; color: var(--accent); margin-bottom: 25px; }
 
         /* --- ANIMAÇÕES --- */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
 
     </style>
 </head>
 <body>
 
-    <!-- NAVEGAÇÃO -->
     <nav class="navbar">
-        <a href="#" class="brand-container">
-            <div class="logo-wrapper">
-                <img src="logo_gust4_cheats.png" class="logo-img" alt="Gust4 Cheats">
+        <div class="brand">
+            <div class="logo-box">
+                <img src="logo_gust4_cheats.png" alt="Logo">
             </div>
-            <div class="brand-info">
-                <div class="brand-name">
-                    <span>Gust4</span>
-                    <i class="verified-badge">✔</i>
-                </div>
-                <div class="brand-name"><span>Cheats</span></div>
+            <div class="brand-text">
+                <span class="brand-name">Gust4<span class="verified">✔</span></span>
+                <span class="brand-name">Cheats</span>
             </div>
-        </a>
+        </div>
         <div class="nav-actions">
-            <div class="nav-btn">🔍</div>
-            <div class="nav-btn">🛒</div>
+            <div class="icon-btn">🔍</div>
+            <div class="icon-btn" onclick="toggleCart()">
+                🛒 <div id="cart-badge" class="cart-count">0</div>
+            </div>
         </div>
     </nav>
 
-    <!-- PÁGINA INICIAL DA LOJA -->
     <main id="store-home">
-        <div class="section-header">
-            <h2>Nossos Produtos</h2>
-        </div>
-
+        <p class="section-title">Nossos Produtos</p>
         <div class="product-grid">
             <!-- Produto 1 -->
-            <div class="card-item tilt-element" onclick="openDetail('HS PARA IOS VIA WIFI', '19,90', 'holograma_ios.PNG')">
-                <div class="card-banner">
-                    <img src="holograma_ios.PNG" alt="HS iOS">
+            <div class="product-card" onclick="openProduct('HS PARA IOS VIA WIFI', 19.90, 'holograma_ios.PNG')">
+                <div class="card-img-wrap">
+                    <img src="holograma_ios.PNG">
                 </div>
-                <div class="card-details">
+                <div class="card-info">
                     <h3>HS PARA IOS VIA WIFI</h3>
-                    <div class="card-price-row">
-                        <span class="price-val">R$ 19,90</span>
-                        <span class="pix-label">À vista no Pix</span>
-                    </div>
+                    <span class="card-price">R$ 19,90</span>
+                    <span class="card-subtext">À vista no Pix</span>
                 </div>
             </div>
-
-            <!-- Produto Exemplo 2 -->
-            <div class="card-item tilt-element" onclick="openDetail('REGEDIT VIP MOBILE', '25,00', 'holograma_ios.PNG')">
-                <div class="card-banner">
-                    <img src="holograma_ios.PNG" alt="Regedit" style="filter: hue-rotate(120deg);">
+            <!-- Produto 2 -->
+            <div class="product-card" onclick="openProduct('REGEDIT VIP MOBILE', 25.00, 'holograma_ios.PNG')">
+                <div class="card-img-wrap">
+                    <img src="holograma_ios.PNG" style="filter: hue-rotate(120deg);">
                 </div>
-                <div class="card-details">
+                <div class="card-info">
                     <h3>REGEDIT VIP MOBILE (ULTRA)</h3>
-                    <div class="card-price-row">
-                        <span class="price-val">R$ 25,00</span>
-                        <span class="pix-label">À vista no Pix</span>
-                    </div>
+                    <span class="card-price">R$ 25,00</span>
+                    <span class="card-subtext">À vista no Pix</span>
                 </div>
             </div>
         </div>
     </main>
 
-    <!-- VISUALIZAÇÃO DE PLANOS -->
     <section id="details-view">
-        <button class="btn-return" onclick="closeDetail()">← VOLTAR PARA A LOJA</button>
+        <button class="btn-back" onclick="closeProduct()">← VOLTAR PARA A LOJA</button>
+        <img id="detail-img" class="hero-img">
+        <h1 id="detail-name" class="detail-title">NOME</h1>
+        <div id="detail-price" class="detail-price">R$ 0,00</div>
         
-        <div class="hero-image-container tilt-element">
-            <img id="detail-main-img" src="holograma_ios.PNG">
-        </div>
-
-        <div class="prod-info-header">
-            <h1 id="detail-title-text">HS PARA IOS</h1>
-            <div class="price-display-large" id="detail-price-text">R$ 19,90</div>
-            <p class="pix-label" style="font-size: 0.9rem;">Pagamento único via Pix</p>
-        </div>
-
-        <div class="planos-selector">
-            <div class="plan-box selected" onclick="selectPlan(this, '19,90')">
-                <div style="display: flex; align-items: center;">
-                    <div class="radio-indicator"></div>
-                    <div class="plan-meta">
-                        <span class="name">ACESSO 1 DIA</span>
-                        <span class="stock">Disponível agora</span>
-                    </div>
-                </div>
-                <div class="plan-pricing">
-                    <span class="old">R$ 25,00</span>
-                    <span class="current">R$ 19,90</span>
-                </div>
-            </div>
-
-            <div class="plan-box" onclick="selectPlan(this, '49,90')">
-                <div style="display: flex; align-items: center;">
-                    <div class="radio-indicator"></div>
-                    <div class="plan-meta">
-                        <span class="name">ACESSO SEMANAL</span>
-                        <span class="stock">Restam 3 unidades</span>
-                    </div>
-                </div>
-                <div class="plan-pricing">
-                    <span class="old">R$ 70,00</span>
-                    <span class="current">R$ 49,90</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="purchase-actions">
-            <button class="btn-primary">COMPRAR PRODUTO AGORA</button>
-        </div>
-
-        <div class="info-card-box tilt-element">
-            <h4 style="margin-bottom: 8px;">Entrega Instantânea 📦</h4>
-            <p style="color: var(--text-gray); font-size: 0.8rem;">Após a confirmação do pagamento, você recebe os dados de acesso automaticamente no seu e-mail cadastrado.</p>
+        <button class="btn-checkout" id="add-to-cart-btn" style="background: #fff; margin-bottom: 15px;">ADICIONAR AO CARRINHO</button>
+        
+        <div style="background: var(--bg-card); padding: 20px; border-radius: 20px; border: 1px solid var(--border); text-align: center;">
+            <p style="font-size: 0.8rem; color: var(--text-gray);">Entrega automática via e-mail 📦</p>
         </div>
     </section>
 
-    <!-- SCRIPTS DE INTERAÇÃO -->
+    <!-- CARRINHO MODAL -->
+    <div id="cart-modal" class="cart-modal" onclick="if(event.target == this) toggleCart()">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2 style="font-weight: 900;">Meu Carrinho</h2>
+                <div onclick="toggleCart()" style="cursor: pointer; opacity: 0.5;">FECHAR</div>
+            </div>
+            
+            <div id="cart-items" class="cart-items-list">
+                <!-- Itens entram aqui -->
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total-val">R$ 0,00</span>
+                </div>
+                <button class="btn-checkout" onclick="alert('Pedido finalizado! Redirecionando...')">FINALIZAR COMPRA</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Transição de Telas
-        function openDetail(name, price, img) {
+        let cart = [];
+        let currentProduct = null;
+
+        function openProduct(name, price, img) {
+            currentProduct = { name, price, img };
             document.getElementById('store-home').style.display = 'none';
             document.getElementById('details-view').style.display = 'block';
-            document.getElementById('detail-title-text').innerText = name;
-            document.getElementById('detail-price-text').innerText = `R$ ${price}`;
-            document.getElementById('detail-main-img').src = img;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('detail-name').innerText = name;
+            document.getElementById('detail-price').innerText = `R$ ${price.toFixed(2).replace('.', ',')}`;
+            document.getElementById('detail-img').src = img;
+            
+            document.getElementById('add-to-cart-btn').onclick = () => {
+                addToCart(currentProduct);
+                closeProduct();
+                toggleCart();
+            };
+            window.scrollTo(0,0);
         }
 
-        function closeDetail() {
+        function closeProduct() {
             document.getElementById('details-view').style.display = 'none';
             document.getElementById('store-home').style.display = 'block';
         }
 
-        // Seleção de Planos
-        function selectPlan(element, price) {
-            document.querySelectorAll('.plan-box').forEach(box => box.classList.remove('selected'));
-            element.classList.add('selected');
-            document.getElementById('detail-price-text').innerText = `R$ ${price}`;
+        function toggleCart() {
+            const modal = document.getElementById('cart-modal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+            renderCart();
         }
 
-        // --- MOTOR DE EFEITO TILT (MEXER NA TELA) ---
-        const tiltElements = document.querySelectorAll('.tilt-element, .card-item');
+        function addToCart(product) {
+            cart.push(product);
+            updateBadge();
+        }
 
-        document.addEventListener('mousemove', (e) => {
-            tiltElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            renderCart();
+            updateBadge();
+        }
 
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
+        function updateBadge() {
+            const badge = document.getElementById('cart-badge');
+            badge.innerText = cart.length;
+            badge.style.display = cart.length > 0 ? 'flex' : 'none';
+        }
 
-                // Força da inclinação
-                const rotateX = (y - centerY) / 12;
-                const rotateY = (centerX - x) / 12;
+        function renderCart() {
+            const list = document.getElementById('cart-items');
+            const totalEl = document.getElementById('cart-total-val');
+            list.innerHTML = '';
+            let total = 0;
 
-                el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+            if(cart.length === 0) {
+                list.innerHTML = '<p style="text-align:center; color:gray; padding: 20px;">Seu carrinho está vazio.</p>';
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price;
+                list.innerHTML += `
+                    <div class="cart-item">
+                        <img src="${item.img}">
+                        <div class="cart-item-info">
+                            <p style="font-weight:700; font-size:0.85rem;">${item.name}</p>
+                            <p style="color:var(--accent); font-weight:800;">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
+                        </div>
+                        <span class="remove-btn" onclick="removeFromCart(${index})">Remover</span>
+                    </div>
+                `;
             });
-        });
 
-        // Resetar efeito quando o mouse sai
-        tiltElements.forEach(el => {
-            el.addEventListener('mouseleave', () => {
-                el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
-            });
-        });
-
-        // Suporte para Touch (Celular) - Efeito sutil ao deslizar
-        document.addEventListener('touchmove', (e) => {
-            const touch = e.touches[0];
-            tiltElements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                if (touch.clientX > rect.left && touch.clientX < rect.right && 
-                    touch.clientY > rect.top && touch.clientY < rect.bottom) {
-                    const x = (touch.clientX - rect.left) / rect.width - 0.5;
-                    const y = (touch.clientY - rect.top) / rect.height - 0.5;
-                    el.style.transform = `perspective(1000px) rotateX(${-y * 10}deg) rotateY(${x * 10}deg)`;
-                }
-            });
-        });
+            totalEl.innerText = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
     </script>
 </body>
 </html>
