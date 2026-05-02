@@ -3,310 +3,434 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gust4 Cheats | Planos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Gust4 Cheats | Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-principal: #0d0e12;
-            --bg-card: #15161c;
-            --bg-item: #1c1d25;
+            --bg-body: #08090b;
+            --bg-card: #111217;
+            --bg-item: #191a21;
             --accent: #00ff73;
+            --border: #23242b;
             --text-gray: #8b8e99;
-            --border: #26272f;
+            --white: #ffffff;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Inter', sans-serif; 
+            -webkit-tap-highlight-color: transparent; 
+        }
 
-        body {
-            background-color: var(--bg-principal);
-            color: #fff;
-            padding: 20px;
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--white); 
+            padding: 15px;
+            line-height: 1.5;
+        }
+
+        /* --- HEADER (Lux Cheats Style) --- */
+        .navbar {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            padding: 10px 5px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .brand img {
+            width: 35px;
+            height: 35px;
+            border-radius: 8px;
+            background: #fff; /* Simulando o logo branco da imagem */
+        }
+
+        .verified-icon {
+            color: #3b82f6;
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .icon-btn {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            cursor: pointer;
         }
 
-        .container {
+        /* --- ABA PRINCIPAL (GRID DE PRODUTOS) --- */
+        #main-store {
+            max-width: 600px;
+            margin: 0 auto;
+            animation: fadeIn 0.5s ease forwards;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .product-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .product-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .card-banner {
             width: 100%;
-            max-width: 450px;
-            animation: fadeIn 0.8s ease-out;
+            aspect-ratio: 1/1;
+            background: var(--bg-item);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            object-fit: cover;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* HEADER DO PRODUTO */
-        .product-header { margin-bottom: 25px; }
-
-        .product-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .price-main {
-            font-size: 1.8rem;
-            font-weight: 700;
-            display: block;
-        }
-
-        .pix-detail {
-            color: var(--text-gray);
+        .card-info h3 {
             font-size: 0.85rem;
-            margin-top: 4px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #efeff1;
+        }
+
+        .card-price-tag {
+            font-size: 1.2rem;
+            font-weight: 800;
             display: block;
         }
 
-        /* LISTA DE OPÇÕES (ESTILO CENTRALCART) */
-        .plans-list {
+        /* --- ABA DE PLANOS (DETALHES) --- */
+        #details-page {
+            display: none;
+            max-width: 500px;
+            margin: 0 auto;
+            animation: slideUp 0.5s ease-out;
+        }
+
+        .back-nav {
+            margin-bottom: 20px;
+            cursor: pointer;
+            color: var(--text-gray);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-title-detail {
+            font-size: 1.6rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+
+        .discount-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-gray);
+            margin-left: 10px;
+        }
+
+        .main-price-highlight {
+            font-size: 2.2rem;
+            font-weight: 800;
+            margin: 15px 0 5px;
+        }
+
+        .plans-container {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 30px;
+            margin: 25px 0;
         }
 
-        .plan-item {
+        .plan-option {
             background: var(--bg-card);
             border: 1.5px solid var(--border);
-            border-radius: 16px;
-            padding: 16px;
+            border-radius: 18px;
+            padding: 18px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-            position: relative;
+            transition: 0.3s;
         }
 
-        /* Efeito ao mexer/hover */
-        .plan-item:hover {
-            transform: translateY(-2px);
-            border-color: #3e404d;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-        }
-
-        .plan-item.active {
+        .plan-option.active {
             border-color: var(--accent);
-            background: #15161c;
+            background: linear-gradient(145deg, #111217 0%, #131b16 100%);
         }
 
-        .left-side {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .radio-box {
+        .plan-radio {
             width: 22px;
             height: 22px;
             border: 2px solid #3e404d;
             border-radius: 50%;
+            margin-right: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: 0.2s;
         }
 
-        .active .radio-box {
+        .active .plan-radio {
             border-color: var(--accent);
         }
 
-        .active .radio-box::after {
+        .active .plan-radio::after {
             content: '';
             width: 10px;
             height: 10px;
             background: var(--accent);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent);
+            box-shadow: 0 0 12px var(--accent);
         }
 
-        .plan-info-text { display: flex; flex-direction: column; }
-        .plan-name { font-weight: 600; font-size: 0.95rem; }
-        .stock { font-size: 0.75rem; color: var(--accent); margin-top: 2px; }
-
-        .price-side { text-align: right; }
-        .old-price { 
-            font-size: 0.75rem; 
-            color: var(--text-gray); 
-            text-decoration: line-through; 
-            display: block;
-        }
-        .current-price { font-weight: 700; font-size: 1.1rem; }
-
-        /* BOTÕES DE AÇÃO */
-        .actions { display: flex; flex-direction: column; gap: 12px; }
-
-        .btn {
-            padding: 16px;
-            border-radius: 14px;
-            font-weight: 700;
+        .buy-now-btn {
+            width: 100%;
+            background: var(--white);
+            color: #000;
+            border: none;
+            padding: 18px;
+            border-radius: 15px;
+            font-weight: 800;
             font-size: 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
             cursor: pointer;
             transition: 0.2s;
-            border: none;
+            margin-bottom: 12px;
         }
 
-        .btn-buy {
-            background: #e2e2e2;
-            color: #000;
-        }
-
-        .btn-buy:hover { background: #fff; transform: scale(1.02); }
-
-        .btn-cart {
-            background: var(--bg-card);
-            color: #fff;
+        .add-cart-btn {
+            width: 100%;
+            background: transparent;
+            color: var(--white);
             border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 15px;
+            font-weight: 700;
+            cursor: pointer;
         }
 
-        .btn-cart:hover { border-color: #fff; }
-
-        /* RODAPÉ DE INFOS */
-        .info-footer {
+        /* --- SEÇÃO DE BENEFÍCIOS (IMAGE_12) --- */
+        .features-grid {
             margin-top: 40px;
             display: grid;
             gap: 15px;
         }
 
-        .info-card {
+        .feature-box {
             background: var(--bg-card);
-            border-radius: 16px;
-            padding: 20px;
-            text-align: center;
             border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            transition: 0.3s;
         }
 
-        .info-icon {
-            width: 40px;
-            height: 40px;
+        .feature-icon {
+            width: 45px;
+            height: 45px;
             background: var(--bg-item);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 15px;
-            color: var(--text-gray);
+            font-size: 1.2rem;
         }
 
-        .info-card h4 { font-size: 1rem; margin-bottom: 8px; }
-        .info-card p { font-size: 0.85rem; color: var(--text-gray); line-height: 1.4; }
+        /* --- ANIMAÇÕES --- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (max-width: 400px) {
+            .product-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- HEADER -->
-        <div class="product-header">
-            <h1 class="product-title">Holograma iOS</h1>
-            <span class="price-main" id="total-price">R$ 15,00</span>
-            <span class="pix-detail">À vista no Pix</span>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="brand">
+            <img src="https://via.placeholder.com/35" alt="Logo"> <!-- Substituir por sua logo -->
+            <span>Gust4 Cheats</span>
+            <span class="verified-icon">✔</span>
         </div>
+        <div class="nav-icons">
+            <div class="icon-btn">🔍</div>
+            <div class="icon-btn">👤</div>
+            <div class="icon-btn">🛒</div>
+        </div>
+    </nav>
 
-        <!-- LISTA DE PLANOS -->
-        <div class="plans-list">
-            <div class="plan-item active" onclick="select(this, '15,00')">
-                <div class="left-side">
-                    <div class="radio-box"></div>
-                    <div class="plan-info-text">
-                        <span class="plan-name">HOLOGRAMA - 1 DIA</span>
-                        <span class="stock">Acesso Imediato</span>
+    <!-- PÁGINA PRINCIPAL -->
+    <main id="main-store">
+        <div class="product-grid">
+            <!-- Produto 1 -->
+            <div class="product-card tilt-js" onclick="openDetails('HS PARA IOS', '19,90')">
+                <img src="holograma_ios.PNG" class="card-banner" alt="Produto">
+                <div class="card-info">
+                    <h3>HS PARA IOS VIA WIFI</h3>
+                    <span class="card-price-tag">R$ 19,90</span>
+                    <small class="pix-tag" style="color: var(--text-gray); font-size: 0.7rem;">À vista no Pix</small>
+                </div>
+            </div>
+            <!-- Produto 2 -->
+            <div class="product-card tilt-js" onclick="openDetails('REGEDIT MOBILE', '29,90')">
+                <img src="https://via.placeholder.com/200" class="card-banner" alt="Produto">
+                <div class="card-info">
+                    <h3>REGEDIT VIP MOBILE</h3>
+                    <span class="card-price-tag">R$ 29,90</span>
+                    <small class="pix-tag" style="color: var(--text-gray); font-size: 0.7rem;">À vista no Pix</small>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- PÁGINA DE DETALHES -->
+    <section id="details-page">
+        <div class="back-nav" onclick="closeDetails()">← VOLTAR</div>
+        
+        <h1 id="det-name" class="product-title-detail">HS PARA IOS</h1>
+        <div style="display: flex; align-items: center;">
+            <span style="text-decoration: line-through; color: var(--text-gray); font-size: 1rem;">R$ 25,00</span>
+            <span class="discount-badge">- 20% OFF</span>
+        </div>
+        
+        <div class="main-price-highlight" id="det-price">R$ 19,90</div>
+        <p style="color: var(--text-gray); font-size: 0.85rem; margin-bottom: 20px;">À vista no Pix</p>
+
+        <div class="plans-container">
+            <div class="plan-option active" onclick="updatePrice(this, '19,90', '17 vendas')">
+                <div style="display: flex; align-items: center;">
+                    <div class="plan-radio"></div>
+                    <div>
+                        <div class="plan-name">PLANO DIÁRIO</div>
+                        <small style="color: var(--accent); font-size: 0.7rem;">Em estoque</small>
                     </div>
                 </div>
-                <div class="price-side">
-                    <span class="old-price">R$ 20,00</span>
-                    <span class="current-price">R$ 15,00</span>
+                <div style="text-align: right;">
+                    <small style="text-decoration: line-through; color: var(--text-gray); font-size: 0.7rem;">R$ 25,00</small>
+                    <div style="font-weight: 700;">R$ 19,90</div>
                 </div>
             </div>
 
-            <div class="plan-item" onclick="select(this, '25,00')">
-                <div class="left-side">
-                    <div class="radio-box"></div>
-                    <div class="plan-info-text">
-                        <span class="plan-name">HOLOGRAMA - 7 DIAS</span>
-                        <span class="stock">3 em estoque</span>
+            <div class="plan-option" onclick="updatePrice(this, '49,90', '5 vendas')">
+                <div style="display: flex; align-items: center;">
+                    <div class="plan-radio"></div>
+                    <div>
+                        <div class="plan-name">PLANO SEMANAL</div>
+                        <small style="color: var(--accent); font-size: 0.7rem;">3 em estoque</small>
                     </div>
                 </div>
-                <div class="price-side">
-                    <span class="old-price">R$ 40,00</span>
-                    <span class="current-price">R$ 25,00</span>
-                </div>
-            </div>
-
-            <div class="plan-item" onclick="select(this, '50,00')">
-                <div class="left-side">
-                    <div class="radio-box"></div>
-                    <div class="plan-info-text">
-                        <span class="plan-name">HOLOGRAMA - 30 DIAS</span>
-                        <span class="stock">10 em estoque</span>
-                    </div>
-                </div>
-                <div class="price-side">
-                    <span class="old-price">R$ 90,00</span>
-                    <span class="current-price">R$ 50,00</span>
+                <div style="text-align: right;">
+                    <small style="text-decoration: line-through; color: var(--text-gray); font-size: 0.7rem;">R$ 60,00</small>
+                    <div style="font-weight: 700;">R$ 49,90</div>
                 </div>
             </div>
         </div>
 
-        <!-- BOTÕES -->
-        <div class="actions">
-            <button class="btn btn-buy">🛒 Comprar agora</button>
-            <button class="btn btn-cart">＋ Adicionar ao carrinho</button>
-        </div>
+        <button class="buy-now-btn">🛒 COMPRAR AGORA</button>
+        <button class="add-cart-btn">+ ADICIONAR AO CARRINHO</button>
 
-        <!-- INFOS EXTRAS (ESTILO IMAGE_3) -->
-        <div class="info-footer">
-            <div class="info-card">
-                <div class="info-icon">📦</div>
-                <h4>Entrega imediata</h4>
-                <p>Receba o seu pacote imediatamente após o pagamento.</p>
+        <div class="features-grid">
+            <div class="feature-box tilt-js">
+                <div class="feature-icon">📦</div>
+                <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Entrega imediata</h4>
+                <p style="color: var(--text-gray); font-size: 0.8rem;">Receba o seu pacote imediatamente após o pagamento.</p>
             </div>
-            <div class="info-card">
-                <div class="info-icon">🛡️</div>
-                <h4>Segurança total</h4>
-                <p>Seus dados são criptografados durante todo o processo.</p>
+            <div class="feature-box tilt-js">
+                <div class="feature-icon">🛡️</div>
+                <h4 style="margin-bottom: 8px; font-size: 0.95rem;">Segurança total</h4>
+                <p style="color: var(--text-gray); font-size: 0.8rem;">Seus dados são criptografados de ponta-à-ponta.</p>
             </div>
         </div>
-    </div>
+    </section>
 
     <script>
-        function select(element, price) {
-            // Remove a classe active de todos
-            document.querySelectorAll('.plan-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            // Adiciona no clicado
-            element.classList.add('active');
-            // Atualiza o preço principal com animação
-            const priceDisplay = document.getElementById('total-price');
-            priceDisplay.style.opacity = '0';
-            setTimeout(() => {
-                priceDisplay.innerText = `R$ ${price}`;
-                priceDisplay.style.opacity = '1';
-            }, 100);
+        // Transições entre abas
+        function openDetails(name, price) {
+            document.getElementById('main-store').style.display = 'none';
+            document.getElementById('details-page').style.display = 'block';
+            document.getElementById('det-name').innerText = name;
+            document.getElementById('det-price').innerText = `R$ ${price}`;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Efeito de movimento nos cards (Tilt básico)
-        document.querySelectorAll('.plan-item, .info-card').forEach(card => {
+        function closeDetails() {
+            document.getElementById('details-page').style.display = 'none';
+            document.getElementById('main-store').style.display = 'block';
+        }
+
+        function updatePrice(element, price) {
+            document.querySelectorAll('.plan-option').forEach(opt => opt.classList.remove('active'));
+            element.classList.add('active');
+            document.getElementById('det-price').innerText = `R$ ${price}`;
+        }
+
+        // --- EFEITO AO MEXER NA TELA (TILT EFECT) ---
+        const cards = document.querySelectorAll('.tilt-js');
+
+        cards.forEach(card => {
             card.addEventListener('mousemove', (e) => {
-                let rect = card.getBoundingClientRect();
-                let x = e.clientX - rect.left;
-                let y = e.clientY - rect.top;
-                let centerX = rect.width / 2;
-                let centerY = rect.height / 2;
-                let rotateX = (y - centerY) / 10;
-                let rotateY = (centerX - x) / 10;
-                
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-5px)`;
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 10;
+                const rotateY = (centerX - x) / 10;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
             });
 
             card.addEventListener('mouseleave', () => {
-                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)`;
+                card.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
             });
         });
     </script>
