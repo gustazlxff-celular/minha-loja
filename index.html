@@ -3,185 +3,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GUST4 CHEATS | OFFICIAL STORE</title>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Gust4 Cheats | Store</title>
     <style>
         :root {
-            --primary: #00ff41;
-            --bg: #000000;
-            --card-bg: rgba(10, 10, 10, 0.8);
-            --neon-glow: 0 0 25px rgba(0, 255, 65, 0.4);
+            --bg-color: #080808;
+            --card-bg: #121212;
+            --accent-green: #00ff66; /* Verde Neon */
+            --accent-dim: #008033;
+            --text-main: #ffffff;
+            --border-color: #1e1e1e;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg);
-            color: #fff;
-            font-family: 'Inter', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            overflow-x: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
         }
 
-        /* FUNDO DINÂMICO */
-        .bg-overlay {
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: 
-                radial-gradient(circle at 50% -20%, #0a2a0a 0%, transparent 50%),
-                linear-gradient(rgba(0, 255, 65, 0.02) 1px, transparent 1px) 0 0 / 30px 30px,
-                linear-gradient(90deg, rgba(0, 255, 65, 0.02) 1px, transparent 1px) 0 0 / 30px 30px;
-            z-index: -1;
-        }
-
-        header {
-            padding: 50px 20px;
-            text-align: center;
-            animation: fadeInDown 1s ease;
-        }
-
-        .logo-main {
-            height: 130px;
-            filter: drop-shadow(var(--neon-glow));
-        }
-
-        /* GRID DE PRODUTOS - Pronto para o futuro */
-        .shop-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto 50px;
-            animation: fadeInUp 1s ease 0.2s backwards;
-        }
-
-        .card {
-            background: var(--card-bg);
-            border: 1px solid rgba(0, 255, 65, 0.2);
-            border-radius: 24px;
-            padding: 20px;
-            backdrop-filter: blur(15px);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-            box-shadow: var(--neon-glow);
-        }
-
-        .card-img-box {
-            width: 100%;
-            border-radius: 16px;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.05);
-            margin-bottom: 20px;
-        }
-
-        .card-img-box img {
-            width: 100%;
-            display: block;
-            transition: 0.5s;
-        }
-
-        .card:hover .card-img-box img { transform: scale(1.05); }
-
-        .title {
-            font-family: 'Syncopate', sans-serif;
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 10px;
-            text-transform: uppercase;
-        }
-
-        .desc {
-            font-size: 0.85rem;
-            color: #999;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            min-height: 40px;
-        }
-
-        .price-tag {
+        /* Header similar ao image_2.png */
+        .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 10px 5px 20px 5px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 20px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .verified-badge {
+            color: #3d5afe; /* Azul de verificado conforme o print */
+            font-size: 14px;
+        }
+
+        .cart-btn {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        #cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--accent-green);
+            color: #000;
+            font-weight: bold;
+            font-size: 10px;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+
+        /* Grid de Produtos */
+        .grid-products {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 colunas como no mobile */
+            gap: 12px;
+        }
+
+        .product-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .product-card:active {
+            transform: scale(0.98);
+        }
+
+        .product-img {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .product-title {
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 5px 0;
+            height: 40px; /* Mantém alinhamento */
+            overflow: hidden;
+        }
+
+        .price-area {
+            margin: 10px 0;
+        }
+
+        .price-tag {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--text-main);
+        }
+
+        .pix-info {
+            font-size: 0.7rem;
+            color: #888;
+        }
+
+        /* Botão de Compra */
+        .btn-buy {
+            background: var(--accent-green);
+            color: #000;
+            border: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            cursor: pointer;
             margin-top: auto;
         }
 
-        .btn-action {
-            background: var(--primary);
-            color: #000;
-            text-decoration: none;
-            padding: 14px 25px;
-            border-radius: 12px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            transition: 0.3s;
-            flex-grow: 1;
-            text-align: center;
+        .btn-buy:hover {
+            background: #00cc52;
         }
 
-        .btn-action:hover {
-            filter: brightness(1.2);
-            box-shadow: 0 0 20px var(--primary);
-        }
-
-        /* ANIMAÇÕES */
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        footer {
-            text-align: center;
-            padding: 40px;
-            color: #444;
-            font-family: 'Syncopate', sans-serif;
-            font-size: 0.6rem;
-            letter-spacing: 3px;
-        }
     </style>
 </head>
 <body>
 
-    <div class="bg-overlay"></div>
+    <div class="header">
+        <div class="logo-area">
+            <strong style="font-size: 1.2rem;">Gust4 Cheats</strong>
+            <span class="verified-badge">✔</span>
+        </div>
+        <button class="cart-btn">
+            🛒 <span id="cart-count">0</span>
+        </button>
+    </div>
 
-    <header>
-        <img src="logo_gust4_cheats.png" alt="LOGO GUST4" class="logo-main">
-    </header>
-
-    <main class="shop-container">
-        
-        <!-- PRODUTO 1: HOLOGRAMA -->
-        <article class="card">
-            <div class="card-img-box">
-                <img src="holograma_ios.PNG" alt="HOLOGRAMA iOS">
+    <div class="grid-products">
+        <!-- Produto 1 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150/121212/00ff66?text=HS+WIFI" class="product-img">
+            <div class="product-title">HS PARA IOS VIA WIFI 1 DIA</div>
+            <div class="price-area">
+                <span class="price-tag">R$ 19,90</span><br>
+                <span class="pix-info">À vista no Pix</span>
             </div>
-            <h3 class="title">HOLOGRAMA iOS</h3>
-            <p class="desc">Tecnologia visual de elite para o seu dispositivo. Performance e estética em um só lugar.</p>
-            <div class="price-tag">
-                <a href="#" class="btn-action">ADQUIRIR AGORA</a>
+            <button class="btn-buy" onclick="addToCart('HS WIFI 1D', 19.90)">Comprar agora</button>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150/121212/00ff66?text=FFH4X" class="product-img">
+            <div class="product-title">Painel ffh4x ios</div>
+            <div class="price-area">
+                <span class="price-tag">R$ 15,00</span><br>
+                <span class="pix-info">À vista no Pix</span>
             </div>
-        </article>
+            <button class="btn-buy" onclick="addToCart('Painel FFH4X', 15.00)">Comprar agora</button>
+        </div>
 
-        <!-- ESPAÇO PARA PRODUTOS FUTUROS (Exemplo) -->
-        <!-- Basta copiar o bloco do 'article' acima e colar aqui embaixo -->
+        <!-- Produto 3 -->
+        <div class="product-card">
+            <img src="https://via.placeholder.com/150/121212/00ff66?text=CERTIFICADO" class="product-img">
+            <div class="product-title">CERTIFICADO iOS PREMIUM</div>
+            <div class="price-area">
+                <span class="price-tag">R$ 79,90</span><br>
+                <span class="pix-info">À vista no Pix</span>
+            </div>
+            <button class="btn-buy" onclick="addToCart('Certificado Premium', 79.90)">Comprar agora</button>
+        </div>
+    </div>
 
-    </main>
+    <script>
+        // Sistema de Carrinho
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
-    <footer>
-        GUST4 CHEATS &copy; 2026 - MODS & OPTIMIZATION
-    </footer>
+        function updateCartUI() {
+            const count = cart.reduce((acc, item) => acc + item.quantity, 0);
+            document.getElementById('cart-count').innerText = count;
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
 
+        function addToCart(name, price) {
+            const itemIndex = cart.findIndex(item => item.name === name);
+            if (itemIndex > -1) {
+                cart[itemIndex].quantity += 1;
+            } else {
+                cart.push({ name, price, quantity: 1 });
+            }
+            updateCartUI();
+            
+            // Pequeno feedback visual
+            const btn = event.target;
+            const originalText = btn.innerText;
+            btn.innerText = "ADICIONADO!";
+            btn.style.background = "#fff";
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "var(--accent-green)";
+            }, 1000);
+        }
+
+        updateCartUI();
+    </script>
 </body>
 </html>
