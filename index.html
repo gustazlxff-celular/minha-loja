@@ -3,134 +3,132 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oferta Exclusiva - Kit Premium</title>
+    <title>Loja Oficial - Kit Premium</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; margin: 0; overflow-x: hidden; }
-        .gold-gradient { background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); }
-        .text-gold { background: linear-gradient(90deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
-        .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
-        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
-        
-        #chat-widget { position: fixed; bottom: 15px; right: 15px; z-index: 1000; }
-        #chat-button { width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.3s; }
-        #chat-window { display: none; width: 280px; height: 380px; flex-direction: column; bottom: 70px; right: 0; position: absolute; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;800&display=swap');
+        body { font-family: 'SF Pro Display', -apple-system, blinkmacsystemfont, sans-serif; background-color: #f5f5f7; color: #1d1d1f; margin: 0; }
+        .btn-apple { background-color: #0071e3; color: white; transition: all 0.3s ease; }
+        .btn-apple:hover { background-color: #0077ed; transform: scale(1.02); }
+        .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.1); }
+        .card-shadow { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
     </style>
 </head>
-<body class="selection:bg-yellow-500">
+<body class="bg-[#f5f5f7]">
 
-    <div class="bg-red-600 text-white text-center py-1.5 text-[9px] sm:text-xs font-bold uppercase tracking-widest sticky top-0 z-50">
-        🔥 ÚLTIMAS UNIDADES COM DESCONTO!
+    <nav class="glass-header sticky top-0 z-50 py-3 px-6 text-center">
+        <span class="text-xs font-semibold tracking-tight text-[#1d1d1f] opacity-80 uppercase">Store Oficial — Edição Limitada</span>
+    </nav>
+
+    <div class="bg-[#1d1d1f] text-white text-center py-2 text-[10px] font-medium tracking-wide">
+        Oferta especial: <span id="countdown" class="text-yellow-400 font-bold">20:00</span> restantes para garantir o desconto.
     </div>
 
-    <header class="py-8 px-6 text-center">
-        <h1 class="text-4xl md:text-5xl font-black mb-1 italic tracking-tighter uppercase">KIT <span class="text-gold">PREMIUM</span></h1>
-        <p class="text-slate-400 text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold opacity-70">10 Pacotes Lacrados e Originais</p>
-    </header>
-
-    <main class="max-w-md mx-auto px-6 pb-20">
-        <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.4)]">
-            <div class="relative">
-                <img src="Copa.PNG" alt="Pacotes" class="w-full h-64 object-cover">
-                <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-50"></div>
-                <div class="absolute top-4 left-4 bg-yellow-500 text-black text-[9px] px-3 py-1 rounded-full font-black uppercase">
-                    🏆 LÍDER DE VENDAS
+    <main class="max-w-screen-xl mx-auto px-4 pt-10 pb-20">
+        <div class="flex flex-col md:flex-row gap-12 items-start justify-center">
+            
+            <div class="w-full md:w-1/2 max-w-md">
+                <div class="bg-white rounded-3xl p-4 card-shadow">
+                    <img src="Copa.PNG" alt="Produto" class="w-full h-auto rounded-2xl">
                 </div>
             </div>
 
-            <div class="p-8 -mt-10 relative z-10">
-                <div class="flex flex-col items-center mb-6 p-4 bg-slate-900/80 rounded-2xl border border-yellow-500/20">
-                    <span class="text-[9px] uppercase font-black text-slate-500 mb-1">A oferta encerra em:</span>
-                    <div id="countdown" class="text-3xl font-mono font-black text-yellow-500">20:00</div>
+            <div class="w-full md:w-1/2 max-w-md space-y-6">
+                <div>
+                    <span class="text-blue-600 text-xs font-bold uppercase tracking-widest">Novo</span>
+                    <h1 class="text-4xl font-extrabold text-[#1d1d1f] leading-tight">Kit Premium Figurinhas<br><span class="text-slate-400">10 Pacotes Lacrados.</span></h1>
                 </div>
 
-                <div class="mb-6 text-center">
-                    <p class="text-slate-500 line-through text-base mb-0 opacity-60">De R$ 69,99</p>
-                    <div class="flex items-center justify-center gap-2">
-                        <p class="text-6xl font-black text-white tracking-tighter">R$ 39,90</p>
-                    </div>
-                    <p class="text-green-400 text-[10px] font-bold uppercase mt-1 tracking-widest">Você economiza R$ 30,09</p>
+                <div class="flex items-baseline gap-3">
+                    <span class="text-3xl font-semibold">R$ 39,90</span>
+                    <span class="text-slate-400 line-through text-lg">R$ 69,99</span>
                 </div>
 
-                <div class="grid grid-cols-1 gap-2 mb-8">
-                    <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                        <i class="fas fa-check text-green-500 text-xs"></i>
-                        <span class="text-xs font-semibold text-slate-200">50 Figurinhas (10 Pacotes)</span>
-                    </div>
-                    <div class="flex items-center gap-3 bg-white/5 p-3 rounded-xl border border-white/5">
-                        <i class="fas fa-shield-alt text-blue-500 text-xs"></i>
-                        <span class="text-xs font-semibold text-slate-200">Compra 100% Protegida</span>
+                <p class="text-sm text-slate-600 leading-relaxed">
+                    Adquira a coleção completa com pacotes 100% originais. Envio prioritário para todo o território nacional com seguro incluso.
+                </p>
+
+                <div class="pt-4 space-y-3">
+                    <a href="COLE_AQUI_SEU_LINK_DO_PUSHINPAY" class="btn-apple block w-full text-center py-4 rounded-full font-bold text-lg shadow-lg active:scale-95 uppercase tracking-wide">
+                        Comprar Agora
+                    </a>
+                    <div class="flex justify-center items-center gap-2 text-[10px] text-slate-400 font-medium italic">
+                        <i class="fas fa-lock text-green-500"></i> Pagamento processado em ambiente criptografado.
                     </div>
                 </div>
 
-                <a href="COLE_AQUI_SEU_LINK_DO_PUSHINPAY" class="gold-gradient block w-full text-center py-5 rounded-2xl text-slate-950 font-black text-lg uppercase shadow-xl hover:scale-[1.02] transition-all animate-pulse-slow">
-                    Comprar Agora
-                </a>
+                <div class="grid grid-cols-2 gap-4 pt-6 border-t border-slate-200">
+                    <div class="text-center p-3">
+                        <i class="fas fa-truck text-slate-400 mb-2"></i>
+                        <p class="text-[10px] font-bold uppercase">Frete Expresso</p>
+                    </div>
+                    <div class="text-center p-3">
+                        <i class="fas fa-undo text-slate-400 mb-2"></i>
+                        <p class="text-[10px] font-bold uppercase">Garantia Total</p>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <section class="mt-12">
-            <h3 class="font-black text-slate-500 uppercase text-[9px] tracking-[0.2em] text-center mb-6">O que dizem os colecionadores:</h3>
-            <div class="space-y-4">
-                <div class="glass-card p-5 rounded-2xl border-l-4 border-yellow-500">
-                    <span class="block text-[10px] font-black text-white mb-1">R.A — ⭐⭐⭐⭐⭐</span>
-                    <p class="text-xs text-slate-400 italic">"Tudo original e bem lacrado. O melhor preço que encontrei."</p>
+        <section class="mt-20 max-w-3xl mx-auto">
+            <h2 class="text-2xl font-bold text-center mb-10 text-[#1d1d1f]">O que nossos clientes dizem</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="bg-white p-6 rounded-3xl card-shadow">
+                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-sm text-slate-600 italic">"Excelente qualidade. Os pacotes chegaram em perfeito estado e o suporte foi muito ágil."</p>
+                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— R.A, Cliente Verificado</span>
                 </div>
-                <div class="glass-card p-5 rounded-2xl border-l-4 border-yellow-500">
-                    <span class="block text-[10px] font-black text-white mb-1">L.K — ⭐⭐⭐⭐⭐</span>
-                    <p class="text-xs text-slate-400 italic">"Entrega rápida e suporte atencioso. Recomendo!"</p>
+                <div class="bg-white p-6 rounded-3xl card-shadow">
+                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-sm text-slate-600 italic">"Melhor preço da internet. O envio foi feito no mesmo dia da compra."</p>
+                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— L.K, Cliente Verificado</span>
                 </div>
-                <div class="glass-card p-5 rounded-2xl border-l-4 border-yellow-500">
-                    <span class="block text-[10px] font-black text-white mb-1">M.V — ⭐⭐⭐⭐⭐</span>
-                    <p class="text-xs text-slate-400 italic">"Vieram várias brilhantes no meu kit. Valeu muito a pena."</p>
+                <div class="bg-white p-6 rounded-3xl card-shadow">
+                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-sm text-slate-600 italic">"Tive dúvidas sobre o rastreio e o suporte me atendeu na hora. Recomendo."</p>
+                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— M.V, Cliente Verificado</span>
                 </div>
-                <div class="glass-card p-5 rounded-2xl border-l-4 border-yellow-500">
-                    <span class="block text-[10px] font-black text-white mb-1">G.S — ⭐⭐⭐⭐⭐</span>
-                    <p class="text-xs text-slate-400 italic">"O envio foi imediato. O suporte responde rápido sobre o rastreio."</p>
-                </div>
-                <div class="glass-card p-5 rounded-2xl border-l-4 border-yellow-500">
-                    <span class="block text-[10px] font-black text-white mb-1">F.P — ⭐⭐⭐⭐⭐</span>
-                    <p class="text-xs text-slate-400 italic">"Segunda vez que compro e veio tudo certinho novamente. Nota 10."</p>
+                <div class="bg-white p-6 rounded-3xl card-shadow">
+                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-sm text-slate-600 italic">"Pacotes 100% originais. Perfeito para quem está terminando o álbum."</p>
+                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— G.S, Cliente Verificado</span>
                 </div>
             </div>
         </section>
     </main>
 
-    <div id="chat-widget">
-        <div id="chat-button" class="gold-gradient text-slate-900 shadow-2xl" onclick="toggleChat()">
-            <i class="fas fa-comments text-xl"></i>
-        </div>
-        <div id="chat-window" class="glass-card rounded-2xl overflow-hidden flex flex-col border border-white/20">
-            <div class="bg-slate-900/80 p-3 border-b border-white/10 flex justify-between items-center">
-                <span class="font-bold text-xs text-gold">Suporte Oficial</span>
-                <i class="fas fa-times cursor-pointer opacity-50 text-xs" onclick="toggleChat()"></i>
+    <div id="chat-widget" class="fixed bottom-6 right-6 z-50">
+        <button onclick="toggleChat()" class="bg-[#1d1d1f] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
+            <i class="fas fa-comment-dots text-xl"></i>
+        </button>
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-3xl card-shadow flex-col overflow-hidden border border-slate-100">
+            <div class="bg-[#1d1d1f] p-4 text-white text-sm font-bold flex justify-between">
+                Suporte Especializado
+                <i class="fas fa-times cursor-pointer" onclick="toggleChat()"></i>
             </div>
-            <div id="chat-content" class="flex-1 p-3 overflow-y-auto space-y-3 text-[10px]">
-                <div class="bg-slate-800 p-2.5 rounded-xl rounded-tl-none self-start max-w-[85%]">
-                    Olá! Como podemos te ajudar hoje?
-                </div>
+            <div id="chat-content" class="h-64 p-4 overflow-y-auto space-y-3 text-[11px] bg-[#f5f5f7]">
+                <div class="bg-white p-3 rounded-2xl shadow-sm text-slate-600">Olá! Como podemos auxiliar em sua compra?</div>
             </div>
-            <div class="p-2 bg-slate-900/50 flex gap-1.5">
-                <input type="text" id="chat-input" placeholder="Dúvida..." class="flex-1 bg-white/5 border border-white/10 rounded-full px-3 py-1.5 text-[10px] focus:outline-none">
-                <button onclick="sendMessage()" class="bg-yellow-500 text-black w-7 h-7 rounded-full flex items-center justify-center"><i class="fas fa-paper-plane text-[9px]"></i></button>
+            <div class="p-3 border-t border-slate-100 flex gap-2">
+                <input type="text" id="chat-input" placeholder="Sua dúvida..." class="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-xs focus:ring-0">
+                <button onclick="sendMessage()" class="text-blue-600 font-bold px-2"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
 
-    <footer class="py-10 text-center">
-        <p class="text-slate-600 text-[8px] uppercase font-black tracking-[0.3em]">Privacidade & Segurança • 2026</p>
+    <footer class="py-10 text-center border-t border-slate-200">
+        <p class="text-slate-400 text-[9px] font-bold uppercase tracking-[0.2em]">© 2026 Store Oficial — Todos os direitos reservados</p>
     </footer>
 
     <script>
+        // Timer de 20 minutos individual
         function startTimer() {
             const duration = 20 * 60;
-            let start = localStorage.getItem('timer_store_v5');
+            let start = localStorage.getItem('timer_pro_v1');
             if (!start) {
                 start = Math.floor(Date.now() / 1000);
-                localStorage.setItem('timer_store_v5', start);
+                localStorage.setItem('timer_pro_v1', start);
             }
             const el = document.getElementById('countdown');
             function update() {
@@ -147,26 +145,30 @@
 
         function toggleChat() {
             const win = document.getElementById('chat-window');
-            win.style.display = (win.style.display === 'flex' ? 'none' : 'flex');
+            win.classList.toggle('hidden');
+            win.classList.toggle('flex');
         }
 
         function sendMessage() {
             const input = document.getElementById('chat-input');
             const content = document.getElementById('chat-content');
             if (input.value.trim() === "") return;
+            
             const uMsg = document.createElement('div');
-            uMsg.className = "bg-yellow-500 text-black p-2.5 rounded-xl rounded-tr-none self-end max-w-[85%] ml-auto font-medium";
+            uMsg.className = "bg-blue-600 text-white p-3 rounded-2xl self-end ml-auto max-w-[80%] shadow-sm";
             uMsg.textContent = input.value;
             content.appendChild(uMsg);
             input.value = "";
+
             setTimeout(() => {
                 const bMsg = document.createElement('div');
-                bMsg.className = "bg-slate-800 p-2.5 rounded-xl rounded-tl-none self-start max-w-[85%] text-slate-200";
+                bMsg.className = "bg-white p-3 rounded-2xl shadow-sm text-slate-600 self-start max-w-[80%]";
                 bMsg.textContent = "Agradecemos o contato! Em breve irei enviar o código de rastreio referente à sua solicitação.";
                 content.appendChild(bMsg);
                 content.scrollTop = content.scrollHeight;
             }, 1000);
         }
+
         window.onload = startTimer;
     </script>
 </body>
