@@ -3,132 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Loja Oficial - Kit Premium</title>
+    <title>Collect Prime - Distribuidora Oficial</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;800&display=swap');
-        body { font-family: 'SF Pro Display', -apple-system, blinkmacsystemfont, sans-serif; background-color: #f5f5f7; color: #1d1d1f; margin: 0; }
-        .btn-apple { background-color: #0071e3; color: white; transition: all 0.3s ease; }
-        .btn-apple:hover { background-color: #0077ed; transform: scale(1.02); }
-        .glass-header { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(0,0,0,0.1); }
-        .card-shadow { box-shadow: 0 8px 30px rgba(0,0,0,0.08); }
+        body { font-family: 'SF Pro Display', -apple-system, sans-serif; background-color: #f5f5f7; color: #1d1d1f; }
+        .btn-buy { background-color: #0071e3; color: white; transition: all 0.3s ease; }
+        .btn-buy:hover { background-color: #0077ed; transform: translateY(-2px); shadow: 0 10px 20px rgba(0,113,227,0.3); }
+        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
+        .card-pro { background: white; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
     </style>
 </head>
 <body class="bg-[#f5f5f7]">
 
-    <nav class="glass-header sticky top-0 z-50 py-3 px-6 text-center">
-        <span class="text-xs font-semibold tracking-tight text-[#1d1d1f] opacity-80 uppercase">Store Oficial — Edição Limitada</span>
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-6 flex justify-between items-center">
+        <div class="font-extrabold text-xl tracking-tight text-[#1d1d1f]">COLLECT<span class="text-blue-600">PRIME</span></div>
+        <div class="hidden md:flex gap-6 text-[11px] font-bold uppercase text-slate-500">
+            <span>Colecionáveis</span>
+            <span>Rastreio</span>
+            <span>Suporte</span>
+        </div>
+        <div class="text-blue-600"><i class="fas fa-shopping-bag"></i></div>
     </nav>
 
-    <div class="bg-[#1d1d1f] text-white text-center py-2 text-[10px] font-medium tracking-wide">
-        Oferta especial: <span id="countdown" class="text-yellow-400 font-bold">20:00</span> restantes para garantir o desconto.
+    <div class="bg-[#f2f2f2] text-[#1d1d1f] text-center py-2 text-[10px] font-semibold border-b border-slate-200">
+        PROMOÇÃO DE ESTOQUE: A oferta expira em <span id="countdown" class="text-red-600 font-bold">20:00</span>.
     </div>
 
-    <main class="max-w-screen-xl mx-auto px-4 pt-10 pb-20">
-        <div class="flex flex-col md:flex-row gap-12 items-start justify-center">
+    <main class="max-w-4xl mx-auto px-6 pt-10 pb-20">
+        <div class="flex flex-col md:flex-row gap-10 items-start">
             
-            <div class="w-full md:w-1/2 max-w-md">
-                <div class="bg-white rounded-3xl p-4 card-shadow">
-                    <img src="Copa.PNG" alt="Produto" class="w-full h-auto rounded-2xl">
+            <div class="w-full md:w-1/2">
+                <div class="card-pro p-2">
+                    <img src="Copa.PNG" alt="Kit Figurinhas" class="w-full h-auto rounded-[20px]">
+                </div>
+                <div class="flex gap-2 mt-4">
+                    <div class="w-20 h-20 bg-white rounded-lg border-2 border-blue-600 overflow-hidden"><img src="Copa.PNG" class="opacity-50"></div>
+                    <div class="w-20 h-20 bg-white rounded-lg border border-slate-200"></div>
+                    <div class="w-20 h-20 bg-white rounded-lg border border-slate-200"></div>
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 max-w-md space-y-6">
+            <div class="w-full md:w-1/2 space-y-6">
                 <div>
-                    <span class="text-blue-600 text-xs font-bold uppercase tracking-widest">Novo</span>
-                    <h1 class="text-4xl font-extrabold text-[#1d1d1f] leading-tight">Kit Premium Figurinhas<br><span class="text-slate-400">10 Pacotes Lacrados.</span></h1>
+                    <h1 class="text-3xl font-bold tracking-tight mb-2">Combo Premium: 10 Pacotes de Figurinhas Originais</h1>
+                    <div class="flex items-center gap-2 text-yellow-500 text-xs">
+                        <div class="flex"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <span class="text-slate-400 font-medium">(142 avaliações)</span>
+                    </div>
                 </div>
 
-                <div class="flex items-baseline gap-3">
-                    <span class="text-3xl font-semibold">R$ 39,90</span>
-                    <span class="text-slate-400 line-through text-lg">R$ 69,99</span>
+                <div class="py-4 border-y border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <span class="text-4xl font-bold">R$ 39,90</span>
+                        <span class="text-slate-400 line-through text-lg">R$ 69,99</span>
+                    </div>
+                    <p class="text-[11px] text-green-600 font-bold mt-1">Disponível em estoque para envio imediato.</p>
                 </div>
 
-                <p class="text-sm text-slate-600 leading-relaxed">
-                    Adquira a coleção completa com pacotes 100% originais. Envio prioritário para todo o território nacional com seguro incluso.
-                </p>
+                <ul class="text-sm text-slate-600 space-y-3">
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-blue-600"></i> Produto novo, lacrado e original.</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-blue-600"></i> Entrega garantida via Transportadora Parceira.</li>
+                    <li class="flex items-center gap-2"><i class="fas fa-check text-blue-600"></i> Nota Fiscal Eletrônica inclusa.</li>
+                </ul>
 
-                <div class="pt-4 space-y-3">
-                    <a href="COLE_AQUI_SEU_LINK_DO_PUSHINPAY" class="btn-apple block w-full text-center py-4 rounded-full font-bold text-lg shadow-lg active:scale-95 uppercase tracking-wide">
-                        Comprar Agora
+                <div class="pt-4">
+                    <a href="COLE_AQUI_SEU_LINK_DO_PUSHINPAY" class="btn-buy block w-full text-center py-4 rounded-xl font-bold text-lg shadow-lg active:scale-95">
+                        FINALIZAR COMPRA
                     </a>
-                    <div class="flex justify-center items-center gap-2 text-[10px] text-slate-400 font-medium italic">
-                        <i class="fas fa-lock text-green-500"></i> Pagamento processado em ambiente criptografado.
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-2 gap-4 pt-6 border-t border-slate-200">
-                    <div class="text-center p-3">
-                        <i class="fas fa-truck text-slate-400 mb-2"></i>
-                        <p class="text-[10px] font-bold uppercase">Frete Expresso</p>
-                    </div>
-                    <div class="text-center p-3">
-                        <i class="fas fa-undo text-slate-400 mb-2"></i>
-                        <p class="text-[10px] font-bold uppercase">Garantia Total</p>
+                    <div class="flex justify-center gap-4 mt-6 opacity-40 grayscale scale-75">
+                        <img src="https://cdn-icons-png.flaticon.com/512/349/349221.png" class="h-6">
+                        <img src="https://cdn-icons-png.flaticon.com/512/349/349228.png" class="h-6">
+                        <img src="https://logopng.com.br/logos/pix-106.png" class="h-6">
                     </div>
                 </div>
             </div>
         </div>
 
-        <section class="mt-20 max-w-3xl mx-auto">
-            <h2 class="text-2xl font-bold text-center mb-10 text-[#1d1d1f]">O que nossos clientes dizem</h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div class="bg-white p-6 rounded-3xl card-shadow">
-                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-sm text-slate-600 italic">"Excelente qualidade. Os pacotes chegaram em perfeito estado e o suporte foi muito ágil."</p>
-                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— R.A, Cliente Verificado</span>
-                </div>
-                <div class="bg-white p-6 rounded-3xl card-shadow">
-                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-sm text-slate-600 italic">"Melhor preço da internet. O envio foi feito no mesmo dia da compra."</p>
-                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— L.K, Cliente Verificado</span>
-                </div>
-                <div class="bg-white p-6 rounded-3xl card-shadow">
-                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-sm text-slate-600 italic">"Tive dúvidas sobre o rastreio e o suporte me atendeu na hora. Recomendo."</p>
-                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— M.V, Cliente Verificado</span>
-                </div>
-                <div class="bg-white p-6 rounded-3xl card-shadow">
-                    <div class="flex text-yellow-400 text-[10px] mb-2"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                    <p class="text-sm text-slate-600 italic">"Pacotes 100% originais. Perfeito para quem está terminando o álbum."</p>
-                    <span class="block mt-4 text-[10px] font-bold text-[#1d1d1f] opacity-60">— G.S, Cliente Verificado</span>
-                </div>
+        <div class="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6 text-center border-t border-slate-200 pt-10">
+            <div>
+                <i class="fas fa-shield-alt text-2xl text-blue-600 mb-3"></i>
+                <h4 class="font-bold text-sm">Compra Segura</h4>
+                <p class="text-xs text-slate-500 mt-1">Seus dados são protegidos por criptografia ponta a ponta.</p>
             </div>
-        </section>
+            <div>
+                <i class="fas fa-history text-2xl text-blue-600 mb-3"></i>
+                <h4 class="font-bold text-sm">7 Dias de Garantia</h4>
+                <p class="text-xs text-slate-500 mt-1">Não gostou? Devolvemos seu dinheiro sem burocracia.</p>
+            </div>
+            <div>
+                <i class="fas fa-headset text-2xl text-blue-600 mb-3"></i>
+                <h4 class="font-bold text-sm">Suporte Prioritário</h4>
+                <p class="text-xs text-slate-500 mt-1">Equipe de atendimento disponível das 08h às 20h.</p>
+            </div>
+        </div>
     </main>
 
-    <div id="chat-widget" class="fixed bottom-6 right-6 z-50">
+    <footer class="bg-white border-t border-slate-200 pt-12 pb-6 px-6">
+        <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 mb-10">
+            <div>
+                <h5 class="font-bold text-[10px] uppercase mb-4 tracking-widest text-slate-400">Institucional</h5>
+                <ul class="text-xs space-y-2 font-medium">
+                    <li>Sobre a Collect Prime</li>
+                    <li>Termos de Serviço</li>
+                    <li>Políticas de Privacidade</li>
+                </ul>
+            </div>
+            <div>
+                <h5 class="font-bold text-[10px] uppercase mb-4 tracking-widest text-slate-400">Ajuda</h5>
+                <ul class="text-xs space-y-2 font-medium">
+                    <li>Rastrear Pedido</li>
+                    <li>Trocas e Devoluções</li>
+                    <li>Dúvidas Frequentes</li>
+                </ul>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto border-t border-slate-100 pt-6 text-center">
+            <p class="text-[9px] text-slate-400 leading-relaxed uppercase font-bold tracking-widest">
+                Collect Prime Distribuidora de Colecionáveis LTDA<br>
+                CNPJ: 45.122.890/0001-32 • Endereço: Av. Paulista, 1106 - São Paulo, SP<br>
+                © 2026 Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <div class="fixed bottom-6 right-6 z-50">
         <button onclick="toggleChat()" class="bg-[#1d1d1f] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform">
             <i class="fas fa-comment-dots text-xl"></i>
         </button>
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-3xl card-shadow flex-col overflow-hidden border border-slate-100">
-            <div class="bg-[#1d1d1f] p-4 text-white text-sm font-bold flex justify-between">
-                Suporte Especializado
-                <i class="fas fa-times cursor-pointer" onclick="toggleChat()"></i>
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-72 bg-white rounded-2xl shadow-2xl flex-col overflow-hidden border border-slate-100">
+            <div class="bg-[#1d1d1f] p-4 text-white text-xs font-bold flex justify-between">Suporte Collect Prime <i class="fas fa-times cursor-pointer" onclick="toggleChat()"></i></div>
+            <div id="chat-content" class="h-48 p-4 overflow-y-auto space-y-3 text-[10px] bg-slate-50">
+                <div class="bg-white p-3 rounded-xl shadow-sm">Olá! Como podemos ajudar com seu pedido?</div>
             </div>
-            <div id="chat-content" class="h-64 p-4 overflow-y-auto space-y-3 text-[11px] bg-[#f5f5f7]">
-                <div class="bg-white p-3 rounded-2xl shadow-sm text-slate-600">Olá! Como podemos auxiliar em sua compra?</div>
-            </div>
-            <div class="p-3 border-t border-slate-100 flex gap-2">
-                <input type="text" id="chat-input" placeholder="Sua dúvida..." class="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-xs focus:ring-0">
-                <button onclick="sendMessage()" class="text-blue-600 font-bold px-2"><i class="fas fa-paper-plane"></i></button>
+            <div class="p-3 bg-white flex gap-2 border-t">
+                <input type="text" id="chat-input" placeholder="Mensagem..." class="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-[10px] outline-none">
+                <button onclick="sendMessage()" class="text-blue-600 font-bold px-1"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
 
-    <footer class="py-10 text-center border-t border-slate-200">
-        <p class="text-slate-400 text-[9px] font-bold uppercase tracking-[0.2em]">© 2026 Store Oficial — Todos os direitos reservados</p>
-    </footer>
-
     <script>
-        // Timer de 20 minutos individual
         function startTimer() {
             const duration = 20 * 60;
-            let start = localStorage.getItem('timer_pro_v1');
+            let start = localStorage.getItem('timer_collect_prime');
             if (!start) {
                 start = Math.floor(Date.now() / 1000);
-                localStorage.setItem('timer_pro_v1', start);
+                localStorage.setItem('timer_collect_prime', start);
             }
             const el = document.getElementById('countdown');
             function update() {
@@ -153,22 +175,19 @@
             const input = document.getElementById('chat-input');
             const content = document.getElementById('chat-content');
             if (input.value.trim() === "") return;
-            
             const uMsg = document.createElement('div');
-            uMsg.className = "bg-blue-600 text-white p-3 rounded-2xl self-end ml-auto max-w-[80%] shadow-sm";
+            uMsg.className = "bg-blue-600 text-white p-3 rounded-xl self-end ml-auto max-w-[80%] shadow-sm";
             uMsg.textContent = input.value;
             content.appendChild(uMsg);
             input.value = "";
-
             setTimeout(() => {
                 const bMsg = document.createElement('div');
-                bMsg.className = "bg-white p-3 rounded-2xl shadow-sm text-slate-600 self-start max-w-[80%]";
+                bMsg.className = "bg-white p-3 rounded-xl shadow-sm text-slate-600 self-start max-w-[80%]";
                 bMsg.textContent = "Agradecemos o contato! Em breve irei enviar o código de rastreio referente à sua solicitação.";
                 content.appendChild(bMsg);
                 content.scrollTop = content.scrollHeight;
             }, 1000);
         }
-
         window.onload = startTimer;
     </script>
 </body>
