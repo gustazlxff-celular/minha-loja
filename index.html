@@ -34,7 +34,7 @@
 </head>
 <body class="bg-[#f5f5f7]">
 
-    <nav class="glass-nav sticky top-0 z-50 py-4 px-6 flex justify-between items-center">
+    <nav class="glass-nav sticky top-0 z-50 py-4 px-6 flex justify-between items-center text-left">
         <div class="font-extrabold text-xl tracking-tight text-[#1d1d1f]">COLLECT<span class="text-blue-600">PRIME</span></div>
         <div class="hidden md:flex gap-6 text-[11px] font-bold uppercase text-slate-500">
             <a href="#" class="hover:text-blue-600">Colecionáveis</a>
@@ -60,14 +60,14 @@
                 </div>
                 <div class="mt-4 bg-green-50 border border-green-100 p-4 rounded-2xl flex items-center gap-4 shipping-badge">
                     <div class="text-green-600 text-2xl"><i class="fas fa-truck-fast"></i></div>
-                    <div>
+                    <div class="text-left">
                         <p class="text-[10px] font-black uppercase text-green-700 tracking-wider">Frete Grátis Liberado</p>
                         <p class="text-[9px] text-green-600 font-bold uppercase">Entrega estimada: 3 a 5 dias úteis</p>
                     </div>
                 </div>
             </div>
 
-            <div class="w-full md:w-1/2 space-y-6">
+            <div class="w-full md:w-1/2 space-y-6 text-left">
                 <div>
                     <h1 id="product-title" class="text-3xl font-bold tracking-tight mb-2 leading-tight">Combo Premium: 10 Pacotes de Figurinhas</h1>
                     <div class="flex items-center gap-2 text-yellow-500 text-xs">
@@ -80,7 +80,7 @@
                     <div onclick="selectProduct('figurinhas', 'Copa.PNG', 'Combo Premium: 10 Pacotes de Figurinhas', 'R$ 39,90', 'R$ 69,99', 'https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F')" 
                          class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm thumb-active" id="opt-figurinhas">
                         <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold uppercase">10 Pacotes (50 Figs)</span>
+                            <span class="text-xs font-bold uppercase text-left">10 Pacotes (50 Figs)</span>
                             <div class="text-right">
                                 <span class="text-blue-600 font-bold text-sm">R$ 39,90</span>
                                 <span class="block text-[8px] text-green-600 font-bold uppercase">+ Frete Grátis</span>
@@ -88,10 +88,10 @@
                         </div>
                     </div>
 
-                    <div onclick="selectProduct('album', 'album.PNG', 'Álbum Oficial de Cromos - Edição Premium', 'R$ 9,90', 'R$ 15,00', 'SEU_LINK_PUSHIN_ALBUM')" 
+                    <div onclick="selectProduct('album', 'album.PNG', 'Álbum Oficial de Cromos - Edição Premium', 'R$ 9,90', 'R$ 15,00', 'SEU_LINK_ALBUM')" 
                          class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-album">
                         <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold uppercase">Apenas o Álbum Oficial</span>
+                            <span class="text-xs font-bold uppercase text-left">Apenas o Álbum Oficial</span>
                             <div class="text-right">
                                 <span class="text-blue-600 font-bold text-sm">R$ 9,90</span>
                                 <span class="block text-[8px] text-green-600 font-bold uppercase">+ Frete Grátis</span>
@@ -99,10 +99,10 @@
                         </div>
                     </div>
 
-                    <div onclick="selectProduct('combo', 'album.figu.PNG', 'Combo Completo: Álbum + 10 Pacotes', 'R$ 59,90', 'R$ 84,90', 'SEU_LINK_PUSHIN_COMBO')" 
+                    <div onclick="selectProduct('combo', 'album.figu.PNG', 'Combo Completo: Álbum + 10 Pacotes', 'R$ 59,90', 'R$ 84,90', 'SEU_LINK_COMBO')" 
                          class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-combo">
                         <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold uppercase">Álbum + 10 Pacotes</span>
+                            <span class="text-xs font-bold uppercase text-left">Álbum + 10 Pacotes</span>
                             <div class="text-right">
                                 <span class="text-blue-600 font-bold text-sm">R$ 59,90</span>
                                 <span class="block text-[8px] text-green-600 font-bold uppercase">Melhor Escolha</span>
@@ -114,7 +114,7 @@
                 <div class="py-4 border-y border-slate-100">
                     <div class="flex items-center gap-3">
                         <span id="display-price" class="text-4xl font-bold text-[#1d1d1f]">R$ 39,90</span>
-                        <div class="flex flex-col">
+                        <div class="flex flex-col text-left">
                             <span id="old-price" class="text-slate-400 line-through text-sm">R$ 69,99</span>
                             <span class="text-green-600 text-[10px] font-black uppercase tracking-tighter">Frete Grátis hoje</span>
                         </div>
@@ -183,7 +183,7 @@
             <i class="fas fa-comment-dots text-xl"></i>
         </button>
         <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-3xl shadow-2xl flex-col overflow-hidden border border-slate-100">
-            <div class="bg-[#1d1d1f] p-4 text-white text-[10px] font-bold flex justify-between items-center uppercase tracking-widest">
+            <div class="bg-[#1d1d1f] p-4 text-white text-[10px] font-bold flex justify-between items-center uppercase tracking-widest text-left">
                 Suporte Collect Prime
                 <i class="fas fa-times cursor-pointer" onclick="toggleChat()"></i>
             </div>
@@ -216,6 +216,7 @@
             }, 1000);
         }
 
+        // Função para trocar o produto e o LINK de pagamento
         function selectProduct(id, img, title, price, oldPrice, link) {
             const mainImg = document.getElementById('main-product-image');
             mainImg.style.opacity = '0';
@@ -225,8 +226,11 @@
                 document.getElementById('product-title').textContent = title;
                 document.getElementById('display-price').textContent = price;
                 document.getElementById('old-price').textContent = oldPrice;
-                document.getElementById('buy-link').href = link;
+                
+                // ESSA LINHA ATUALIZA O LINK DO BOTÃO
+                document.getElementById('buy-link').href = link; 
             }, 200);
+            
             document.querySelectorAll('.thumb').forEach(t => t.classList.remove('thumb-active'));
             document.getElementById('opt-' + id).classList.add('thumb-active');
         }
