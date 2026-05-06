@@ -4,6 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Collect Prime - Distribuidora Oficial</title>
+    
+    <meta property="og:title" content="Collect Prime - Loja Oficial de Colecionáveis">
+    <meta property="og:description" content="Garanta seu Álbum e Figurinhas com desconto exclusivo. Envio imediato para todo o Brasil.">
+    <meta property="og:image" content="https://seu-site.vercel.app/Copa.PNG">
+    <meta property="og:url" content="https://seu-site.vercel.app/">
+    <meta name="theme-color" content="#1d1d1f">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -14,16 +21,11 @@
         .btn-buy:active { transform: scale(0.98); }
         .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .card-pro { background: white; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .thumb-active { border-color: #0071e3 !important; opacity: 1 !important; }
+        .thumb-active { border-color: #0071e3 !important; opacity: 1 !important; outline: 2px solid #0071e3; }
         .chat-dot { animation: blink 1.4s infinite both; }
         .chat-dot:nth-child(2) { animation-delay: 0.2s; }
         .chat-dot:nth-child(3) { animation-delay: 0.4s; }
         @keyframes blink { 0% { opacity: 0.2; } 20% { opacity: 1; } 100% { opacity: 0.2; } }
-        <meta property="og:title" content="Collect Prime - Loja Oficial de Colecionáveis">
-<meta property="og:description" content="Garanta seu Kit Premium com 10 pacotes lacrados. Envio imediato para todo o Brasil.">
-<meta property="og:image" content="https://seu-site.vercel.app/Copa.PNG">
-<meta property="og:url" content="https://seu-site.vercel.app/">
-<meta name="theme-color" content="#1d1d1f">
     </style>
 </head>
 <body class="bg-[#f5f5f7]">
@@ -50,51 +52,64 @@
             
             <div class="w-full md:w-1/2">
                 <div class="card-pro p-2 overflow-hidden">
-                    <img id="main-product-image" src="Copa.PNG" alt="Kit Figurinhas" class="w-full h-auto rounded-[20px] transition-all duration-500">
+                    <img id="main-product-image" src="Copa.PNG" alt="Produto" class="w-full h-auto rounded-[20px] transition-all duration-500">
                 </div>
-                <div class="flex gap-2 mt-4">
-                    <div onclick="updateGallery(this, 'Copa.PNG')" class="thumb w-20 h-20 bg-white rounded-lg border-2 thumb-active cursor-pointer overflow-hidden transition-all">
-                        <img src="Copa.PNG" class="w-full h-full object-cover">
-                    </div>
-                    <div onclick="updateGallery(this, 'Copa.PNG')" class="thumb w-20 h-20 bg-slate-200 rounded-lg border border-slate-200 cursor-pointer opacity-50 hover:opacity-100 transition-all">
-                        </div>
-                    <div onclick="updateGallery(this, 'Copa.PNG')" class="thumb w-20 h-20 bg-slate-200 rounded-lg border border-slate-200 cursor-pointer opacity-50 hover:opacity-100 transition-all">
-                        </div>
-                </div>
+                <p class="text-center text-[10px] text-slate-400 mt-4 font-bold uppercase tracking-widest">Selecione uma opção abaixo</p>
             </div>
 
             <div class="w-full md:w-1/2 space-y-6">
                 <div>
-                    <h1 class="text-3xl font-bold tracking-tight mb-2 leading-tight">Combo Premium: 10 Pacotes de Figurinhas Originais</h1>
+                    <h1 id="product-title" class="text-3xl font-bold tracking-tight mb-2 leading-tight">Combo Premium: 10 Pacotes de Figurinhas</h1>
                     <div class="flex items-center gap-2 text-yellow-500 text-xs">
                         <div class="flex"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                         <span class="text-slate-400 font-medium">(142 avaliações reais)</span>
                     </div>
                 </div>
 
-                <div class="py-4 border-y border-slate-100">
-                    <div class="flex items-center gap-3">
-                        <span class="text-4xl font-bold">R$ 39,90</span>
-                        <span class="text-slate-400 line-through text-lg">R$ 69,99</span>
+                <div class="space-y-3">
+                    <div onclick="selectProduct('figurinhas', 'Copa.PNG', 'Combo Premium: 10 Pacotes de Figurinhas', 'R$ 39,90', 'R$ 69,99', 'https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F')" 
+                         class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm thumb-active" id="opt-figurinhas">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold">10 Pacotes (50 Figs)</span>
+                            <span class="text-blue-600 font-bold text-sm">R$ 39,90</span>
+                        </div>
                     </div>
-                    <p class="text-[11px] text-green-600 font-bold mt-1 uppercase italic"><i class="fas fa-check-circle mr-1"></i> Em estoque - Envio imediato via Sedex</p>
+
+                    <div onclick="selectProduct('album', 'album.PNG', 'Álbum Oficial de Cromos - Edição Premium', 'R$ 9,90', 'R$ 15,00', 'SEU_LINK_PUSHIN_ALBUM')" 
+                         class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-album">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold">Apenas o Álbum Oficial</span>
+                            <div class="text-right">
+                                <span class="text-blue-600 font-bold text-sm">R$ 9,90</span>
+                                <span class="block text-[9px] text-green-600 font-bold">34% OFF</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div onclick="selectProduct('combo', 'album.figu.PNG', 'Combo Completo: Álbum + 10 Pacotes', 'R$ 59,90', 'R$ 84,90', 'SEU_LINK_PUSHIN_COMBO')" 
+                         class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-combo">
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs font-bold">Álbum + 10 Pacotes</span>
+                            <div class="text-right">
+                                <span class="text-blue-600 font-bold text-sm">R$ 59,90</span>
+                                <span class="block text-[9px] text-green-600 font-bold">MELHOR VALOR</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <ul class="text-sm text-slate-600 space-y-3">
-                    <li class="flex items-center gap-3"><i class="fas fa-check text-blue-600 w-4"></i> Produto 100% original e lacrado.</li>
-                    <li class="flex items-center gap-3"><i class="fas fa-truck text-blue-600 w-4"></i> Rastreamento em tempo real via E-mail.</li>
-                    <li class="flex items-center gap-3"><i class="fas fa-file-invoice-dollar text-blue-600 w-4"></i> Nota Fiscal emitida no ato da compra.</li>
-                </ul>
+                <div class="py-4 border-y border-slate-100">
+                    <div class="flex items-center gap-3">
+                        <span id="display-price" class="text-4xl font-bold">R$ 39,90</span>
+                        <span id="old-price" class="text-slate-400 line-through text-lg">R$ 69,99</span>
+                    </div>
+                    <p class="text-[11px] text-green-600 font-bold mt-1 uppercase italic"><i class="fas fa-check-circle mr-1"></i> Envio imediato para sua região</p>
+                </div>
 
                 <div class="pt-4">
-                    <a href="https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F" class="btn-buy block w-full text-center py-4 rounded-xl font-bold text-lg shadow-lg uppercase tracking-wide">
+                    <a id="buy-link" href="https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F" class="btn-buy block w-full text-center py-4 rounded-xl font-bold text-lg shadow-lg uppercase tracking-wide">
                         FINALIZAR COMPRA
                     </a>
-                    <div class="flex justify-center gap-6 mt-8 opacity-50 grayscale transition-all hover:grayscale-0">
-                        <img src="https://logopng.com.br/logos/pix-106.png" class="h-5" title="Pagamento via Pix">
-                        <img src="https://cdn-icons-png.flaticon.com/512/349/349221.png" class="h-5" title="Cartão Visa">
-                        <img src="https://cdn-icons-png.flaticon.com/512/349/349228.png" class="h-5" title="Cartão Mastercard">
-                    </div>
                 </div>
             </div>
         </div>
@@ -114,7 +129,7 @@
         <button onclick="toggleChat()" class="bg-[#1d1d1f] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95">
             <i class="fas fa-comment-dots text-xl"></i>
         </button>
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-3xl shadow-2xl flex-col overflow-hidden border border-slate-100 animate-in slide-in-from-bottom-5 duration-300">
+        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-3xl shadow-2xl flex-col overflow-hidden border border-slate-100">
             <div class="bg-[#1d1d1f] p-4 text-white text-xs font-bold flex justify-between items-center">
                 <div class="flex items-center gap-2">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
@@ -122,80 +137,59 @@
                 </div>
                 <i class="fas fa-times cursor-pointer opacity-50 hover:opacity-100" onclick="toggleChat()"></i>
             </div>
-            <div id="chat-content" class="h-64 p-4 overflow-y-auto space-y-3 text-[11px] bg-slate-50 flex flex-col">
+            <div id="chat-content" class="h-64 p-4 overflow-y-auto space-y-3 text-[11px] bg-slate-50 flex flex-col text-left">
                 <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100">
                     Olá! Sou o assistente da Collect Prime. Como posso ajudar com sua compra hoje?
                 </div>
             </div>
             <div id="typing-indicator" class="hidden px-4 py-2 text-[10px] text-slate-400 font-medium italic">
-                Atendente está digitando<span class="chat-dot">.</span><span class="chat-dot">.</span><span class="chat-dot">.</span>
+                Digitando<span class="chat-dot">.</span><span class="chat-dot">.</span><span class="chat-dot">.</span>
             </div>
             <form onsubmit="handleChatSubmit(event)" class="p-3 bg-white flex gap-2 border-t">
-                <input type="text" id="chat-input" placeholder="Digite sua dúvida..." class="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-[11px] outline-none focus:ring-1 focus:ring-blue-500">
-                <button type="submit" class="text-blue-600 font-bold px-2 hover:scale-110 transition-transform">
-                    <i class="fas fa-paper-plane"></i>
-                </button>
+                <input type="text" id="chat-input" placeholder="Dúvida..." class="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-[11px] outline-none">
+                <button type="submit" class="text-blue-600 font-bold px-2"><i class="fas fa-paper-plane"></i></button>
             </form>
         </div>
     </div>
 
     <script>
-        // --- TIMER PERSISTENTE ---
         function startTimer() {
             const duration = 20 * 60;
             let start = localStorage.getItem('collect_prime_timer');
-            
-            if (!start) {
-                start = Math.floor(Date.now() / 1000);
-                localStorage.setItem('collect_prime_timer', start);
-            }
-
+            if (!start) { start = Math.floor(Date.now() / 1000); localStorage.setItem('collect_prime_timer', start); }
             const el = document.getElementById('countdown');
             function update() {
                 const now = Math.floor(Date.now() / 1000);
                 const diff = duration - (now - start);
-                
-                if (diff <= 0) {
-                    el.textContent = "00:00";
-                    el.classList.add("animate-pulse");
-                    return;
-                }
-                
-                const m = Math.floor(diff / 60);
-                const s = diff % 60;
+                if (diff <= 0) { el.textContent = "00:00"; return; }
+                const m = Math.floor(diff / 60); const s = diff % 60;
                 el.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
             }
-            setInterval(update, 1000);
-            update();
+            setInterval(update, 1000); update();
         }
 
-        // --- GALERIA INTERATIVA ---
-        function updateGallery(thumb, src) {
-            const mainImg = document.getElementById('main-product-image');
-            mainImg.style.opacity = '0';
-            
+        // Função para trocar o produto selecionado
+        function selectProduct(id, img, title, price, oldPrice, link) {
+            // Atualiza Visual
+            document.getElementById('main-product-image').style.opacity = '0';
             setTimeout(() => {
-                mainImg.src = src;
-                mainImg.style.opacity = '1';
-                
-                // Atualiza visual dos thumbs
-                document.querySelectorAll('.thumb').forEach(t => {
-                    t.classList.remove('thumb-active', 'border-2');
-                    t.classList.add('border', 'opacity-50');
-                });
-                thumb.classList.add('thumb-active', 'border-2');
-                thumb.classList.remove('opacity-50');
+                document.getElementById('main-product-image').src = img;
+                document.getElementById('main-product-image').style.opacity = '1';
+                document.getElementById('product-title').textContent = title;
+                document.getElementById('display-price').textContent = price;
+                document.getElementById('old-price').textContent = oldPrice;
+                document.getElementById('buy-link').href = link;
             }, 200);
+
+            // Atualiza Destaque nas opções
+            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('thumb-active'));
+            document.getElementById('opt-' + id).classList.add('thumb-active');
         }
 
-        // --- CHAT INTELIGENTE ---
         function toggleChat() {
             const win = document.getElementById('chat-window');
             win.classList.toggle('hidden');
             win.classList.toggle('flex');
-            if (!win.classList.contains('hidden')) {
-                document.getElementById('chat-input').focus();
-            }
         }
 
         function handleChatSubmit(e) {
@@ -203,32 +197,26 @@
             const input = document.getElementById('chat-input');
             const content = document.getElementById('chat-content');
             const typing = document.getElementById('typing-indicator');
-            const msg = input.value.trim();
+            if (!input.value.trim()) return;
 
-            if (!msg) return;
-
-            // Mensagem do Usuário
             const uDiv = document.createElement('div');
-            uDiv.className = "bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] shadow-md mb-2 animate-in fade-in slide-in-from-right-2 duration-300";
-            uDiv.textContent = msg;
+            uDiv.className = "bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] shadow-md mb-2 text-xs";
+            uDiv.textContent = input.value;
             content.appendChild(uDiv);
             input.value = "";
             content.scrollTop = content.scrollHeight;
 
-            // Simulação de Atendente
             setTimeout(() => {
                 typing.classList.remove('hidden');
-                content.scrollTop = content.scrollHeight;
-
                 setTimeout(() => {
                     typing.classList.add('hidden');
                     const bDiv = document.createElement('div');
-                    bDiv.className = "bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100 max-w-[85%] animate-in fade-in slide-in-from-left-2 duration-300";
-                    bDiv.textContent = "Agradecemos o contato! Devido à alta demanda da promoção, nosso tempo de resposta humana é de 5 minutos. Posso adiantar que seu pedido será postado hoje mesmo após a confirmação do pagamento.";
+                    bDiv.className = "bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100 max-w-[85%] text-xs";
+                    bDiv.textContent = "Seu pedido será processado assim que o pagamento for confirmado. Em breve o rastreio chegará no seu e-mail!";
                     content.appendChild(bDiv);
                     content.scrollTop = content.scrollHeight;
                 }, 2000);
-            }, 800);
+            }, 500);
         }
 
         window.onload = startTimer;
