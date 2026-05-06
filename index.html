@@ -6,9 +6,9 @@
     <title>Collect Prime - Distribuidora Oficial</title>
     
     <meta property="og:title" content="Collect Prime - Loja Oficial de Colecionáveis">
-    <meta property="og:description" content="Garanta seu Álbum e Figurinhas com desconto exclusivo. Envio imediato para todo o Brasil.">
-    <meta property="og:image" content="https://seu-site.vercel.app/Copa.PNG">
-    <meta property="og:url" content="https://seu-site.vercel.app/">
+    <meta property="og:description" content="Garanta seu Álbum e Figurinhas com FRETE GRÁTIS. Envio imediato para todo o Brasil.">
+    <meta property="og:image" content="Copa.PNG">
+    <meta property="og:url" content="https://sua-loja.vercel.app/">
     <meta name="theme-color" content="#1d1d1f">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,11 +21,15 @@
         .btn-buy:active { transform: scale(0.98); }
         .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
         .card-pro { background: white; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .thumb-active { border-color: #0071e3 !important; opacity: 1 !important; outline: 2px solid #0071e3; }
+        .thumb-active { border-color: #0071e3 !important; outline: 2px solid #0071e3; opacity: 1 !important; }
         .chat-dot { animation: blink 1.4s infinite both; }
         .chat-dot:nth-child(2) { animation-delay: 0.2s; }
         .chat-dot:nth-child(3) { animation-delay: 0.4s; }
         @keyframes blink { 0% { opacity: 0.2; } 20% { opacity: 1; } 100% { opacity: 0.2; } }
+        .payment-badge { filter: grayscale(1); opacity: 0.5; transition: 0.3s; }
+        .payment-badge:hover { filter: grayscale(0); opacity: 1; }
+        .shipping-badge { animation: pulse-green 2s infinite; }
+        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
     </style>
 </head>
 <body class="bg-[#f5f5f7]">
@@ -34,7 +38,7 @@
         <div class="font-extrabold text-xl tracking-tight text-[#1d1d1f]">COLLECT<span class="text-blue-600">PRIME</span></div>
         <div class="hidden md:flex gap-6 text-[11px] font-bold uppercase text-slate-500">
             <a href="#" class="hover:text-blue-600">Colecionáveis</a>
-            <a href="#" class="hover:text-blue-600">Rastreio</a>
+            <a href="#" class="hover:text-blue-600 text-green-600 font-black">Frete Grátis</a>
             <a href="#" class="hover:text-blue-600">Suporte</a>
         </div>
         <div class="text-blue-600 relative cursor-pointer">
@@ -44,7 +48,7 @@
     </nav>
 
     <div class="bg-[#1d1d1f] text-white text-center py-2 text-[10px] font-semibold uppercase tracking-widest">
-        Oferta exclusiva termina em: <span id="countdown" class="text-yellow-400 font-bold ml-1">20:00</span>
+        Aproveite: <span class="text-green-400">Frete Grátis</span> ativo para todo o Brasil
     </div>
 
     <main class="max-w-4xl mx-auto px-6 pt-10 pb-20">
@@ -54,7 +58,13 @@
                 <div class="card-pro p-2 overflow-hidden">
                     <img id="main-product-image" src="Copa.PNG" alt="Produto" class="w-full h-auto rounded-[20px] transition-all duration-500">
                 </div>
-                <p class="text-center text-[10px] text-slate-400 mt-4 font-bold uppercase tracking-widest">Selecione uma opção abaixo</p>
+                <div class="mt-4 bg-green-50 border border-green-100 p-4 rounded-2xl flex items-center gap-4 shipping-badge">
+                    <div class="text-green-600 text-2xl"><i class="fas fa-truck-fast"></i></div>
+                    <div>
+                        <p class="text-[10px] font-black uppercase text-green-700 tracking-wider">Frete Grátis Liberado</p>
+                        <p class="text-[9px] text-green-600 font-bold uppercase">Entrega estimada: 3 a 5 dias úteis</p>
+                    </div>
+                </div>
             </div>
 
             <div class="w-full md:w-1/2 space-y-6">
@@ -70,18 +80,21 @@
                     <div onclick="selectProduct('figurinhas', 'Copa.PNG', 'Combo Premium: 10 Pacotes de Figurinhas', 'R$ 39,90', 'R$ 69,99', 'https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F')" 
                          class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm thumb-active" id="opt-figurinhas">
                         <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold">10 Pacotes (50 Figs)</span>
-                            <span class="text-blue-600 font-bold text-sm">R$ 39,90</span>
+                            <span class="text-xs font-bold uppercase">10 Pacotes (50 Figs)</span>
+                            <div class="text-right">
+                                <span class="text-blue-600 font-bold text-sm">R$ 39,90</span>
+                                <span class="block text-[8px] text-green-600 font-bold uppercase">+ Frete Grátis</span>
+                            </div>
                         </div>
                     </div>
 
                     <div onclick="selectProduct('album', 'album.PNG', 'Álbum Oficial de Cromos - Edição Premium', 'R$ 9,90', 'R$ 15,00', 'SEU_LINK_PUSHIN_ALBUM')" 
                          class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-album">
                         <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold">Apenas o Álbum Oficial</span>
+                            <span class="text-xs font-bold uppercase">Apenas o Álbum Oficial</span>
                             <div class="text-right">
                                 <span class="text-blue-600 font-bold text-sm">R$ 9,90</span>
-                                <span class="block text-[9px] text-green-600 font-bold">34% OFF</span>
+                                <span class="block text-[8px] text-green-600 font-bold uppercase">+ Frete Grátis</span>
                             </div>
                         </div>
                     </div>
@@ -89,10 +102,10 @@
                     <div onclick="selectProduct('combo', 'album.figu.PNG', 'Combo Completo: Álbum + 10 Pacotes', 'R$ 59,90', 'R$ 84,90', 'SEU_LINK_PUSHIN_COMBO')" 
                          class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-combo">
                         <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold">Álbum + 10 Pacotes</span>
+                            <span class="text-xs font-bold uppercase">Álbum + 10 Pacotes</span>
                             <div class="text-right">
                                 <span class="text-blue-600 font-bold text-sm">R$ 59,90</span>
-                                <span class="block text-[9px] text-green-600 font-bold">MELHOR VALOR</span>
+                                <span class="block text-[8px] text-green-600 font-bold uppercase">Melhor Escolha</span>
                             </div>
                         </div>
                     </div>
@@ -100,14 +113,16 @@
 
                 <div class="py-4 border-y border-slate-100">
                     <div class="flex items-center gap-3">
-                        <span id="display-price" class="text-4xl font-bold">R$ 39,90</span>
-                        <span id="old-price" class="text-slate-400 line-through text-lg">R$ 69,99</span>
+                        <span id="display-price" class="text-4xl font-bold text-[#1d1d1f]">R$ 39,90</span>
+                        <div class="flex flex-col">
+                            <span id="old-price" class="text-slate-400 line-through text-sm">R$ 69,99</span>
+                            <span class="text-green-600 text-[10px] font-black uppercase tracking-tighter">Frete Grátis hoje</span>
+                        </div>
                     </div>
-                    <p class="text-[11px] text-green-600 font-bold mt-1 uppercase italic"><i class="fas fa-check-circle mr-1"></i> Envio imediato para sua região</p>
                 </div>
 
-                <div class="pt-4">
-                    <a id="buy-link" href="https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F" class="btn-buy block w-full text-center py-4 rounded-xl font-bold text-lg shadow-lg uppercase tracking-wide">
+                <div class="pt-2">
+                    <a id="buy-link" href="https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F" class="btn-buy block w-full text-center py-4 rounded-xl font-bold text-lg shadow-lg uppercase tracking-widest">
                         FINALIZAR COMPRA
                     </a>
                 </div>
@@ -115,13 +130,51 @@
         </div>
     </main>
 
-    <footer class="bg-white border-t border-slate-200 py-12 px-6">
-        <div class="max-w-4xl mx-auto border-t border-slate-100 pt-6 text-center">
-            <p class="text-[9px] text-slate-400 leading-relaxed uppercase font-bold tracking-widest">
-                Collect Prime Distribuidora de Colecionáveis LTDA<br>
-                CNPJ: 45.122.890/0001-32 • Endereço: Av. Paulista, 1106 - São Paulo, SP<br>
-                © 2026 Todos os direitos reservados.
-            </p>
+    <footer class="bg-white border-t border-slate-200 pt-16 pb-8 px-6 text-left">
+        <div class="max-w-4xl mx-auto">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+                <div class="col-span-2 md:col-span-1">
+                    <div class="font-extrabold text-lg text-[#1d1d1f] mb-4 uppercase">COLLECT<span class="text-blue-600">PRIME</span></div>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase leading-relaxed tracking-wider">
+                        Distribuidora especializada em colecionáveis premium. Qualidade e entrega garantida.
+                    </p>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest text-left">Ajuda</h5>
+                    <ul class="text-[11px] font-bold space-y-2 uppercase text-slate-500">
+                        <li class="hover:text-blue-600 cursor-pointer">Rastreio</li>
+                        <li class="hover:text-blue-600 cursor-pointer text-green-600 font-black">Política de Frete</li>
+                        <li class="hover:text-blue-600 cursor-pointer">Trocas</li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest text-left">Segurança</h5>
+                    <div class="space-y-2">
+                        <div class="bg-green-50 text-green-600 text-[9px] font-bold p-2 rounded-lg flex items-center gap-2">
+                            <i class="fas fa-lock"></i> SSL ENCRIPTADO
+                        </div>
+                        <div class="bg-blue-50 text-blue-600 text-[9px] font-bold p-2 rounded-lg flex items-center gap-2">
+                            <i class="fas fa-shield-alt"></i> GOOGLE SAFE
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-y border-slate-100 py-6 mb-8 flex flex-wrap justify-center gap-6">
+                <img src="https://logopng.com.br/logos/pix-106.png" class="h-4 payment-badge" alt="Pix">
+                <img src="https://cdn-icons-png.flaticon.com/512/349/349221.png" class="h-4 payment-badge" alt="Visa">
+                <img src="https://cdn-icons-png.flaticon.com/512/349/349228.png" class="h-4 payment-badge" alt="Mastercard">
+                <div class="flex items-center gap-2 text-green-600 text-[9px] font-black uppercase ml-4">
+                    <i class="fas fa-truck-fast"></i> Frete Grátis Ativo
+                </div>
+            </div>
+
+            <div class="text-center">
+                <p class="text-[9px] text-slate-400 font-bold uppercase tracking-[0.2em]">
+                    Collect Prime Distribuidora LTDA • CNPJ: 45.122.890/0001-32<br>
+                    Av. Paulista, 1106 - São Paulo, SP • © 2026
+                </p>
+            </div>
         </div>
     </footer>
 
@@ -130,19 +183,16 @@
             <i class="fas fa-comment-dots text-xl"></i>
         </button>
         <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-3xl shadow-2xl flex-col overflow-hidden border border-slate-100">
-            <div class="bg-[#1d1d1f] p-4 text-white text-xs font-bold flex justify-between items-center">
-                <div class="flex items-center gap-2">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    Suporte Collect Prime
-                </div>
-                <i class="fas fa-times cursor-pointer opacity-50 hover:opacity-100" onclick="toggleChat()"></i>
+            <div class="bg-[#1d1d1f] p-4 text-white text-[10px] font-bold flex justify-between items-center uppercase tracking-widest">
+                Suporte Collect Prime
+                <i class="fas fa-times cursor-pointer" onclick="toggleChat()"></i>
             </div>
             <div id="chat-content" class="h-64 p-4 overflow-y-auto space-y-3 text-[11px] bg-slate-50 flex flex-col text-left">
                 <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100">
-                    Olá! Sou o assistente da Collect Prime. Como posso ajudar com sua compra hoje?
+                    Olá! Como podemos ajudar com seu pedido hoje? Temos **Frete Grátis** disponível para sua região!
                 </div>
             </div>
-            <div id="typing-indicator" class="hidden px-4 py-2 text-[10px] text-slate-400 font-medium italic">
+            <div id="typing-indicator" class="hidden px-4 py-2 text-[10px] text-slate-400 font-medium italic text-left">
                 Digitando<span class="chat-dot">.</span><span class="chat-dot">.</span><span class="chat-dot">.</span>
             </div>
             <form onsubmit="handleChatSubmit(event)" class="p-3 bg-white flex gap-2 border-t">
@@ -155,33 +205,28 @@
     <script>
         function startTimer() {
             const duration = 20 * 60;
-            let start = localStorage.getItem('collect_prime_timer');
-            if (!start) { start = Math.floor(Date.now() / 1000); localStorage.setItem('collect_prime_timer', start); }
+            let start = localStorage.getItem('collect_prime_timer') || Math.floor(Date.now() / 1000);
+            localStorage.setItem('collect_prime_timer', start);
             const el = document.getElementById('countdown');
-            function update() {
-                const now = Math.floor(Date.now() / 1000);
-                const diff = duration - (now - start);
+            setInterval(() => {
+                const diff = duration - (Math.floor(Date.now() / 1000) - start);
                 if (diff <= 0) { el.textContent = "00:00"; return; }
                 const m = Math.floor(diff / 60); const s = diff % 60;
                 el.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
-            }
-            setInterval(update, 1000); update();
+            }, 1000);
         }
 
-        // Função para trocar o produto selecionado
         function selectProduct(id, img, title, price, oldPrice, link) {
-            // Atualiza Visual
-            document.getElementById('main-product-image').style.opacity = '0';
+            const mainImg = document.getElementById('main-product-image');
+            mainImg.style.opacity = '0';
             setTimeout(() => {
-                document.getElementById('main-product-image').src = img;
-                document.getElementById('main-product-image').style.opacity = '1';
+                mainImg.src = img;
+                mainImg.style.opacity = '1';
                 document.getElementById('product-title').textContent = title;
                 document.getElementById('display-price').textContent = price;
                 document.getElementById('old-price').textContent = oldPrice;
                 document.getElementById('buy-link').href = link;
             }, 200);
-
-            // Atualiza Destaque nas opções
             document.querySelectorAll('.thumb').forEach(t => t.classList.remove('thumb-active'));
             document.getElementById('opt-' + id).classList.add('thumb-active');
         }
@@ -200,7 +245,7 @@
             if (!input.value.trim()) return;
 
             const uDiv = document.createElement('div');
-            uDiv.className = "bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] shadow-md mb-2 text-xs";
+            uDiv.className = "bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] shadow-md mb-2 text-xs text-right";
             uDiv.textContent = input.value;
             content.appendChild(uDiv);
             input.value = "";
@@ -211,14 +256,13 @@
                 setTimeout(() => {
                     typing.classList.add('hidden');
                     const bDiv = document.createElement('div');
-                    bDiv.className = "bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100 max-w-[85%] text-xs";
-                    bDiv.textContent = "Seu pedido será processado assim que o pagamento for confirmado. Em breve o rastreio chegará no seu e-mail!";
+                    bDiv.className = "bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100 max-w-[85%] text-xs text-left";
+                    bDiv.textContent = "Obrigado! Todos os nossos pedidos estão com Frete Grátis hoje. Após o pagamento, você receberá o rastreio por e-mail em até 24h.";
                     content.appendChild(bDiv);
                     content.scrollTop = content.scrollHeight;
                 }, 2000);
             }, 500);
         }
-
         window.onload = startTimer;
     </script>
 </body>
