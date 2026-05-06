@@ -8,138 +8,167 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; margin: 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; margin: 0; overflow-x: hidden; }
         .gold-gradient { background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); }
         .text-gold { background: linear-gradient(90deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .glass-card { background: rgba(30, 41, 59, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
         .animate-pulse-slow { animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: .7; } }
+        
+        /* Suporte Flutuante */
+        #chat-widget { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+        #chat-button { width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: transform 0.3s; }
+        #chat-window { display: none; width: 300px; height: 400px; flex-direction: column; bottom: 80px; right: 0; position: absolute; box-shadow: 0 10px 25px rgba(0,0,0,0.5); }
     </style>
 </head>
 <body class="selection:bg-yellow-500">
 
-    <div class="bg-red-600 text-white text-center py-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest sticky top-0 z-50">
+    <div class="bg-red-600 text-white text-center py-2 text-[10px] sm:text-xs font-bold uppercase tracking-widest sticky top-0 z-50 shadow-lg">
         🔥 QUEIMA DE ESTOQUE: Restam apenas as últimas unidades com este valor!
     </div>
 
-    <header class="py-10 px-6 text-center">
-        <h1 class="text-4xl md:text-6xl font-black mb-2 italic">KIT <span class="text-gold">PREMIUM</span></h1>
-        <p class="text-slate-400 text-sm md:text-base uppercase tracking-widest font-bold">10 Pacotes Lacrados e Originais</p>
+    <header class="py-12 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-black mb-2 italic tracking-tighter uppercase">KIT <span class="text-gold">PREMIUM</span></h1>
+        <p class="text-slate-400 text-sm md:text-base uppercase tracking-[0.3em] font-bold opacity-80">10 Pacotes Lacrados e Originais</p>
     </header>
 
-    <main class="max-w-md mx-auto px-6 pb-20">
-        <div class="glass-card rounded-[2.5rem] overflow-hidden shadow-2xl">
-            <div class="relative">
-                <img src="Copa.PNG" alt="Pacotes da Copa" class="w-full h-72 object-cover">
-                <div class="absolute top-4 left-4 bg-black/60 backdrop-blur-md text-white text-[10px] px-3 py-1 rounded-full font-bold border border-white/20">
-                    Série Limitada
+    <main class="max-w-md mx-auto px-6 pb-24">
+        <div class="glass-card rounded-[3rem] overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.6)]">
+            <div class="relative group">
+                <img src="Copa.PNG" alt="Pacotes da Copa" class="w-full h-80 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-transparent to-transparent opacity-60"></div>
+                <div class="absolute top-6 left-6 bg-yellow-500 text-black text-[10px] px-4 py-1 rounded-full font-black uppercase">
+                    🏆 Mais Vendido
                 </div>
             </div>
 
-            <div class="p-8">
-                <div class="flex flex-col items-center mb-8 p-4 bg-slate-900/50 rounded-2xl border border-yellow-500/30">
-                    <span class="text-[10px] uppercase font-black text-slate-400 mb-1">Sua oferta expira em:</span>
-                    <div id="countdown" class="text-3xl font-mono font-black text-yellow-500">20:00</div>
+            <div class="p-10 -mt-12 relative z-10">
+                <div class="flex flex-col items-center mb-8 p-5 bg-slate-900/80 rounded-3xl border border-yellow-500/20 backdrop-blur-md">
+                    <span class="text-[10px] uppercase font-black text-slate-500 mb-1">Oferta Expira Em:</span>
+                    <div id="countdown" class="text-4xl font-mono font-black text-yellow-500">20:00</div>
                 </div>
 
-                <div class="mb-8">
-                    <p class="text-slate-500 line-through text-lg mb-0 leading-none">De R$ 69,99</p>
-                    <div class="flex items-center gap-2">
-                        <p class="text-6xl font-black text-green-400 tracking-tighter">R$ 39,90</p>
-                        <span class="bg-green-500/20 text-green-400 text-[10px] font-bold px-2 py-1 rounded uppercase tracking-tighter">-43% OFF</span>
+                <div class="mb-8 text-center">
+                    <p class="text-slate-500 line-through text-xl mb-1 opacity-60">De R$ 69,99</p>
+                    <div class="flex items-center justify-center gap-3">
+                        <p class="text-7xl font-black text-white tracking-tighter">R$ 39,90</p>
+                    </div>
+                    <p class="text-green-400 text-xs font-bold uppercase mt-2 tracking-widest italic">Economia Real de R$ 30,09 Hoje</p>
+                </div>
+
+                <div class="grid grid-cols-1 gap-3 mb-10">
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-green-500/10 flex items-center justify-center text-green-500">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-slate-200">50 Figurinhas Originais</span>
+                    </div>
+                    <div class="flex items-center gap-4 bg-white/5 p-4 rounded-2xl border border-white/5">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-500">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <span class="text-sm font-semibold text-slate-200">Pagamento 100% Seguro</span>
                     </div>
                 </div>
 
-                <ul class="space-y-3 mb-8">
-                    <li class="flex items-center gap-3 text-sm text-slate-300">
-                        <i class="fas fa-check-circle text-green-500"></i> 50 Figurinhas no Total
-                    </li>
-                    <li class="flex items-center gap-3 text-sm text-slate-300">
-                        <i class="fas fa-shield-alt text-blue-500"></i> Pagamento Seguro via Pix
-                    </li>
-                    <li class="flex items-center gap-3 text-sm text-slate-300">
-                        <i class="fas fa-truck-fast text-yellow-500"></i> Envio Imediato p/ Todo Brasil
-                    </li>
-                </ul>
-
-                <a href="COLE_AQUI_SEU_LINK_DO_PUSHINPAY" class="gold-gradient block w-full text-center py-5 rounded-2xl text-slate-950 font-black text-xl uppercase shadow-lg shadow-yellow-500/20 hover:scale-[1.03] transition-all active:scale-95 animate-pulse-slow">
-                    Comprar Agora
+                <a href="COLE_AQUI_SEU_LINK_DO_PUSHINPAY" class="gold-gradient block w-full text-center py-6 rounded-3xl text-slate-950 font-black text-xl uppercase shadow-2xl hover:scale-[1.03] transition-all active:scale-95 animate-pulse-slow">
+                    Garantir Meu Kit Agora
                 </a>
             </div>
         </div>
 
-        <section class="mt-12">
-            <div class="flex items-center justify-between mb-6">
-                <h3 class="font-black text-slate-400 uppercase text-xs tracking-widest">Avaliações Verificadas</h3>
-                <div class="flex text-yellow-500 text-[10px]">
-                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                </div>
-            </div>
-            
-            <div class="space-y-4">
-                <div class="glass-card p-5 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold">R.A</div>
-                        <span class="text-xs font-bold text-slate-200">Ricardo A.</span>
+        <section class="mt-16">
+            <h3 class="font-black text-slate-500 uppercase text-[10px] tracking-[0.3em] text-center mb-8">Avaliações de Compradores</h3>
+            <div class="space-y-6">
+                <div class="glass-card p-6 rounded-3xl border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-xs font-bold">R.A</div>
+                        <span class="text-xs font-black text-white italic">Ricardo A.</span>
                     </div>
-                    <p class="text-xs text-slate-400 italic">"Chegou tudo certo e muito bem embalado. Consegui completar boa parte das páginas que faltavam. Vale muito a pena pelo preço."</p>
+                    <p class="text-sm text-slate-400 italic">"Tudo original e bem lacrado. O preço é o melhor que encontrei."</p>
                 </div>
-
-                <div class="glass-card p-5 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold">M.S</div>
-                        <span class="text-xs font-bold text-slate-200">Mateus S.</span>
+                <div class="glass-card p-6 rounded-3xl border-l-4 border-yellow-500">
+                    <div class="flex items-center gap-3 mb-3">
+                        <div class="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-xs font-bold">L.K</div>
+                        <span class="text-xs font-black text-white italic">Lucas K.</span>
                     </div>
-                    <p class="text-xs text-slate-400 italic">"Envio super rápido, recebi o código de rastreio no mesmo dia. Os pacotes são originais mesmo, sem erro."</p>
-                </div>
-
-                <div class="glass-card p-5 rounded-2xl">
-                    <div class="flex items-center gap-3 mb-2">
-                        <div class="w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center text-xs font-bold">L.K</div>
-                        <span class="text-xs font-bold text-slate-200">Lucas K.</span>
-                    </div>
-                    <p class="text-xs text-slate-400 italic">"Atendimento top no suporte e o kit é o melhor custo-benefício que achei na internet."</p>
+                    <p class="text-sm text-slate-400 italic">"Entrega rápida e suporte muito atencioso. As figurinhas ajudaram muito."</p>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-10 border-t border-slate-800/50 text-center text-slate-600 text-[10px] uppercase font-bold tracking-[0.2em]">
-        Loja Segura • Privacidade Garantida • 2026
+    <div id="chat-widget">
+        <div id="chat-button" class="gold-gradient text-slate-900 shadow-2xl hover:scale-110" onclick="toggleChat()">
+            <i class="fas fa-comments text-2xl"></i>
+        </div>
+        <div id="chat-window" class="glass-card rounded-3xl overflow-hidden flex flex-col border border-white/20">
+            <div class="bg-slate-900/80 p-4 border-b border-white/10 flex justify-between items-center">
+                <span class="font-bold text-sm">Suporte Online</span>
+                <i class="fas fa-times cursor-pointer opacity-50" onclick="toggleChat()"></i>
+            </div>
+            <div id="chat-content" class="flex-1 p-4 overflow-y-auto space-y-4 text-[11px]">
+                <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none self-start max-w-[80%]">
+                    Olá! Como podemos ajudar com seu kit?
+                </div>
+            </div>
+            <div class="p-3 bg-slate-900/50 flex gap-2">
+                <input type="text" id="chat-input" placeholder="Digite sua dúvida..." class="flex-1 bg-white/5 border border-white/10 rounded-full px-4 py-2 text-xs focus:outline-none focus:border-yellow-500/50">
+                <button onclick="sendMessage()" class="bg-yellow-500 text-black w-8 h-8 rounded-full flex items-center justify-center"><i class="fas fa-paper-plane text-[10px]"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="py-12 border-t border-slate-800/50 text-center">
+        <p class="text-slate-600 text-[10px] uppercase font-black tracking-[0.4em]">Privacidade Garantida • 2026</p>
     </footer>
 
     <script>
+        // Função do Timer Persistente
         function startTimer() {
-            const timerDuration = 20 * 60; // 20 minutos em segundos
-            let startTime = localStorage.getItem('timer_start_time_v2');
-            
-            if (!startTime) {
-                startTime = Math.floor(Date.now() / 1000);
-                localStorage.setItem('timer_start_time_v2', startTime);
+            const duration = 20 * 60;
+            let start = localStorage.getItem('timer_store_v4');
+            if (!start) {
+                start = Math.floor(Date.now() / 1000);
+                localStorage.setItem('timer_store_v4', start);
             }
-
-            const countdownElement = document.getElementById('countdown');
-
-            function updateTimer() {
-                const currentTime = Math.floor(Date.now() / 1000);
-                const elapsedTime = currentTime - startTime;
-                const remainingTime = timerDuration - elapsedTime;
-
-                if (remainingTime <= 0) {
-                    countdownElement.textContent = "00:00";
-                    return;
-                }
-
-                const minutes = Math.floor(remainingTime / 60);
-                const seconds = remainingTime % 60;
-
-                countdownElement.textContent = 
-                    (minutes < 10 ? "0" : "") + minutes + ":" + 
-                    (seconds < 10 ? "0" : "") + seconds;
+            const el = document.getElementById('countdown');
+            function update() {
+                const now = Math.floor(Date.now() / 1000);
+                const diff = duration - (now - start);
+                if (diff <= 0) { el.textContent = "00:00"; return; }
+                const m = Math.floor(diff / 60);
+                const s = diff % 60;
+                el.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
             }
+            setInterval(update, 1000);
+            update();
+        }
 
-            setInterval(updateTimer, 1000);
-            updateTimer();
+        // Funções do Chat
+        function toggleChat() {
+            const win = document.getElementById('chat-window');
+            win.style.display = (win.style.display === 'flex' ? 'none' : 'flex');
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('chat-input');
+            const content = document.getElementById('chat-content');
+            if (input.value.trim() === "") return;
+
+            const uMsg = document.createElement('div');
+            uMsg.className = "bg-yellow-500 text-black p-3 rounded-2xl rounded-tr-none self-end max-w-[80%] ml-auto font-medium";
+            uMsg.textContent = input.value;
+            content.appendChild(uMsg);
+            input.value = "";
+
+            setTimeout(() => {
+                const bMsg = document.createElement('div');
+                bMsg.className = "bg-slate-800 p-3 rounded-2xl rounded-tl-none self-start max-w-[80%] text-slate-200";
+                bMsg.textContent = "Agradecemos o contato! Em breve irei enviar o código de rastreio referente à sua solicitação.";
+                content.appendChild(bMsg);
+                content.scrollTop = content.scrollHeight;
+            }, 1000);
         }
 
         window.onload = startTimer;
