@@ -3,85 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kit Copa - 10 Pacotes por R$ 39,90</title>
+    <title>Oferta Exclusiva - Kit Copa</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        .gradient-gold {
-            background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa771c);
-        }
-        .btn-pulse {
-            animation: pulse 2s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
-        }
+        .gold-text { background: linear-gradient(90deg, #ffd700, #ff8c00); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .bg-gold { background: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728); }
+        @keyframes slideIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade { animation: slideIn 0.8s ease-out forwards; }
     </style>
 </head>
-<body class="bg-slate-900 text-white font-sans">
+<body class="bg-[#0f172a] text-white font-sans selection:bg-yellow-500">
 
-    <header class="py-10 px-6 text-center bg-slate-900">
-        <div class="max-w-4xl mx-auto">
-            <span class="inline-block px-4 py-1 rounded-full bg-yellow-500 text-slate-900 font-bold text-sm mb-4 uppercase tracking-widest">Oferta Exclusiva</span>
-            <h1 class="text-4xl md:text-6xl font-black mb-4 uppercase text-white">Complete seu Álbum Agora!</h1>
-            <p class="text-xl text-slate-300 mb-8 font-medium">Garanta seus pacotes lacrados com o melhor preço do mercado.</p>
-        </div>
+    <div class="bg-red-600 text-white text-center py-2 text-xs font-bold uppercase tracking-widest">
+        ⚠️ Atenção: Restam apenas 14 kits em estoque hoje!
+    </div>
+
+    <header class="py-12 px-6 text-center animate-fade">
+        <h1 class="text-3xl md:text-5xl font-black mb-4">KIT <span class="gold-text uppercase">Copa do Mundo</span></h1>
+        <p class="text-slate-400 max-w-lg mx-auto">Aproveite a queima de estoque exclusiva. Figurinhas raras e pacotes 100% lacrados.</p>
     </header>
 
-    <main class="max-w-md mx-auto px-6 -mt-6">
-        <div class="bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
+    <main class="max-w-md mx-auto px-6 pb-20 animate-fade" style="animation-delay: 0.2s;">
+        <div class="bg-[#1e293b] rounded-3xl overflow-hidden shadow-[0_0_50px_rgba(0,0,0,0.5)] border border-slate-700">
             <div class="relative">
-                <img src="Copa.PNG" alt="Kit 10 Pacotes Figurinhas" class="w-full h-auto block">
-                <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg font-bold animate-bounce shadow-lg">
-                    -20% OFF
+                <img src="Copa.PNG" alt="Pacotes da Copa" class="w-full h-64 object-cover">
+                <div class="absolute bottom-4 left-4 bg-yellow-500 text-black px-3 py-1 rounded-md font-black text-sm uppercase">
+                    Campeão de Vendas
                 </div>
             </div>
-            
+
             <div class="p-8">
-                <h2 class="text-2xl font-bold mb-2 uppercase text-white">Combo Especial: 10 Pacotes</h2>
-                <div class="flex items-center mb-4">
-                    <div class="flex text-yellow-400">
-                        <i class="fas fa-star text-sm"></i>
-                        <i class="fas fa-star text-sm"></i>
-                        <i class="fas fa-star text-sm"></i>
-                        <i class="fas fa-star text-sm"></i>
-                        <i class="fas fa-star text-sm"></i>
+                <div class="flex justify-between items-end mb-6">
+                    <div>
+                        <p class="text-slate-500 line-through text-lg">De R$ 69,99</p>
+                        <p class="text-5xl font-black text-green-400 tracking-tighter">R$ 39,90</p>
                     </div>
-                    <span class="ml-2 text-xs text-slate-400 font-medium">(1.240 avaliações)</span>
-                </div>
-
-                <div class="mb-6">
-                    <span class="text-slate-400 line-through text-lg italic">de R$ 49,90</span>
-                    <div class="flex items-baseline">
-                        <span class="text-4xl font-black text-green-400">R$ 39,90</span>
-                        <span class="ml-2 text-slate-400 text-sm italic">no PIX</span>
+                    <div class="text-right">
+                        <span class="block text-[10px] uppercase font-bold text-slate-400">Oferta termina em:</span>
+                        <span class="text-yellow-500 font-mono font-bold text-xl">09:54</span>
                     </div>
                 </div>
 
-                <ul class="space-y-3 mb-8 text-slate-300 font-medium">
-                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> 50 Figurinhas no total</li>
-                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Pacotes 100% originais</li>
-                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Envio imediato para todo Brasil</li>
-                </ul>
+                <div class="space-y-4 mb-8">
+                    <div class="flex items-center gap-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                        <div class="bg-green-500/20 p-2 rounded-lg text-green-500"><i class="fas fa-box-open"></i></div>
+                        <span class="text-sm font-medium text-slate-200">10 Pacotes (50 Figurinhas)</span>
+                    </div>
+                    <div class="flex items-center gap-3 bg-slate-800/50 p-3 rounded-xl border border-slate-700">
+                        <div class="bg-blue-500/20 p-2 rounded-lg text-blue-500"><i class="fas fa-bolt"></i></div>
+                        <span class="text-sm font-medium text-slate-200">Entrega Expressa via Transportadora</span>
+                    </div>
+                </div>
 
-                <a href="#" class="block text-center gradient-gold text-slate-900 font-black py-4 rounded-xl text-xl btn-pulse shadow-xl uppercase tracking-tight">
-                    Comprar Agora
+                <a href="SEU_LINK_DO_CHECKOUT_AQUI" class="block bg-gold text-slate-900 text-center py-5 rounded-2xl font-black text-xl shadow-[0_10px_20px_rgba(0,0,0,0.3)] hover:scale-[1.02] transition-transform uppercase active:scale-95">
+                    Garantir Meu Kit Agora
                 </a>
-                
-                <p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-widest font-bold">Compra 100% segura e garantida</p>
+                <div class="flex justify-center gap-4 mt-6 grayscale opacity-50">
+                    <i class="fab fa-cc-visa text-2xl"></i>
+                    <i class="fab fa-cc-mastercard text-2xl"></i>
+                    <i class="fab fa-pix text-2xl"></i>
+                </div>
             </div>
         </div>
+
+        <section class="mt-12 space-y-4">
+            <h3 class="text-center font-bold text-slate-400 uppercase text-sm tracking-widest mb-6">Quem comprou, aprovou:</h3>
+            <div class="bg-[#1e293b] p-4 rounded-2xl border border-slate-800 italic text-slate-300 text-sm">
+                <p>"Chegou muito rápido em Camaçari! Veio tudo lacrado e peguei duas figurinhas brilhantes. Recomendo demais!"</p>
+                <span class="block mt-2 font-bold text-yellow-500">— Marcos A.</span>
+            </div>
+            <div class="bg-[#1e293b] p-4 rounded-2xl border border-slate-800 italic text-slate-300 text-sm">
+                <p>"Preço imbatível. Na banca aqui perto 10 pacotes sairiam quase o dobro do valor."</p>
+                <span class="block mt-2 font-bold text-yellow-500">— Julia R.</span>
+            </div>
+        </section>
     </main>
 
-    <footer class="py-12 px-6 mt-10 border-t border-slate-800 text-center">
-        <div class="flex justify-center space-x-6 mb-6">
-            <i class="fab fa-cc-visa text-2xl text-slate-600"></i>
-            <i class="fab fa-cc-mastercard text-2xl text-slate-600"></i>
-            <i class="fab fa-pix text-2xl text-slate-600"></i>
-        </div>
-        <p class="text-slate-500 text-xs font-bold uppercase tracking-widest">Loja Oficial - Todos os direitos reservados.</p>
+    <footer class="text-center pb-10 text-slate-600 text-[10px] uppercase tracking-widest">
+        Compra Segura • Envio para todo o Brasil • 2026
     </footer>
 
 </body>
