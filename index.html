@@ -2,263 +2,90 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Gust4 Cheats | Store Oficial</title>
-    
-    <!-- Fontes Premium -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Copa - 10 Pacotes por R$ 39,90</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --bg-deep: #050505;
-            --bg-card: #0d0e12;
-            --accent: #00ff73;
-            --accent-glow: rgba(0, 255, 115, 0.3);
-            --border: rgba(255, 255, 255, 0.08);
-            --text-primary: #ffffff;
-            --text-secondary: #a1a1aa;
-            --transition: all 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+        .gradient-gold {
+            background: linear-gradient(90deg, #bf953f, #fcf6ba, #b38728, #fcf6ba, #aa771c);
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; -webkit-tap-highlight-color: transparent; }
-
-        body {
-            background-color: var(--bg-deep);
-            color: var(--text-primary);
-            overflow-x: hidden;
-            min-height: 100vh;
+        .btn-pulse {
+            animation: pulse 2s infinite;
         }
-
-        /* --- HEADER --- */
-        .navbar {
-            display: flex; justify-content: space-between; align-items: center;
-            max-width: 600px; margin: 0 auto; padding: 20px 15px;
-            position: sticky; top: 0; z-index: 100;
-            background: rgba(5, 5, 5, 0.8); backdrop-filter: blur(10px);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
         }
-
-        .brand-box { display: flex; align-items: center; gap: 12px; }
-        .brand-logo { width: 48px; height: 48px; border-radius: 12px; border: 1px solid var(--border); object-fit: cover; }
-        .brand-text { display: flex; flex-direction: column; }
-        .brand-title { font-weight: 900; font-size: 1.2rem; line-height: 1; display: flex; align-items: center; gap: 5px; }
-        .brand-sub { font-size: 0.65rem; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; margin-top: 3px; }
-        .verified { color: #3b82f6; font-size: 0.85rem; }
-
-        .nav-tools { display: flex; gap: 10px; }
-        .tool-btn {
-            background: var(--bg-card); border: 1px solid var(--border);
-            width: 44px; height: 44px; border-radius: 14px;
-            display: flex; align-items: center; justify-content: center; cursor: pointer;
-            position: relative; transition: var(--transition);
-        }
-        .badge {
-            position: absolute; top: -5px; right: -5px; background: var(--accent);
-            color: #000; font-size: 0.7rem; font-weight: 900;
-            width: 18px; height: 18px; border-radius: 50%;
-            display: none; align-items: center; justify-content: center;
-        }
-
-        /* --- GRID DE PRODUTOS --- */
-        .container { max-width: 600px; margin: 0 auto; padding: 10px 15px 100px; }
-        .section-label { font-size: 0.8rem; font-weight: 800; color: var(--text-secondary); text-transform: uppercase; margin: 20px 0; letter-spacing: 1px; }
-
-        .product-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; }
-
-        .product-card {
-            background: var(--bg-card); border: 1px solid var(--border);
-            border-radius: 24px; padding: 10px; cursor: pointer;
-            transition: var(--transition); position: relative;
-        }
-        .product-card:hover { border-color: var(--accent); transform: translateY(-5px); }
-
-        .img-wrap { width: 100%; aspect-ratio: 1/1; border-radius: 18px; overflow: hidden; margin-bottom: 12px; }
-        .img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .product-card:hover .img-wrap img { transform: scale(1.1); }
-
-        .card-info h3 { font-size: 0.75rem; font-weight: 700; color: #f4f4f5; margin-bottom: 6px; height: 2.4em; overflow: hidden; }
-        .card-price { font-size: 1.15rem; font-weight: 900; display: block; }
-        .card-sub { font-size: 0.65rem; color: var(--text-secondary); font-weight: 500; }
-
-        /* --- ABA DE DETALHES (CORRIGIDA) --- */
-        #details-view { display: none; animation: fadeIn 0.5s ease; }
-        .btn-back { background: none; border: none; color: var(--text-secondary); font-weight: 700; font-size: 0.8rem; cursor: pointer; margin-bottom: 20px; display: flex; align-items: center; gap: 8px; }
-        
-        .hero-wrap { width: 100%; border-radius: 22px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 20px; }
-        .hero-wrap img { width: 100%; display: block; }
-
-        .detail-info h1 { font-size: 1.5rem; font-weight: 900; margin-bottom: 10px; }
-        .detail-price { font-size: 2.4rem; font-weight: 900; color: var(--accent); margin-bottom: 25px; }
-
-        .btn-action {
-            width: 100%; background: #ffffff; color: #000; border: none;
-            padding: 20px; border-radius: 16px; font-weight: 900;
-            font-size: 1rem; cursor: pointer; transition: var(--transition);
-        }
-        .btn-action:hover { transform: scale(1.02); }
-
-        .desc-box { background: var(--bg-card); border: 1px solid var(--border); border-radius: 20px; padding: 20px; margin-top: 25px; }
-        .desc-box h4 { margin-bottom: 10px; font-size: 0.95rem; }
-        .desc-box p { color: var(--text-secondary); font-size: 0.8rem; line-height: 1.6; }
-
-        /* --- CARRINHO --- */
-        .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.85); backdrop-filter: blur(8px); z-index: 1000; display: none; justify-content: flex-end; }
-        .cart-drawer { background: var(--bg-card); width: 100%; max-width: 450px; height: 100%; padding: 40px 20px; display: flex; flex-direction: column; border-left: 1px solid var(--border); animation: slideLeft 0.4s ease; }
-        
-        .cart-list { flex: 1; overflow-y: auto; }
-        .cart-item { display: flex; align-items: center; gap: 15px; padding: 15px 0; border-bottom: 1px solid var(--border); }
-        .cart-item img { width: 55px; height: 55px; border-radius: 10px; object-fit: cover; }
-        .item-meta { flex: 1; }
-        .item-name { font-weight: 700; font-size: 0.85rem; }
-        .item-price { color: var(--accent); font-weight: 800; }
-        .btn-del { color: #ff4d4d; font-size: 0.7rem; font-weight: 800; cursor: pointer; margin-top: 5px; display: inline-block; }
-
-        .cart-footer { padding-top: 20px; border-top: 1px solid var(--border); }
-        .total-box { display: flex; justify-content: space-between; font-weight: 900; font-size: 1.3rem; margin-bottom: 20px; }
-
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes slideLeft { from { transform: translateX(100%); } to { transform: translateX(0); } }
     </style>
 </head>
-<body>
+<body class="bg-slate-900 text-white font-sans">
 
-    <nav class="navbar">
-        <div class="brand-box">
-            <img src="logo_gust4_cheats.png" class="brand-logo" alt="Logo">
-            <div class="brand-text">
-                <span class="brand-title">Gust4 <i class="verified">✔</i></span>
-                <span class="brand-sub">Scripts & Cheats</span>
-            </div>
+    <!-- Header / Hero Section -->
+    <header class="py-10 px-6 text-center bg-cover bg-center" style="background-image: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80');">
+        <div class="max-w-4xl mx-auto">
+            <span class="inline-block px-4 py-1 rounded-full bg-yellow-500 text-slate-900 font-bold text-sm mb-4 uppercase tracking-widest">Oferta Exclusiva</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-4">COMPLETE SEU ÁLBUM AGORA!</h1>
+            <p class="text-xl text-slate-300 mb-8">Oportunidade única para garantir seus pacotes lacrados com o melhor preço do mercado.</p>
         </div>
-        <div class="nav-tools">
-            <div class="tool-btn">🔍</div>
-            <div class="tool-btn" onclick="toggleCart()">
-                🛒 <div id="cart-count" class="badge">0</div>
-            </div>
-        </div>
-    </nav>
+    </header>
 
-    <div class="container">
-        <!-- HOME -->
-        <main id="home-view">
-            <p class="section-label">Nossos Produtos</p>
-            <div class="product-grid" id="grid"></div>
-        </main>
-
-        <!-- DETALHES -->
-        <section id="details-view">
-            <button class="btn-back" onclick="showHome()">← VOLTAR PARA A LOJA</button>
-            <div class="hero-wrap">
-                <img id="det-img" src="">
+    <!-- Product Card -->
+    <main class="max-w-md mx-auto px-6 -mt-10">
+        <div class="bg-slate-800 rounded-3xl overflow-hidden shadow-2xl border border-slate-700">
+            <div class="relative">
+                <img src="https://via.placeholder.com/600x400/22c55e/ffffff?text=10+PACOTES+DA+COPA" alt="Kit 10 Pacotes" class="w-full">
+                <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg font-bold animate-bounce">
+                    -20% OFF
+                </div>
             </div>
-            <div class="detail-info">
-                <h1 id="det-title">PRODUTO</h1>
-                <div class="detail-price" id="det-price">R$ 0,00</div>
-                <button class="btn-action" id="buy-btn">ADICIONAR AO CARRINHO</button>
+            
+            <div class="p-8">
+                <h2 class="text-2xl font-bold mb-2 uppercase">Combo Especial: 10 Pacotes</h2>
+                <div class="flex items-center mb-4">
+                    <div class="flex text-yellow-400">
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                        <i class="fas fa-star text-sm"></i>
+                    </div>
+                    <span class="ml-2 text-xs text-slate-400 font-medium">(1.240 avaliações)</span>
+                </div>
+
+                <div class="mb-6">
+                    <span class="text-slate-400 line-through text-lg">de R$ 49,90</span>
+                    <div class="flex items-baseline">
+                        <span class="text-4xl font-black text-green-400">R$ 39,90</span>
+                        <span class="ml-2 text-slate-400 text-sm italic">no PIX</span>
+                    </div>
+                </div>
+
+                <ul class="space-y-3 mb-8 text-slate-300">
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> 50 Figurinhas no total</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Pacotes 100% originais e lacrados</li>
+                    <li class="flex items-center"><i class="fas fa-check-circle text-green-500 mr-3"></i> Envio imediato para todo Brasil</li>
+                </ul>
+
+                <a href="#" class="block text-center gradient-gold text-slate-900 font-black py-4 rounded-xl text-xl btn-pulse shadow-lg uppercase tracking-tight">
+                    Comprar Agora
+                </a>
                 
-                <div class="desc-box">
-                    <h4>Descrição do Produto</h4>
-                    <p>Este produto oferece as melhores configurações para o seu dispositivo. Entrega 100% automática e segura via e-mail. Suporte 24/7 incluso.</p>
-                </div>
-            </div>
-        </section>
-    </div>
-
-    <!-- MODAL CARRINHO -->
-    <div class="cart-overlay" id="cart-ui" onclick="if(event.target == this) toggleCart()">
-        <div class="cart-drawer">
-            <div style="display:flex; justify-content:space-between; margin-bottom:30px;">
-                <h2 style="font-weight:900;">Carrinho</h2>
-                <span onclick="toggleCart()" style="cursor:pointer; font-weight:700; color:var(--text-secondary);">FECHAR</span>
-            </div>
-            <div class="cart-list" id="cart-items"></div>
-            <div class="cart-footer">
-                <div class="total-box">
-                    <span>Total</span>
-                    <span id="total-price">R$ 0,00</span>
-                </div>
-                <button class="btn-action" style="background:var(--accent)" onclick="alert('Pedido finalizado!')">FINALIZAR COMPRA</button>
+                <p class="text-center text-[10px] text-slate-500 mt-4 uppercase tracking-tighter">Compra 100% segura e garantida</p>
             </div>
         </div>
-    </div>
+    </main>
 
-    <script>
-        const products = [
-            { id: 1, name: "HS PARA IOS VIA WIFI", price: 19.90, img: "holograma_ios.PNG" },
-            { id: 2, name: "REGEDIT VIP MOBILE (ULTRA)", price: 25.00, img: "holograma_ios.PNG", style: "filter: hue-rotate(120deg)" }
-        ];
+    <!-- Footer / Info -->
+    <footer class="py-12 px-6 mt-10 border-t border-slate-800 text-center">
+        <div class="flex justify-center space-x-6 mb-6">
+            <i class="fab fa-cc-visa text-2xl text-slate-600"></i>
+            <i class="fab fa-cc-mastercard text-2xl text-slate-600"></i>
+            <i class="fab fa-pix text-2xl text-slate-600"></i>
+        </div>
+        <p class="text-slate-500 text-sm">© 2026 Gust4 Store - Todos os direitos reservados.</p>
+    </footer>
 
-        let cart = [];
-
-        function init() {
-            const grid = document.getElementById('grid');
-            grid.innerHTML = products.map(p => `
-                <div class="product-card" onclick="showDetails(${p.id})">
-                    <div class="img-wrap"><img src="${p.img}" style="${p.style || ''}"></div>
-                    <div class="card-info">
-                        <h3>${p.name}</h3>
-                        <span class="card-price">R$ ${p.price.toFixed(2).replace('.', ',')}</span>
-                        <span class="card-sub">À vista no Pix</span>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function showDetails(id) {
-            const p = products.find(x => x.id === id);
-            document.getElementById('home-view').style.display = 'none';
-            document.getElementById('details-view').style.display = 'block';
-            document.getElementById('det-img').src = p.img;
-            document.getElementById('det-img').style.filter = p.style || '';
-            document.getElementById('det-title').innerText = p.name;
-            document.getElementById('det-price').innerText = `R$ ${p.price.toFixed(2).replace('.', ',')}`;
-            document.getElementById('buy-btn').onclick = () => { addToCart(p); toggleCart(); };
-            window.scrollTo(0,0);
-        }
-
-        function showHome() {
-            document.getElementById('details-view').style.display = 'none';
-            document.getElementById('home-view').style.display = 'block';
-        }
-
-        function addToCart(p) {
-            cart.push(p);
-            updateCart();
-        }
-
-        function toggleCart() {
-            const ui = document.getElementById('cart-ui');
-            ui.style.display = ui.style.display === 'flex' ? 'none' : 'flex';
-            renderCart();
-        }
-
-        function updateCart() {
-            const badge = document.getElementById('cart-count');
-            badge.innerText = cart.length;
-            badge.style.display = cart.length > 0 ? 'flex' : 'none';
-        }
-
-        function renderCart() {
-            const list = document.getElementById('cart-items');
-            const total = document.getElementById('total-price');
-            let sum = 0;
-            list.innerHTML = cart.map((item, i) => {
-                sum += item.price;
-                return `
-                    <div class="cart-item">
-                        <img src="${item.img}" style="${item.style || ''}">
-                        <div class="item-meta">
-                            <p class="item-name">${item.name}</p>
-                            <p class="item-price">R$ ${item.price.toFixed(2).replace('.', ',')}</p>
-                            <span class="btn-del" onclick="cart.splice(${i},1); updateCart(); renderCart();">Remover</span>
-                        </div>
-                    </div>
-                `;
-            }).join('');
-            if(cart.length === 0) list.innerHTML = '<p style="text-align:center; color:gray; padding-top:20px;">Vazio</p>';
-            total.innerText = `R$ ${sum.toFixed(2).replace('.', ',')}`;
-        }
-
-        init();
-    </script>
 </body>
 </html>
