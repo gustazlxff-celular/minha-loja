@@ -3,112 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gust4 Cheats | Store</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Ícones (Font Awesome) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-</head>
-<body>
+    <title>Página de Vendas</title>
+    <style>
+        /* Reset de estilos básicos */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    <!-- NAV BAR -->
-    <header>
-        <div class="logo">GUST4<span>CHEATS</span></div>
-        <nav>
-            <a href="#produtos">Produtos</a>
-            <a href="#suporte">Suporte</a>
-        </nav>
-        <div class="cart-icon" onclick="toggleCarrinho()">
-            <i class="fas fa-shopping-cart"></i>
-            <span id="cart-count">0</span>
-        </div>
-    </header>
+        body {
+            background-color: #0f0f12;
+            color: #ffffff;
+            line-height: 1.6;
+        }
 
-    <!-- HERO SECTION -->
-    <section class="hero">
-        <h1>ELEVE SEU NÍVEL AO <span>MÁXIMO</span></h1>
-        <p>Os melhores injetores, painéis e ferramentas para iOS com bypass integrado e 100% safe.</p>
-        <a href="#produtos" class="btn-primary">Ver Produtos</a>
-    </section>
+        /* Container principal para alinhar o conteúdo */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    <!-- PRODUTOS -->
-    <section id="produtos" class="products-container">
-        <h2 class="section-title">Nossos Planos</h2>
-        
-        <div class="products-grid">
-            <!-- CARD 1: DIÁRIO -->
-            <div class="product-card">
-                <div class="badge">Mais Barato</div>
-                <h3>Painel iOS Safe</h3>
-                <p class="duration">Plano Diário (1 Dia)</p>
-                <div class="price">R$ 15,00</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Bypass Atualizado</li>
-                    <li><i class="fas fa-check"></i> Antiban Ativo</li>
-                    <li><i class="fas fa-check"></i> Suporte via Discord/Telegram</li>
-                </ul>
-                <button class="btn-buy" onclick="adicionarAoCarrinho('Painel iOS - 1 Dia', 15.00)">Adicionar ao Carrinho</button>
-            </div>
+        /* Cabeçalho / Navigation */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid #222;
+        }
 
-            <!-- CARD 2: SEMANAL -->
-            <div class="product-card em-destaque">
-                <div class="badge destaque">Melhor Custo x Benefício</div>
-                <h3>Painel iOS Safe</h3>
-                <p class="duration">Plano Semanal (7 Dias)</p>
-                <div class="price">R$ 45,00</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Bypass Atualizado</li>
-                    <li><i class="fas fa-check"></i> Antiban Ativo</li>
-                    <li><i class="fas fa-check"></i> Suporte via Discord/Telegram</li>
-                    <li><i class="fas fa-check"></i> Atualizações inclusas</li>
-                </ul>
-                <button class="btn-buy" onclick="adicionarAoCarrinho('Painel iOS - 7 Dias', 45.00)">Adicionar ao Carrinho</button>
-            </div>
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-            <!-- CARD 3: MENSAL -->
-            <div class="product-card">
-                <div class="badge">Vip Total</div>
-                <h3>Painel iOS Safe</h3>
-                <p class="duration">Plano Mensal (30 Dias)</p>
-                <div class="price">R$ 90,00</div>
-                <ul class="features">
-                    <li><i class="fas fa-check"></i> Bypass VIP Premium</li>
-                    <li><i class="fas fa-check"></i> Antiban Máximo</li>
-                    <li><i class="fas fa-check"></i> Suporte Prioritário 24/7</li>
-                    <li><i class="fas fa-check"></i> Acesso antecipado a novidades</li>
-                </ul>
-                <button class="btn-buy" onclick="adicionarAoCarrinho('Painel iOS - 30 Dias', 90.00)">Adicionar ao Carrinho</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- SIDEBAR DO CARRINHO -->
-    <div id="sidebar-carrinho" class="sidebar">
-        <div class="sidebar-header">
-            <h3>Seu Carrinho</h3>
-            <span class="close-btn" onclick="toggleCarrinho()">&times;</span>
-        </div>
-        <div id="itens-carrinho" class="cart-items">
-            <!-- Inserido via JavaScript -->
-            <p class="cart-empty">Seu carrinho está vazio.</p>
-        </div>
-        <div class="sidebar-footer">
-            <div class="total-container">
-                <span>Total:</span>
-                <span id="preco-total">R$ 0,00</span>
-            </div>
-            <button class="btn-checkout" onclick="finalizarCompra()">Finalizar no Discord/Telegram</button>
-        </div>
-    </div>
-
-    <!-- FOOTER / SUPORTE -->
-    <footer id="suporte">
-        <p>&copy; 2026 Gust4 Cheats. Todos os direitos reservados.</p>
-        <div class="social-links">
-            <a href="https://t.me/SEU_TELEGRAM" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
-            <a href="https://discord.gg/SEU_DISCORD" target="_blank"><i class="fab fa-discord"></i> Discord</a>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #00e
