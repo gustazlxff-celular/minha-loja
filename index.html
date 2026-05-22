@@ -1,273 +1,114 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Collect Prime - Distribuidora Oficial</title>
-    
-    <meta property="og:title" content="Collect Prime - Loja Oficial de Colecionáveis">
-    <meta property="og:description" content="Garanta seu Álbum e Figurinhas com FRETE GRÁTIS. Envio imediato para todo o Brasil.">
-    <meta property="og:image" content="Copa.PNG">
-    <meta property="og:url" content="https://sua-loja.vercel.app/">
-    <meta name="theme-color" content="#1d1d1f">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@400;600;800&display=swap');
-        body { font-family: 'SF Pro Display', -apple-system, sans-serif; background-color: #f5f5f7; color: #1d1d1f; scroll-behavior: smooth; }
-        .btn-buy { background-color: #0071e3; color: white; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .btn-buy:hover { background-color: #0077ed; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,113,227,0.3); }
-        .btn-buy:active { transform: scale(0.98); }
-        .glass-nav { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(15px); border-bottom: 1px solid rgba(0,0,0,0.05); }
-        .card-pro { background: white; border-radius: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
-        .thumb-active { border-color: #0071e3 !important; outline: 2px solid #0071e3; opacity: 1 !important; }
-        .chat-dot { animation: blink 1.4s infinite both; }
-        .chat-dot:nth-child(2) { animation-delay: 0.2s; }
-        .chat-dot:nth-child(3) { animation-delay: 0.4s; }
-        @keyframes blink { 0% { opacity: 0.2; } 20% { opacity: 1; } 100% { opacity: 0.2; } }
-        .payment-badge { filter: grayscale(1); opacity: 0.5; transition: 0.3s; }
-        .payment-badge:hover { filter: grayscale(0); opacity: 1; }
-        .shipping-badge { animation: pulse-green 2s infinite; }
-        @keyframes pulse-green { 0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4); } 70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); } 100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); } }
-    </style>
+    <title>Gust4 Cheats | Store</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Ícones (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-[#f5f5f7]">
+<body>
 
-    <nav class="glass-nav sticky top-0 z-50 py-4 px-6 flex justify-between items-center text-left">
-        <div class="font-extrabold text-xl tracking-tight text-[#1d1d1f]">COLLECT<span class="text-blue-600">PRIME</span></div>
-        <div class="hidden md:flex gap-6 text-[11px] font-bold uppercase text-slate-500">
-            <a href="#" class="hover:text-blue-600">Colecionáveis</a>
-            <a href="#" class="hover:text-blue-600 text-green-600 font-black">Frete Grátis</a>
-            <a href="#" class="hover:text-blue-600">Suporte</a>
+    <!-- NAV BAR -->
+    <header>
+        <div class="logo">GUST4<span>CHEATS</span></div>
+        <nav>
+            <a href="#produtos">Produtos</a>
+            <a href="#suporte">Suporte</a>
+        </nav>
+        <div class="cart-icon" onclick="toggleCarrinho()">
+            <i class="fas fa-shopping-cart"></i>
+            <span id="cart-count">0</span>
         </div>
-        <div class="text-blue-600 relative cursor-pointer">
-            <i class="fas fa-shopping-bag text-lg"></i>
-            <span class="absolute -top-2 -right-2 bg-red-500 text-white text-[9px] w-4 h-4 rounded-full flex items-center justify-center font-bold">1</span>
-        </div>
-    </nav>
+    </header>
 
-    <div class="bg-[#1d1d1f] text-white text-center py-2 text-[10px] font-semibold uppercase tracking-widest">
-        Aproveite: <span class="text-green-400">Frete Grátis</span> ativo para todo o Brasil
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h1>ELEVE SEU NÍVEL AO <span>MÁXIMO</span></h1>
+        <p>Os melhores injetores, painéis e ferramentas para iOS com bypass integrado e 100% safe.</p>
+        <a href="#produtos" class="btn-primary">Ver Produtos</a>
+    </section>
+
+    <!-- PRODUTOS -->
+    <section id="produtos" class="products-container">
+        <h2 class="section-title">Nossos Planos</h2>
+        
+        <div class="products-grid">
+            <!-- CARD 1: DIÁRIO -->
+            <div class="product-card">
+                <div class="badge">Mais Barato</div>
+                <h3>Painel iOS Safe</h3>
+                <p class="duration">Plano Diário (1 Dia)</p>
+                <div class="price">R$ 15,00</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Bypass Atualizado</li>
+                    <li><i class="fas fa-check"></i> Antiban Ativo</li>
+                    <li><i class="fas fa-check"></i> Suporte via Discord/Telegram</li>
+                </ul>
+                <button class="btn-buy" onclick="adicionarAoCarrinho('Painel iOS - 1 Dia', 15.00)">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- CARD 2: SEMANAL -->
+            <div class="product-card em-destaque">
+                <div class="badge destaque">Melhor Custo x Benefício</div>
+                <h3>Painel iOS Safe</h3>
+                <p class="duration">Plano Semanal (7 Dias)</p>
+                <div class="price">R$ 45,00</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Bypass Atualizado</li>
+                    <li><i class="fas fa-check"></i> Antiban Ativo</li>
+                    <li><i class="fas fa-check"></i> Suporte via Discord/Telegram</li>
+                    <li><i class="fas fa-check"></i> Atualizações inclusas</li>
+                </ul>
+                <button class="btn-buy" onclick="adicionarAoCarrinho('Painel iOS - 7 Dias', 45.00)">Adicionar ao Carrinho</button>
+            </div>
+
+            <!-- CARD 3: MENSAL -->
+            <div class="product-card">
+                <div class="badge">Vip Total</div>
+                <h3>Painel iOS Safe</h3>
+                <p class="duration">Plano Mensal (30 Dias)</p>
+                <div class="price">R$ 90,00</div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i> Bypass VIP Premium</li>
+                    <li><i class="fas fa-check"></i> Antiban Máximo</li>
+                    <li><i class="fas fa-check"></i> Suporte Prioritário 24/7</li>
+                    <li><i class="fas fa-check"></i> Acesso antecipado a novidades</li>
+                </ul>
+                <button class="btn-buy" onclick="adicionarAoCarrinho('Painel iOS - 30 Dias', 90.00)">Adicionar ao Carrinho</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- SIDEBAR DO CARRINHO -->
+    <div id="sidebar-carrinho" class="sidebar">
+        <div class="sidebar-header">
+            <h3>Seu Carrinho</h3>
+            <span class="close-btn" onclick="toggleCarrinho()">&times;</span>
+        </div>
+        <div id="itens-carrinho" class="cart-items">
+            <!-- Inserido via JavaScript -->
+            <p class="cart-empty">Seu carrinho está vazio.</p>
+        </div>
+        <div class="sidebar-footer">
+            <div class="total-container">
+                <span>Total:</span>
+                <span id="preco-total">R$ 0,00</span>
+            </div>
+            <button class="btn-checkout" onclick="finalizarCompra()">Finalizar no Discord/Telegram</button>
+        </div>
     </div>
 
-    <main class="max-w-4xl mx-auto px-6 pt-10 pb-20">
-        <div class="flex flex-col md:flex-row gap-10 items-start">
-            
-            <div class="w-full md:w-1/2">
-                <div class="card-pro p-2 overflow-hidden">
-                    <img id="main-product-image" src="Copa.PNG" alt="Produto" class="w-full h-auto rounded-[20px] transition-all duration-500">
-                </div>
-                <div class="mt-4 bg-green-50 border border-green-100 p-4 rounded-2xl flex items-center gap-4 shipping-badge">
-                    <div class="text-green-600 text-2xl"><i class="fas fa-truck-fast"></i></div>
-                    <div class="text-left">
-                        <p class="text-[10px] font-black uppercase text-green-700 tracking-wider">Frete Grátis Liberado</p>
-                        <p class="text-[9px] text-green-600 font-bold uppercase">Entrega estimada: 3 a 8 Dias úteis</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="w-full md:w-1/2 space-y-6 text-left">
-                <div>
-                    <h1 id="product-title" class="text-3xl font-bold tracking-tight mb-2 leading-tight">Combo Premium: 10 Pacotes de Figurinhas</h1>
-                    <div class="flex items-center gap-2 text-yellow-500 text-xs">
-                        <div class="flex"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-                        <span class="text-slate-400 font-medium">(142 avaliações reais)</span>
-                    </div>
-                </div>
-
-                <div class="space-y-3">
-                    <div onclick="selectProduct('figurinhas', 'Copa.PNG', 'Combo Premium: 10 Pacotes de Figurinhas', 'R$ 39,90', 'R$ 69,99', 'https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F')" 
-                         class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm thumb-active" id="opt-figurinhas">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold uppercase text-left">10 Pacotes (50 Figs)</span>
-                            <div class="text-right">
-                                <span class="text-blue-600 font-bold text-sm">R$ 39,90</span>
-                                <span class="block text-[8px] text-green-600 font-bold uppercase">+ Frete Grátis</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div onclick="selectProduct('album', 'album.PNG', 'Álbum Oficial de Cromos - Edição Premium', 'R$ 9,90', 'R$ 15,00', 'SEU_LINK_ALBUM')" 
-                         class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-album">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold uppercase text-left">Apenas o Álbum Oficial</span>
-                            <div class="text-right">
-                                <span class="text-blue-600 font-bold text-sm">R$ 9,90</span>
-                                <span class="block text-[8px] text-green-600 font-bold uppercase">+ Frete Grátis</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div onclick="selectProduct('combo', 'album.figu.PNG', 'Combo Completo: Álbum + 10 Pacotes', 'R$ 59,90', 'R$ 84,90', 'SEU_LINK_COMBO')" 
-                         class="thumb p-4 bg-white border-2 border-transparent rounded-2xl cursor-pointer hover:border-blue-200 transition-all shadow-sm" id="opt-combo">
-                        <div class="flex justify-between items-center">
-                            <span class="text-xs font-bold uppercase text-left">Álbum + 10 Pacotes</span>
-                            <div class="text-right">
-                                <span class="text-blue-600 font-bold text-sm">R$ 59,90</span>
-                                <span class="block text-[8px] text-green-600 font-bold uppercase">Melhor Escolha</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="py-4 border-y border-slate-100">
-                    <div class="flex items-center gap-3">
-                        <span id="display-price" class="text-4xl font-bold text-[#1d1d1f]">R$ 39,90</span>
-                        <div class="flex flex-col text-left">
-                            <span id="old-price" class="text-slate-400 line-through text-sm">R$ 69,99</span>
-                            <span class="text-green-600 text-[10px] font-black uppercase tracking-tighter">Frete Grátis hoje</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="pt-2">
-                    <a id="buy-link" href="https://app.pushinpay.com.br/service/pay/A1B7B6B2-C84F-4838-8CB5-3BDD1D97456F" class="btn-buy block w-full text-center py-4 rounded-xl font-bold text-lg shadow-lg uppercase tracking-widest">
-                        FINALIZAR COMPRA
-                    </a>
-                </div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-white border-t border-slate-200 pt-16 pb-8 px-6 text-left">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-                <div class="col-span-2 md:col-span-1">
-                    <div class="font-extrabold text-lg text-[#1d1d1f] mb-4 uppercase">COLLECT<span class="text-blue-600">PRIME</span></div>
-                    <p class="text-[10px] text-slate-500 font-bold uppercase leading-relaxed tracking-wider">
-                        Distribuidora especializada em colecionáveis premium. Qualidade e entrega garantida.
-                    </p>
-                </div>
-                <div>
-                    <h5 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest text-left">Ajuda</h5>
-                    <ul class="text-[11px] font-bold space-y-2 uppercase text-slate-500">
-                        <li class="hover:text-blue-600 cursor-pointer">Rastreio</li>
-                        <li class="hover:text-blue-600 cursor-pointer text-green-600 font-black">Política de Frete</li>
-                        <li class="hover:text-blue-600 cursor-pointer">Trocas</li>
-                    </ul>
-                </div>
-                <div>
-                    <h5 class="text-[10px] font-black uppercase text-slate-400 mb-4 tracking-widest text-left">Segurança</h5>
-                    <div class="space-y-2">
-                        <div class="bg-green-50 text-green-600 text-[9px] font-bold p-2 rounded-lg flex items-center gap-2">
-                            <i class="fas fa-lock"></i> SSL ENCRIPTADO
-                        </div>
-                        <div class="bg-blue-50 text-blue-600 text-[9px] font-bold p-2 rounded-lg flex items-center gap-2">
-                            <i class="fas fa-shield-alt"></i> GOOGLE SAFE
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="border-y border-slate-100 py-6 mb-8 flex flex-wrap justify-center gap-6">
-                <img src="https://logopng.com.br/logos/pix-106.png" class="h-4 payment-badge" alt="Pix">
-                <img src="https://cdn-icons-png.flaticon.com/512/349/349221.png" class="h-4 payment-badge" alt="Visa">
-                <img src="https://cdn-icons-png.flaticon.com/512/349/349228.png" class="h-4 payment-badge" alt="Mastercard">
-                <div class="flex items-center gap-2 text-green-600 text-[9px] font-black uppercase ml-4">
-                    <i class="fas fa-truck-fast"></i> Frete Grátis Ativo
-                </div>
-            </div>
-
-            <div class="text-center">
-                <p class="text-[9px] text-slate-400 font-bold uppercase tracking-[0.2em]">
-                    Collect Prime Distribuidora LTDA • CNPJ: 45.122.890/0001-32<br>
-                    Av. Paulista, 1106 - São Paulo, SP • © 2026
-                </p>
-            </div>
+    <!-- FOOTER / SUPORTE -->
+    <footer id="suporte">
+        <p>&copy; 2026 Gust4 Cheats. Todos os direitos reservados.</p>
+        <div class="social-links">
+            <a href="https://t.me/SEU_TELEGRAM" target="_blank"><i class="fab fa-telegram"></i> Telegram</a>
+            <a href="https://discord.gg/SEU_DISCORD" target="_blank"><i class="fab fa-discord"></i> Discord</a>
         </div>
     </footer>
 
-    <div class="fixed bottom-6 right-6 z-50">
-        <button onclick="toggleChat()" class="bg-[#1d1d1f] text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:scale-110 transition-transform active:scale-95">
-            <i class="fas fa-comment-dots text-xl"></i>
-        </button>
-        <div id="chat-window" class="hidden absolute bottom-20 right-0 w-80 bg-white rounded-3xl shadow-2xl flex-col overflow-hidden border border-slate-100">
-            <div class="bg-[#1d1d1f] p-4 text-white text-[10px] font-bold flex justify-between items-center uppercase tracking-widest text-left">
-                Suporte Collect Prime
-                <i class="fas fa-times cursor-pointer" onclick="toggleChat()"></i>
-            </div>
-            <div id="chat-content" class="h-64 p-4 overflow-y-auto space-y-3 text-[11px] bg-slate-50 flex flex-col text-left">
-                <div class="bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100">
-                    Olá! Como podemos ajudar com seu pedido hoje? Temos **Frete Grátis** disponível para sua região!
-                </div>
-            </div>
-            <div id="typing-indicator" class="hidden px-4 py-2 text-[10px] text-slate-400 font-medium italic text-left">
-                Digitando<span class="chat-dot">.</span><span class="chat-dot">.</span><span class="chat-dot">.</span>
-            </div>
-            <form onsubmit="handleChatSubmit(event)" class="p-3 bg-white flex gap-2 border-t">
-                <input type="text" id="chat-input" placeholder="Dúvida..." class="flex-1 bg-slate-100 border-none rounded-full px-4 py-2 text-[11px] outline-none">
-                <button type="submit" class="text-blue-600 font-bold px-2"><i class="fas fa-paper-plane"></i></button>
-            </form>
-        </div>
-    </div>
-
-    <script>
-        function startTimer() {
-            const duration = 20 * 60;
-            let start = localStorage.getItem('collect_prime_timer') || Math.floor(Date.now() / 1000);
-            localStorage.setItem('collect_prime_timer', start);
-            const el = document.getElementById('countdown');
-            setInterval(() => {
-                const diff = duration - (Math.floor(Date.now() / 1000) - start);
-                if (diff <= 0) { el.textContent = "00:00"; return; }
-                const m = Math.floor(diff / 60); const s = diff % 60;
-                el.textContent = (m < 10 ? "0" : "") + m + ":" + (s < 10 ? "0" : "") + s;
-            }, 1000);
-        }
-
-        // Função para trocar o produto e o LINK de pagamento
-        function selectProduct(id, img, title, price, oldPrice, link) {
-            const mainImg = document.getElementById('main-product-image');
-            mainImg.style.opacity = '0';
-            setTimeout(() => {
-                mainImg.src = img;
-                mainImg.style.opacity = '1';
-                document.getElementById('product-title').textContent = title;
-                document.getElementById('display-price').textContent = price;
-                document.getElementById('old-price').textContent = oldPrice;
-                
-                // ESSA LINHA ATUALIZA O LINK DO BOTÃO
-                document.getElementById('buy-link').href = link; 
-            }, 200);
-            
-            document.querySelectorAll('.thumb').forEach(t => t.classList.remove('thumb-active'));
-            document.getElementById('opt-' + id).classList.add('thumb-active');
-        }
-
-        function toggleChat() {
-            const win = document.getElementById('chat-window');
-            win.classList.toggle('hidden');
-            win.classList.toggle('flex');
-        }
-
-        function handleChatSubmit(e) {
-            e.preventDefault();
-            const input = document.getElementById('chat-input');
-            const content = document.getElementById('chat-content');
-            const typing = document.getElementById('typing-indicator');
-            if (!input.value.trim()) return;
-
-            const uDiv = document.createElement('div');
-            uDiv.className = "bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none self-end max-w-[85%] shadow-md mb-2 text-xs text-right";
-            uDiv.textContent = input.value;
-            content.appendChild(uDiv);
-            input.value = "";
-            content.scrollTop = content.scrollHeight;
-
-            setTimeout(() => {
-                typing.classList.remove('hidden');
-                setTimeout(() => {
-                    typing.classList.add('hidden');
-                    const bDiv = document.createElement('div');
-                    bDiv.className = "bg-white p-3 rounded-2xl rounded-tl-none shadow-sm text-slate-600 self-start border border-slate-100 max-w-[85%] text-xs text-left";
-                    bDiv.textContent = "Obrigado! Todos os nossos pedidos estão com Frete Grátis hoje. Após o pagamento, você receberá o rastreio por e-mail em até 24h.";
-                    content.appendChild(bDiv);
-                    content.scrollTop = content.scrollHeight;
-                }, 2000);
-            }, 500);
-        }
-        window.onload = startTimer;
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
